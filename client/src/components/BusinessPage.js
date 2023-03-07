@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import NavBar from './NavBar'
 import MapContainer from './MapContainer';
 import { useParams } from 'react-router-dom';
+// hi
 
 export default function BusinessPage()
 {
