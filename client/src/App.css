@@ -32,11 +32,33 @@ img {
   margin: 5px;
 }
 
-.Board {
+.Board1 {
+  position: fixed;
+  top: 100px;
+  left: 420px;
   display: inline-block;
   width: 150px;
-  height: 150px;
+  height: 170px;
   border: 2px solid black;
+}
+.Board1 p {
+  position: absolute;
+  top: 160px;
+  left: 52px;
+}
+.Board2 {
+  position: fixed;
+  top: 320px;
+  left: 420px;
+  display: inline-block;
+  width: 150px;
+  height: 170px;
+  border: 2px solid black;
+}
+.Board2 p {
+  position: absolute;
+  top: 160px;
+  left: 52px;
 }
 
 .fullBoard {
@@ -49,6 +71,9 @@ img {
   resize: none;
   height: 70px;
   width: 25em;
+}
+.createForm{
+  color: white;
 }
 .createMonsterHolder{
   margin: 5px;
@@ -63,6 +88,21 @@ img {
   bottom: -8px;
   width: 230px;
   z-index: 10;
+}
+.createMonsterCard2 {
+  width: 400px;
+}
+.createMonsterButton {
+  position: fixed;
+  top: 30px;
+  left: -20px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.createMonsterButton:hover {
+  cursor: pointer;
 }
 .monsterCard {
   position: relative;

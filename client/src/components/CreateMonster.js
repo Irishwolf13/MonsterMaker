@@ -4,16 +4,12 @@ import Picture from './Picture';
 import Weapons from './Weapons';
 import MonsterImageCard2 from './MonsterImageCard2.js'
 import { useNavigate } from 'react-router-dom';
-// setArmorBoard={setArmorBoard}
-// setWeaponBoard={setWeaponBoard}
-// armorBoard={armorBoard}
-// weaponBoard={weaponBoard}
+
 function CreateMonster({user, setMonsterState, monsterState, monsters,setArmorBoard,setWeaponBoard,armorBoard,weaponBoard}) {
   //allow navigation
   const navigate = useNavigate();
+  
   //States
-  // const [armorBoard, setArmorBoard] = useState([])
-  // const [weaponBoard, setWeaponBoard] = useState([])
   const [deletedItems, setDeletedItems] = useState([])
   const [armorList, setArmorList] = useState([])
   const [weaponList, setWeaponList] = useState([])
@@ -44,17 +40,6 @@ function CreateMonster({user, setMonsterState, monsterState, monsters,setArmorBo
     fetch('http://localhost:3000/weapons')
     .then(response => response.json())
     .then(data => setWeaponList(data))
-    // .then(setMonsterState(prevState => ({ ...prevState, 
-    //   armor_id: 1,
-    //   weapon_id: 1,
-    //   level: 1,
-    //   hit_points: 1,
-    //   base_armor: 1,
-    //   attack: 1,
-    //   magic: 1,
-    //   movement: 1,
-    //   bio: ''
-    // })))
   },[])
 
   const saveMonster = () => {
@@ -172,7 +157,7 @@ function CreateMonster({user, setMonsterState, monsterState, monsters,setArmorBo
   return (
     <>
     <div>
-      <form>
+      <form className='createForm'>
         <label htmlFor="input0">Creature Name:</label>
         <input type="text" value={monsterState.monster_name} onChange={(e) => setMonsterState(prevState => ({ ...prevState, monster_name: e.target.value }))} />
         <br></br>
@@ -204,10 +189,15 @@ function CreateMonster({user, setMonsterState, monsterState, monsters,setArmorBo
     </div>
     <div>
       {viewMonsters()}
-      Armor
-      <div className={armorBoard.length>0 ? checkAugments() : 'Board'} ref={dropBoard}>{myArmorBoard}</div>
-      <div className={weaponBoard.length>0 ? checkAugments() : 'Board'} ref={dropWeaponBoard}>{myWeaponBoard}</div>
-      Weapon
+      <div className='Board1' ref={dropBoard}>
+        {myArmorBoard}
+        <p>Armor</p>
+        </div>
+        {/* <div className={weaponBoard.length>0 ? checkAugments() : 'Board2'} ref={dropWeaponBoard}></div> */}
+      <div className='Board2' ref={dropWeaponBoard}>
+        {myWeaponBoard}
+        <p>Weapon</p>
+        </div>
     </div>
     <div>
       <div className='Pictures'>{myArmors}</div>
