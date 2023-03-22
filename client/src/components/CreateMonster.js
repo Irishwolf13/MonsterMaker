@@ -19,7 +19,10 @@ function CreateMonster({user, setMonsterState, monsterState, monsters,setArmorBo
   const [{ isOver: isOverBoard }, dropBoard] = useDrop(() => (
     {
       accept: "image",
-      drop: (item) => addImageToBoard(item.id),
+      drop: (item) => {
+        addImageToBoard(item.id)
+        setShowArmors(false)
+      },
       collect: (monitor) => ({
         isOver: !!monitor.isOver()
       })
@@ -28,7 +31,10 @@ function CreateMonster({user, setMonsterState, monsterState, monsters,setArmorBo
   const [{ isOver: isOverWeaponBoard }, dropWeaponBoard] = useDrop(() => (
     {
       accept: "sword",
-      drop: (item) => addWeaponToBoard(item.id),
+      drop: (item) => {
+        addWeaponToBoard(item.id);
+        setShowWeapons(false)
+      },
       collect: (monitor) => ({
         isOver: !!monitor.isOver()
       })
@@ -72,8 +78,8 @@ function CreateMonster({user, setMonsterState, monsterState, monsters,setArmorBo
   const addWeaponToBoard = (item) => {
     setMonsterState(prevState => ({ ...prevState, weapon_id: item }));
     fetch(`http://localhost:3000/weapons/${item}`)
-    .then(response => response.json())
-    .then(data => setWeaponBoard([data]));
+      .then(response => response.json())
+      .then(data => setWeaponBoard([data]));
   }
   // Armors
   const myArmors = armorList.map(armor => {
@@ -170,7 +176,7 @@ function CreateMonster({user, setMonsterState, monsterState, monsters,setArmorBo
       setShowArmors(!showArmors)
     }
   }
-  
+console.log(showWeapons)
   return (
     <>
     <div>

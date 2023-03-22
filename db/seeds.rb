@@ -38,16 +38,48 @@ Look.create(
   image: 'https://raw.githubusercontent.com/Irishwolf13/monsterImages/main/monsters/unholy-priest.png'
 )
 Look.create(
-  race: 'Riding Raptor',
+  race: 'riding raptor',
   image: 'https://raw.githubusercontent.com/Irishwolf13/monsterImages/main/monsters/riding-raptor.png'
 )
 Look.create(
-  race: 'Forest Crusher',
+  race: 'forest crusher',
   image: 'https://raw.githubusercontent.com/Irishwolf13/monsterImages/main/monsters/forest-crusher.png'
 )
 Look.create(
-  race: 'Forest Shaman',
+  race: 'forest shaman',
   image: 'https://raw.githubusercontent.com/Irishwolf13/monsterImages/main/monsters/thicket-shaman.png'
+)
+Look.create(
+  race: 'barbarian raider',
+  image: 'https://raw.githubusercontent.com/Irishwolf13/monsterImages/main/monsters/barbarian-raider.png'
+)
+Look.create(
+  race: 'cursed caster',
+  image: 'https://raw.githubusercontent.com/Irishwolf13/monsterImages/main/monsters/cursecaster.png'
+)
+Look.create(
+  race: ' demonic bloodsucker',
+  image: 'https://raw.githubusercontent.com/Irishwolf13/monsterImages/main/monsters/demonic-bloodsucker.png'
+)
+Look.create(
+  race: 'orc treasure hunter',
+  image: 'https://raw.githubusercontent.com/Irishwolf13/monsterImages/main/monsters/orc-treasure-hunt.png'
+)
+Look.create(
+  race: 'pit lord',
+  image: 'https://raw.githubusercontent.com/Irishwolf13/monsterImages/main/monsters/pit-lord.png'
+)
+Look.create(
+  race: 'red minotaur',
+  image: 'https://raw.githubusercontent.com/Irishwolf13/monsterImages/main/monsters/red-minotaur.png'
+)
+Look.create(
+  race: 'undead elf',
+  image: 'https://raw.githubusercontent.com/Irishwolf13/monsterImages/main/monsters/undead-elf.png'
+)
+Look.create(
+  race: 'undead naga',
+  image: 'https://raw.githubusercontent.com/Irishwolf13/monsterImages/main/monsters/undead-naga.png'
 )
 
 puts 'seeding armors'
