@@ -1,96 +1,27 @@
-import { React, useContext, useState, useEffect } from 'react'
-import { UserContext } from "../context/user";
+import { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
-import '../styling/login.css';
-import ParticleBackground from 'react-particle-backgrounds'
-import '../context/user.js';
+import React from 'react'
 
-export default function Login({updateUser}) {
-
-  //bg settings
-  const settings = {
-    canvas: {
-      canvasFillSpace: true,
-      width: 1000,
-      height: 1000,
-      useBouncyWalls: true,
-    },
-    particle: {
-      particleCount: 65,
-      color: '#CAE9FF',
-      minSize: 2,
-      maxSize: 45
-    },
-    velocity: {
-      minSpeed: .2,
-      maxSpeed: .4
-    },
-    opacity: {
-      minOpacity: 0,
-      maxOpacity: 0.6,
-      opacityTransitionTime: 10000
-    }
-  }
-
-  // initialize User Context
-  const { userState, setUserState } = useContext(UserContext);
- 
-
-
-  const [error, setError] = useState([])
+function Login({ setUser, monsterState, setMonsterState }) {
   //allow navigation
   const navigate = useNavigate();
-  
-  console.log(userState);
 
-  //Form State
+  // Creates the initial state of blank
   const initialState = {
     username: '',
     password: ''
   };
-
-  //create form state
   const [formState, setFormState] = useState(initialState);
 
-  const updateUserState = (obj) => {
-    setUserState({
-      page: 'home',
-      isLoggedIn: true,
-      user_id: obj.id,
-      first_name: obj.first_name,
-      last_name: obj.last_name,
-      phone: obj.phone,
-      age: obj.age,
-      username: obj.username,
-      email: obj.email,
-      location: obj.location,
-      user_image: obj.user_image,
-    })
+  // Handle user Input
+  const handleChange = (e) => {
+    setFormState({...formState, [e.target.name]: e.target.value});
   }
 
-  useEffect(() =>{
-    if (userState.isLoggedIn === true) {
-      setUserState({...userState,
-        isLoggedIn: false,
-        user_id: '',
-        page: '',
-        first_name: '',
-        last_name: '',
-        phone: '',
-        age: '',
-        username: '',
-        email: '',
-        location: '',
-        user_image: ''
-      })
-    }
-}, [1])
-
-  //handle form submission
+  //handle submission
   const handleSubmit = (e) => {
     e.preventDefault();
-    //write logic to authenticate
-    fetch('http://localhost:9292/login',{
+    fetch('http://localhost:3000/login',{
       method:'POST',
       headers:{'Content-Type': 'application/json'},
       body: JSON.stringify(formState)
@@ -98,39 +29,22 @@ export default function Login({updateUser}) {
     .then(res => {
       if(res.ok){
         res.json().then(obj => {
-          updateUserState(obj)
-          updateUser(obj)
+          // console.log('Change User')
+          // console.log(obj)
+          setUser(obj)
+          setMonsterState(prevState => ({ ...prevState, user_id: obj.id }))
+          // console.log('Change monsterState')
+          navigate('/choose/monster')
         })
-        .then(console.log("navigation commencing"))
-        .then(navigate('/home'))
       } else {
-        // alert("Error logging in.")
-        res.json().then(json => setError(json.error))
+        // res.json().then(data => console.log(data))
       }
     })
-    }
-
-  // handle form input Change
-  const handleChange = (e) => {
-    setFormState({...formState, [e.target.name]: e.target.value});
   }
 
   return (
     <>
-    <div className="login-container">
-    <ParticleBackground settings={settings}/>
-      {/* button goes top right  */}
-      <div className="nav-button-wrapper">
-        <button id="signup-btn" onClick={() => navigate('/signup')}>Sign Up</button>
-      </div>
-
-      {/* center above form */}
-      <div id="login-form-container">
-      <div className="logo-form">
-        <h1>TableTalk</h1>
-      </div>
-
-      {/* login form */}
+      <div className='userNameDiv'>Login</div>
       <div id="login-form">
         <form className="form" onSubmit={handleSubmit}>
             <input name="username" type="text" required onChange={handleChange} value={formState.username} placeholder="username"/>
@@ -138,10 +52,8 @@ export default function Login({updateUser}) {
             <button type="submit">Login</button>
         </form>
       </div>
-      {error? <div>{error}</div>:null}
-
-    </div>
-    </div>
-  </>
-  )
+    </>
+  );
 }
+
+export default Login;

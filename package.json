@@ -1,5 +1,7 @@
 {
   "dependencies": {
-    "google-maps-react": "^2.0.6"
+    "google-maps-react": "^2.0.6",
+    "react-dnd": "^16.0.1",
+    "react-dnd-html5-backend": "^16.0.1"
   }
 }

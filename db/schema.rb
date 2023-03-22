@@ -10,88 +10,71 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_07_185723) do
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
-  create_table "comments", force: :cascade do |t|
-    t.integer "reservation_id"
-    t.string "comment"
+ActiveRecord::Schema[7.0].define(version: 2023_03_15_053150) do
+  create_table "armors", force: :cascade do |t|
+    t.string "material"
+    t.integer "defense"
+    t.integer "weight"
+    t.integer "movement_reduction"
+    t.string "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "games", force: :cascade do |t|
     t.integer "user_id"
-  end
-
-  create_table "cuisines", force: :cascade do |t|
-    t.integer "restaurant_id"
-    t.string "cuz_name"
+    t.integer "difficulty"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "interests", force: :cascade do |t|
-    t.integer "reservation_id"
-    t.string "interest"
-    t.integer "priority"
+  create_table "join_games", force: :cascade do |t|
+    t.integer "game_id"
+    t.integer "monster_id"
+    t.integer "monster_count"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "members", force: :cascade do |t|
-    t.integer "reservation_id"
+  create_table "looks", force: :cascade do |t|
+    t.string "race"
+    t.string "image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "monsters", force: :cascade do |t|
     t.integer "user_id"
-    t.string "guest_check_type"
+    t.integer "look_id"
+    t.integer "armor_id"
+    t.integer "weapon_id"
+    t.string "monster_name"
+    t.integer "level"
+    t.integer "hit_points"
+    t.integer "base_armor"
+    t.integer "attack"
+    t.integer "magic"
+    t.integer "movement"
+    t.string "bio"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "ratings", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "restaurant_id"
-    t.float "rating"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "reservations", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "restaurant_id"
-    t.string "date"
-    t.float "time"
-    t.integer "number_of_seats"
-    t.string "check_type"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "restaurants", force: :cascade do |t|
-    t.string "name"
-    t.string "phone"
-    t.string "address"
-    t.string "price"
-    t.integer "open_time"
-    t.integer "close_time"
-    t.integer "capacity"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "rest_image"
-    t.string "website"
-    t.float "longitude"
-    t.float "latitude"
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "first_name"
-    t.string "last_name"
-    t.string "phone"
-    t.integer "age"
     t.string "username"
-    t.string "email"
-    t.string "location"
     t.string "password_digest"
+    t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "user_image"
+  end
+
+  create_table "weapons", force: :cascade do |t|
+    t.string "style"
+    t.integer "attack"
+    t.integer "weight"
+    t.string "image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

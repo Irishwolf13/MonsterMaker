@@ -1,74 +1,182 @@
-import { useEffect, useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import './App.css';
+import { DndProvider } from 'react-dnd';
+import { HTML5Backend } from "react-dnd-html5-backend";
+import { React, useEffect, useState } from "react";
+import { useNavigate } from 'react-router-dom';
 
-import Login from './components/Login';
-import Signup from './components/Signup';
+// import DragDrop from './components/DragDrop';
+import './App.css'
 import HomePage from './components/HomePage';
-import ProfilePage from './components/ProfilePage';
-import BusinessPage from './components/BusinessPage';
-import ReservationsPage from './components/ReservationsPage';
-import BusinessSearch from './components/BusinessSearch';
-import ProfileSettings from './components/ProfileSettings';
-import { UserProvider } from './context/user.js';
+import CreateMonster from './components/CreateMonster';
+import ChooseMonster from './components/ChooseMonster';
+import Login from './components/Login';
+import ShowMonsters from './components/ShowMonsters';
+import ShowMyMonster from './components/ShowMyMonster';
+import Signup from './components/Signup';
+import ParticleBackground from 'react-particle-backgrounds'
 
-function App()
-{
-const [user, setUser] = useState(null)
+function App() {
+  //allow navigation
+  const navigate = useNavigate();
+
+  const settings = {
+    particle: {
+      particleCount: 100,
+      color: "#d68c38",
+      minSize: 2,
+      maxSize: 4
+    },
+    velocity: {
+      directionAngle: 0,
+      directionAngleVariance: 30,
+      minSpeed: 0.2,
+      maxSpeed: 4
+    },
+    opacity: {
+      minOpacity: 0,
+      maxOpacity: 0.5,
+      opacityTransitionTime: 5000
+    }
+  }
+
+  const initalState = { 
+    monster_name: 'not Frank',
+    look_id: 1,
+    user_id : 1,
+    armor_id: 1,
+    weapon_id: 1,
+    level: 1,
+    hit_points: 1,
+    base_armor: 1,
+    attack: 1,
+    magic: 1,
+    movement: 1,
+    bio: ''
+  }
+  
+  const [armorBoard, setArmorBoard] = useState([])
+  const [weaponBoard, setWeaponBoard] = useState([])
+  
+  const [user, setUser] = useState({})
+  const [monsters, setMonsters] = useState([]);
+  const [monsterState, setMonsterState] = useState(initalState);
 
   useEffect(() => {
     fetch('/authorized')
     .then(res => {
-      if(res.ok){
-        res.json().then(user => setUser(user))
+      if(res.ok) {
+        // res.json().then(data => console.log(data))
       } else {
         setUser(null)
       }
     })
-  }, [])
+    fetch('http://localhost:3000/looks')
+      .then(response => response.json())
+      .then(data => setMonsters(data));
+  },[])
 
-  const updateUser = (user) => setUser(user)
+  //handles logout clicked
+  const handleLogOut = () => {
+    //console.log(user)
+    fetch('http://localhost:3000/logout', {
+      method: 'DELETE',
+    })
+    .then(res => {
+      if (res.ok) {
+        //console.log(user)
+        alert('Logged out')
+        navigate('/')
+      } else {
+        //console.log('else: ')
+        //console.log(user)
+        //handle errors
+      }
+    })
+  }
 
+  const handleShowMonsters = () => {
+    navigate('/show/monsters/')
+  }
+  const handleCreateMonsters = () => {
+    setMonsterState(initalState)
+    setArmorBoard([])
+    setWeaponBoard([])
+    navigate('/choose/monster')
+  }
 
+  // const updateUser = (user) => setUser(user)
+  // console.log('My user is:')
+  // console.log(user)
   return (
     <div className="App">
-      <UserProvider>
+      <div className='background'><ParticleBackground settings={settings}/></div>
+      <DndProvider backend={ HTML5Backend }>
+        <button onClick={handleLogOut}>LogOut</button>
+        <button onClick={handleShowMonsters}>Show My Monsters</button>
+        <button onClick={handleCreateMonsters}>New Monster</button>
         <Routes>
-        {/* {frank()} */}
           <Route
             path="/"
-            element={<Login updateUser={updateUser}/>}
+            element={<HomePage user={user}/>}
+          />
+          <Route
+            path="/login"
+            element={<Login 
+                user={user} 
+                setUser={setUser}
+                monsterState={monsterState} 
+                setMonsterState={setMonsterState}
+              />}
           />
           <Route
             path="/signup"
-            element={<Signup updateUser={updateUser}/>}
+            element={<Signup />}
           />
           <Route
-            path="/home"
-            element={<HomePage updateUser={updateUser}/>}
+            path="/choose/monster"
+            element={<ChooseMonster 
+              user={user} 
+              monsterState={monsterState} 
+              setMonsterState={setMonsterState}
+              monsters={monsters}
+              />}
           />
           <Route
-            path="/profile/:username"
-            element={<ProfilePage />}
+            path="/show/monsters/"
+            element={<ShowMonsters 
+              user={user} 
+              monsterState={monsterState} 
+              setMonsterState={setMonsterState}
+            />}
           />
           <Route
-            path="/business"
-            element={<BusinessSearch />}
+            path="/show/monster/:id"
+            element={<ShowMyMonster 
+              user={user} 
+              monsterState={monsterState} 
+              setMonsterState={setMonsterState}
+              monsters={monsters}
+              setArmorBoard={setArmorBoard}
+              setWeaponBoard={setWeaponBoard}
+              armorBoard={armorBoard}
+              weaponBoard={weaponBoard}
+            />}
           />
           <Route
-            path="/business/:businessid"
-            element={<BusinessPage />}
-          />
-          <Route
-            path="/reservations"
-            element={<ReservationsPage />}
-          />
-          <Route
-            path="/profile/:username/settings"
-            element={<ProfileSettings />}
+            path="/create/monster/"
+            element={<CreateMonster 
+              user={user} 
+              monsterState={monsterState} 
+              setMonsterState={setMonsterState}
+              monsters={monsters}
+              setArmorBoard={setArmorBoard}
+              setWeaponBoard={setWeaponBoard}
+              armorBoard={armorBoard}
+              weaponBoard={weaponBoard}
+              />}
           />
         </Routes>
-      </UserProvider>
+      </DndProvider>
     </div>
   );
 }
