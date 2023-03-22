@@ -15,7 +15,7 @@ User.create(
 puts 'seeding looks'
 Look.create(
   race: 'orc',
-  image: 'https://cdna.artstation.com/p/assets/images/images/056/275/424/small/alekzander-zagorulko-greenskin-barbarian.jpg?1668857673'
+  image: 'http://cloud-3.steamusercontent.com/ugc/2042985250123118351/AB95FA2489DF14E6FF0C538B30D73FC3D498B76E/'
 )
 Look.create(
   race: 'undead warrior',

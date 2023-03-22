@@ -24,7 +24,6 @@ function ChooseMonster({user, setMonsterState, monsterState, monsters}) {
         id={monster.id}
         race={monster.race}
         onClick={() => handleAvatarClicked(monster.id)}
-        selected={selectedMonster.look_id === monster.id}
       />
     ))
   };
