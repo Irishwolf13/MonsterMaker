@@ -1,66 +1,59 @@
-import { React, useContext, useState } from 'react'
-import { UserContext } from "../context/user";
+import { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
+import React from 'react'
 
-export default function Login() {
-
-  // initialize User Context
-  const userState = useContext(UserContext);
-
+function Login({ setUser, monsterState, setMonsterState }) {
   //allow navigation
   const navigate = useNavigate();
 
-  // update global state of page to current page
-  userState.page = "login";
-
-  //Form State
+  // Creates the initial state of blank
   const initialState = {
     username: '',
     password: ''
   };
-
-  //create form state
   const [formState, setFormState] = useState(initialState);
 
-  //handle form submission
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    //write logic to autheticate
-
-
-    navigate('/home');
-  }
-
-  // handle form input Change
+  // Handle user Input
   const handleChange = (e) => {
     setFormState({...formState, [e.target.name]: e.target.value});
   }
 
+  //handle submission
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    fetch('http://localhost:3000/login',{
+      method:'POST',
+      headers:{'Content-Type': 'application/json'},
+      body: JSON.stringify(formState)
+    })
+    .then(res => {
+      if(res.ok){
+        res.json().then(obj => {
+          // console.log('Change User')
+          // console.log(obj)
+          setUser(obj)
+          setMonsterState(prevState => ({ ...prevState, user_id: obj.id }))
+          // console.log('Change monsterState')
+          navigate('/choose/monster')
+        })
+      } else {
+        // res.json().then(data => console.log(data))
+      }
+    })
+  }
 
-  
   return (
-    <div>
-
-      {/* button goes top right  */}
-      <div>
-        <button>Sign Up</button>
-      </div>
-
-      {/* center above form */}
-      <div>
-        <h1>TableTalk</h1>
-      </div>
-
-      {/* login form */}
-      <div>
-        <form onSubmit={handleSubmit}>
+    <>
+      <div className='userNameDiv'>Login</div>
+      <div id="login-form">
+        <form className="form" onSubmit={handleSubmit}>
             <input name="username" type="text" required onChange={handleChange} value={formState.username} placeholder="username"/>
             <input name="password" type="password" required onChange={handleChange} value={formState.password} placeholder="password"/>
             <button type="submit">Login</button>
         </form>
       </div>
-      
-    </div>
-  )
+    </>
+  );
 }
+
+export default Login;
