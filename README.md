@@ -7,4 +7,3 @@
 * React
 * JavaScript
 * CSS
-* Frank

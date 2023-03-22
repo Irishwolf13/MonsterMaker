@@ -1,3 +1,37 @@
+.picturesContainer {
+  position: relative;
+}
+
+.dropDownPictures {
+  display: flex;
+  flex-wrap: wrap;
+  position: absolute;
+  top: 40px; /* adjust this value to set the distance between the button and the pictures */
+  left: 600px;
+  width: 500px;
+  height: auto;
+  background-color: rgb(0, 0, 0);
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+  animation: slideDown 0.5s forwards;
+}
+
+@keyframes slideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
+
+
 .App {
   text-align: center;
   width: 100vw;
@@ -69,11 +103,34 @@ img {
 }
 .textBox {
   resize: none;
-  height: 70px;
-  width: 25em;
+  position: relative;
+  top: 45px;
+  right: 0px;
+  height: 100px;
+  margin-left: 10px;
 }
+
 .createForm{
+  padding-top: 10px;
+  top: 390px;
+  left: 120px;
+  position: fixed;
+  border: 2px solid rgb(0, 0, 0);;
+  background-color: blueviolet;
+  width: 250px;
+  height: 450px;
   color: white;
+}
+.createForm div {
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.createForm input {
+  margin-left: 10px;
+  width: 100px;
+  text-align: center;
 }
 .createMonsterHolder{
   margin: 5px;
@@ -94,8 +151,8 @@ img {
 }
 .createMonsterButton {
   position: fixed;
-  top: 30px;
-  left: -20px;
+  top: 0px;
+  left: -40px;
   background-color: transparent;
   border: none;
   cursor: pointer;

@@ -13,6 +13,8 @@ function CreateMonster({user, setMonsterState, monsterState, monsters,setArmorBo
   const [deletedItems, setDeletedItems] = useState([])
   const [armorList, setArmorList] = useState([])
   const [weaponList, setWeaponList] = useState([])
+  const [showArmors, setShowArmors] = useState(false);
+  const [showWeapons, setShowWeapons] = useState(false);
 
   const [{ isOver: isOverBoard }, dropBoard] = useDrop(() => (
     {
@@ -154,39 +156,60 @@ function CreateMonster({user, setMonsterState, monsterState, monsters,setArmorBo
       bio: ''
     }))
   }
+
+  // Pretty sure I'll be able to refactor these into one function
+  const handleArmorsClick = () => {
+    setShowArmors(!showArmors)
+    if(showWeapons == true) {
+      setShowWeapons(!showWeapons)
+    }
+  }
+  const handleWeaponsClick = () => {
+    setShowWeapons(!showWeapons)
+    if(showArmors == true) {
+      setShowArmors(!showArmors)
+    }
+  }
+  
   return (
     <>
     <div>
       <form className='createForm'>
-        <label htmlFor="input0">Creature Name:</label>
-        <input type="text" value={monsterState.monster_name} onChange={(e) => setMonsterState(prevState => ({ ...prevState, monster_name: e.target.value }))} />
-        <br></br>
-        <label htmlFor="input1">Level: </label>
-        <input type="number" id="input1" name="level" value={monsterState.level} onChange={(e) => setMonsterState(prevState => ({ ...prevState, level: parseInt(e.target.value) }))} />
-        <br></br>
-        <label htmlFor="input2">Hit Points: </label>
-        <input type="number" id="input2" name="hit_points" value={monsterState.hit_points} onChange={(e) => setMonsterState(prevState => ({ ...prevState, hit_points: parseInt(e.target.value) }))} />
-        <br></br>
-        <label htmlFor="input3">Base Armor: </label>
-        <input type="number" id="input3" name="base_armor" value={monsterState.base_armor} onChange={(e) => setMonsterState(prevState => ({ ...prevState, base_armor: parseInt(e.target.value) }))} />
-        <br></br>
-        <label htmlFor="input4">Attack Rating: </label>
-        <input type="number" id="input4" name="attack" value={monsterState.attack} onChange={(e) => setMonsterState(prevState => ({ ...prevState, attack: parseInt(e.target.value) }))} />
-        <br></br>
-        <label htmlFor="input5">Magic Points: </label>
-        <input type="number" id="input5" name="magic" value={monsterState.magic} onChange={(e) => setMonsterState(prevState => ({ ...prevState, magic: parseInt(e.target.value) }))} />
-        <br></br>
-        <label htmlFor="input5">Movement Speed: </label>
-        <input type="number" id="input5" name="movement" value={monsterState.movement} onChange={(e) => setMonsterState(prevState => ({ ...prevState, movement: parseInt(e.target.value) }))} />
-        <br></br>
+        <div>
+          <label htmlFor="input0">Creature Name:</label>
+          <input type="text" value={monsterState.monster_name} onChange={(e) => setMonsterState(prevState => ({ ...prevState, monster_name: e.target.value }))} />
+        </div>
+        <div>
+          <label htmlFor="input1">Level: </label>
+          <input type="number" id="input1" name="level" value={monsterState.level} onChange={(e) => setMonsterState(prevState => ({ ...prevState, level: parseInt(e.target.value) }))} />
+        </div>
+        <div>
+          <label htmlFor="input2">Hit Points: </label>
+          <input type="number" id="input2" name="hit_points" value={monsterState.hit_points} onChange={(e) => setMonsterState(prevState => ({ ...prevState, hit_points: parseInt(e.target.value) }))} />
+        </div>
+        <div>
+          <label htmlFor="input3">Base Armor: </label>
+          <input type="number" id="input3" name="base_armor" value={monsterState.base_armor} onChange={(e) => setMonsterState(prevState => ({ ...prevState, base_armor: parseInt(e.target.value) }))} />
+        </div>
+        <div>
+          <label htmlFor="input4">Attack Rating: </label>
+          <input type="number" id="input4" name="attack" value={monsterState.attack} onChange={(e) => setMonsterState(prevState => ({ ...prevState, attack: parseInt(e.target.value) }))} />
+        </div>
+        <div>
+          <label htmlFor="input5">Magic Points: </label>
+          <input type="number" id="input5" name="magic" value={monsterState.magic} onChange={(e) => setMonsterState(prevState => ({ ...prevState, magic: parseInt(e.target.value) }))} />
+        </div>
+        <div>
+          <label htmlFor="input5">Movement Speed: </label>
+          <input type="number" id="input5" name="movement" value={monsterState.movement} onChange={(e) => setMonsterState(prevState => ({ ...prevState, movement: parseInt(e.target.value) }))} />
+        </div>
+        <div className='bioBox'>
+          <label htmlFor="bio">Bio: </label>
+          <textarea id="bio" name="bio" className='textBox' value={monsterState.bio} onChange={(e) => setMonsterState(prevState => ({ ...prevState, bio: e.target.value }))} />
+        </div>
       </form>
     </div>
-    <div>
-      <form>
-        <label htmlFor="bio">Bio</label><br></br>
-        <textarea id="bio" name="bio" className='textBox' value={monsterState.bio} onChange={(e) => setMonsterState(prevState => ({ ...prevState, bio: e.target.value }))} />
-      </form>
-    </div>
+
     <div>
       {viewMonsters()}
       <div className='Board1' ref={dropBoard}>
@@ -200,12 +223,20 @@ function CreateMonster({user, setMonsterState, monsterState, monsters,setArmorBo
         </div>
     </div>
     <div>
-      <div className='Pictures'>{myArmors}</div>
-      Armors
+      <button onClick={handleArmorsClick}>Armors</button>
+      {showArmors && (
+        <div className='picturesContainer'>
+          <div className='dropDownPictures'>{myArmors}</div>
+        </div>
+      )}
     </div>
     <div>
-      <div className='Pictures'>{myWeapons}</div>
-      Weapons
+      <button onClick={handleWeaponsClick}>Weapons</button>
+      {showWeapons && (
+        <div className='picturesContainer'>
+          <div className='dropDownPictures'>{myWeapons}</div>
+        </div>
+      )}
     </div>
     <button onClick={handleReselectAvatar}>Reselect Avatar</button>
     <button onClick={handleReset}> Rest Attributes </button>
