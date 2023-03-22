@@ -24,13 +24,13 @@ function App() {
       particleCount: 100,
       color: "#d68c38",
       minSize: 2,
-      maxSize: 4
+      maxSize: 10
     },
     velocity: {
       directionAngle: 0,
       directionAngleVariance: 30,
       minSpeed: 0.2,
-      maxSpeed: 4
+      maxSpeed: 1.5
     },
     opacity: {
       minOpacity: 0,
