@@ -30,15 +30,15 @@ function ChooseMonster({user, setMonsterState, monsterState, monsters}) {
 
   return (
     <>
-      <div>Create Monsters</div>
-      <form>
+      <div className='createForm'>Create Monsters</div>
+      <form className='createForm'>
         <label>
           Creature Name:
           <input type="text" value={monsterState.monster_name} onChange={(e) => setMonsterState(prevState => ({ ...prevState, monster_name: e.target.value }))} />
         </label>
         <br></br>
       </form>
-      <label>
+      <label className='createForm'>
         Filter by Name:
         <input type="text" value={filterName} onChange={(e) => setFilterName(e.target.value)} />
       </label>

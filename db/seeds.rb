@@ -15,39 +15,39 @@ User.create(
 puts 'seeding looks'
 Look.create(
   race: 'orc',
-  image: 'http://cloud-3.steamusercontent.com/ugc/2042985250123118351/AB95FA2489DF14E6FF0C538B30D73FC3D498B76E/'
+  image: 'https://raw.githubusercontent.com/Irishwolf13/monsterImages/main/monsters/orc1.png'
 )
 Look.create(
-  race: 'undead warrior',
-  image: 'https://cdnb.artstation.com/p/assets/images/images/052/636/925/small/alekzander-zagorulko-undex-caster.jpg?1660296531'
+  race: 'undead caster',
+  image: 'https://raw.githubusercontent.com/Irishwolf13/monsterImages/main/monsters/undead%20caster.png'
 )
 Look.create(
-  race: 'flame',
-  image: 'https://cdna.artstation.com/p/assets/images/images/057/354/168/small/olekzandr-zahorulko-flame-warrior.jpg?1671388530'
+  race: 'flame warrior',
+  image: 'https://raw.githubusercontent.com/Irishwolf13/monsterImages/main/monsters/Flame%20warrior.png'
 )
 Look.create(
   race: 'oracle',
-  image: 'https://cdnb.artstation.com/p/assets/images/images/055/161/173/small/alekzander-zagorulko-fire-oracle.jpg?1666263108'
+  image: 'https://raw.githubusercontent.com/Irishwolf13/monsterImages/main/monsters/Fire%20Oracle.png'
 )
 Look.create(
-  race: 'troll',
-  image: 'https://cdnb.artstation.com/p/assets/images/images/054/915/473/small/alekzander-zagorulko-bridge-troll.jpg?1665665904'
+  race: 'bridge troll',
+  image: 'https://raw.githubusercontent.com/Irishwolf13/monsterImages/main/monsters/Bridge-troll.png'
 )
 Look.create(
   race: 'undead priest',
-  image: 'https://cdnb.artstation.com/p/assets/images/images/052/637/547/small/alekzander-zagorulko-unholy-priest.jpg?1660297802'
+  image: 'https://raw.githubusercontent.com/Irishwolf13/monsterImages/main/monsters/unholy-priest.png'
 )
 Look.create(
   race: 'Riding Raptor',
-  image: 'https://cdna.artstation.com/p/assets/images/images/052/247/644/small/alekzander-zagorulko-riding-raptor.jpg?1659343787'
+  image: 'https://raw.githubusercontent.com/Irishwolf13/monsterImages/main/monsters/riding-raptor.png'
 )
 Look.create(
   race: 'Forest Crusher',
-  image: 'https://cdna.artstation.com/p/assets/images/images/050/702/032/small/alekzander-zagorulko-forest-crusher.jpg?1655470543'
+  image: 'https://raw.githubusercontent.com/Irishwolf13/monsterImages/main/monsters/forest-crusher.png'
 )
 Look.create(
   race: 'Forest Shaman',
-  image: 'https://cdna.artstation.com/p/assets/images/images/054/675/356/small/alekzander-zagorulko-thicket-shaman.jpg?1665081121'
+  image: 'https://raw.githubusercontent.com/Irishwolf13/monsterImages/main/monsters/thicket-shaman.png'
 )
 
 puts 'seeding armors'

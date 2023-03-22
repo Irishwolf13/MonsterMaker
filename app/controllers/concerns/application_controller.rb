@@ -6,6 +6,7 @@ class ApplicationController < ActionController::API
 
   rescue_from ActiveRecord::RecordInvalid, with: :record_invalid
   rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity
+  rescue_from ActiveRecord::RecordNotFound, with: :render_not_found
 
   before_action :authorize
 
@@ -21,8 +22,8 @@ class ApplicationController < ActionController::API
   end
 
   def authorize
-    # @frank = User.find_by(id: session[:user_id]) #-USE THIS WHEN YOU FIRGURE SHIT OUT.
     @frank = User.find(1)
+    # @frank = User.find_by(id: session[:user_id]) #-USE THIS WHEN YOU FIRGURE SHIT OUT.
     # byebug
     render json: {errors: "Hello World: #{@frank}"}, status: :unauthorized unless @frank
   end
@@ -33,7 +34,8 @@ class ApplicationController < ActionController::API
     render json: {errors: invalid.record.errors}, status: :unprocessable_entity
   end
 
- def render_not_found(error)
+  def render_not_found(error)
     render json: {errors: {error.model => "Not Found"}}, status: :not_found
+    redirect_to '/'
   end
 end
