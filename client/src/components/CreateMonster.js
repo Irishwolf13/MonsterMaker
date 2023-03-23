@@ -234,7 +234,7 @@ console.log(showWeapons)
     <div>
       <button className='armorsButton' onClick={handleArmorsClick}>Armors</button>
       {showArmors && (
-        <div className='picturesContainer'>
+        <div className='picturesContainer' title='Drag and Drop Items'>
           <div className='dropDownPictures'>{myArmors}</div>
         </div>
       )}
@@ -242,7 +242,7 @@ console.log(showWeapons)
     <div>
       <button className='weaponsButton'onClick={handleWeaponsClick}>Weapons</button>
       {showWeapons && (
-        <div className='picturesContainer'>
+        <div className='picturesContainer' title='Drag and Drop Items'>
           <div className='dropDownPictures'>{myWeapons}</div>
         </div>
       )}
