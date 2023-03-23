@@ -48,8 +48,9 @@ img {
   left: 420px;
   display: inline-block;
   width: 150px;
-  height: 170px;
+  height: 200px;
   border: 2px solid black;
+  background-color: black;
 }
 .Board1 p {
   position: absolute;
@@ -58,17 +59,41 @@ img {
 }
 .Board2 {
   position: fixed;
-  top: 320px;
+  top: 360px;
   left: 420px;
   display: inline-block;
   width: 150px;
-  height: 170px;
+  height: 200px;
   border: 2px solid black;
+  background-color: black;
 }
 .Board2 p {
   position: absolute;
   top: 160px;
   left: 52px;
+}
+.createFormFrame {
+  position: absolute;
+  width: 330px;
+  height: 460px;
+  top: -15px;
+  left: -10px;
+  z-index: -1;
+}
+.armorFrame{
+  position: absolute;
+  width: 160px;
+  top: -15px;
+  left: -10px;
+  z-index: -1;
+}
+.currentItem {
+  position: relative;
+  top: 12px;
+}
+.currentItem button {
+  position: relative;
+  top: 10px;
 }
 
 .fullBoard {
@@ -88,24 +113,25 @@ img {
 
 .createForm{
   padding: 20px;
-  top: 100px;
-  left: 620px;
+  padding-top: 50px;
+  top: 110px;
+  left: 605px;
   position: fixed;
   border: 2px solid rgb(0, 0, 0);;
-  background-color: blueviolet;
-  width: 250px;
-  height: 400px;
+  background-color: rgb(48, 48, 48);
+  width: 280px;
+  height: 370px;
   color: white;
 }
 .createForm div {
-  height: 35px;
+  height: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .createForm input {
   margin-left: 10px;
-  width: 100px;
+  width: 90px;
   text-align: center;
 }
 .createMonsterHolder{
@@ -122,7 +148,13 @@ img {
   width: 190px;
   z-index: 10;
 }
+.bioBox {
+  width: 250px
+}
 .createMonsterCard2 {
+  position: absolute;
+  top: 110px;
+  left: 50px;
   width: 400px;
 }
 .createMonsterButton {
@@ -133,7 +165,6 @@ img {
   border: none;
   cursor: pointer;
 }
-
 .createMonsterButton:hover {
   cursor: pointer;
 }
@@ -147,6 +178,38 @@ img {
   bottom: 10px;
   right: 330px;
   max-width: 150px;
+}
+.armorsButton{
+  position: fixed;;
+  top: 70px;
+  left: 470px;
+}
+.armorsButton:hover{
+  cursor: pointer;
+  background-color: #9a5500;
+  color: white;
+}
+.weaponsButton{
+  position: fixed;;
+  top: 330px;
+  left: 460px;
+}
+.weaponsButton:hover{
+  cursor: pointer;
+  background-color: #9a5500;
+  color: white;
+}
+.saveButton {
+  position: absolute;
+  top: 580px;
+  left: 665px;
+  width: 200px;
+  font-size: 20px;
+}
+.saveButton:hover {
+  cursor: pointer;
+  background-color: #9a5500;
+  color: white;
 }
 .lookButton {
   border-color: rgb(0, 0, 0);

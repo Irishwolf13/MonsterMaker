@@ -108,7 +108,7 @@ function CreateMonster({user, setMonsterState, monsterState, monsters,setArmorBo
 
   const myArmorBoard = armorBoard.map((armor) => {
     return (
-      <div key={armor.id}>
+      <div className='currentItem' key={armor.id}>
         <Picture id={armor.id} url={armor.image}  />
         <button onClick={() => removeArmor(armor.id)}> Remove </button>
       </div>
@@ -117,7 +117,7 @@ function CreateMonster({user, setMonsterState, monsterState, monsters,setArmorBo
 
   const myWeaponBoard = weaponBoard.map((weapon) => {
     return (
-      <div key={weapon.id}>
+      <div className='currentItem' key={weapon.id}>
         <Weapons id={weapon.id} url={weapon.image} />
         <button onClick={() => removeWeapon(weapon.id)}> Remove </button>
       </div>
@@ -180,7 +180,11 @@ console.log(showWeapons)
   return (
     <>
     <div>
+      <button onClick={handleReselectAvatar}>Reselect Avatar</button>
+      <button onClick={handleReset}> Rest Attributes </button>
+      <button className='saveButton' onClick={saveMonster}> Save Monster </button>
       <form className='createForm'>
+        <img className='createFormFrame' src={'https://raw.githubusercontent.com/Irishwolf13/monsterImages/main/frames/rectangle1.png'}/>
         <div>
           <label htmlFor="input0">Creature Name:</label>
           <input type="text" value={monsterState.monster_name} onChange={(e) => setMonsterState(prevState => ({ ...prevState, monster_name: e.target.value }))} />
@@ -219,17 +223,16 @@ console.log(showWeapons)
     <div>
       {viewMonsters()}
       <div className='Board1' ref={dropBoard}>
+        <img className='armorFrame' src={'https://raw.githubusercontent.com/Irishwolf13/monsterImages/main/frames/rectangle1.png'}/>
         {myArmorBoard}
-        <p>Armor</p>
         </div>
-        {/* <div className={weaponBoard.length>0 ? checkAugments() : 'Board2'} ref={dropWeaponBoard}></div> */}
       <div className='Board2' ref={dropWeaponBoard}>
+        <img className='armorFrame' src={'https://raw.githubusercontent.com/Irishwolf13/monsterImages/main/frames/rectangle1.png'}/>
         {myWeaponBoard}
-        <p>Weapon</p>
         </div>
     </div>
     <div>
-      <button onClick={handleArmorsClick}>Armors</button>
+      <button className='armorsButton' onClick={handleArmorsClick}>Armors</button>
       {showArmors && (
         <div className='picturesContainer'>
           <div className='dropDownPictures'>{myArmors}</div>
@@ -237,16 +240,13 @@ console.log(showWeapons)
       )}
     </div>
     <div>
-      <button onClick={handleWeaponsClick}>Weapons</button>
+      <button className='weaponsButton'onClick={handleWeaponsClick}>Weapons</button>
       {showWeapons && (
         <div className='picturesContainer'>
           <div className='dropDownPictures'>{myWeapons}</div>
         </div>
       )}
     </div>
-    <button onClick={handleReselectAvatar}>Reselect Avatar</button>
-    <button onClick={handleReset}> Rest Attributes </button>
-    <button onClick={saveMonster}> Save Monster </button>
   </>
   )
 }
