@@ -168,7 +168,10 @@ img {
 .createMonsterButton:hover {
   cursor: pointer;
 }
-
+.characterCardContainer{
+  display: flex;
+  flex-wrap: wrap;
+}
 /* ######################### Character Card CSS ######################### */
 .characterCardHolder{
   position: relative;
@@ -186,14 +189,15 @@ img {
 }
 .monsterCardBoarder1 {
   position: relative;
-  bottom: 300px;
+  bottom: 290px;
   left: -5px;
   max-width: 250px;
   z-index: 1;
 }
 .monsterCardBackBoarder1 {
   position: relative;
-  bottom: 300px;
+  bottom: 290px;
+  left: -15px;
   width: 230px;
   height: 340px;
   z-index: 2;
@@ -201,8 +205,8 @@ img {
 }
 .smallWeapon1 {
   position: relative;
-  bottom: -47px;
-  left: 281px;
+  bottom: -57px;
+  left: 266px;
   width: 80px;
   height: 80px;
   z-index: 2;
@@ -212,13 +216,13 @@ img {
   width: 80px;
   height: 80px;
   z-index: 2;
-  bottom: -47px;
-  left: 234px;
+  bottom: -57px;
+  left: 219px;
 }
 .characterCardName1 {
   position: relative;
   z-index: 2;
-  bottom: -200px;
+  bottom: -210px;
   left: -105px;
   font-size: 20px;
   font-weight: 700;
@@ -226,7 +230,7 @@ img {
 .monsterCardLevel1 {
   position: relative;
   z-index: 2;
-  bottom: 467px;
+  bottom: 457px;
   left: -217px;
   font-size: 30px;
   font-weight: 700;
@@ -235,14 +239,14 @@ img {
 .monsterCardExtras1 {
   position: relative;
   z-index: 2;
-  bottom: 465px;
+  bottom: 455px;
   left: -111px;
 }
 .monsterCardBio1 {
   position: relative;
   z-index: 2;
-  bottom: 762px;
-  left: 290px;
+  bottom: 752px;
+  left: 275px;
   word-wrap: break-word;
   overflow: hidden;
   width: 190px;
@@ -256,13 +260,13 @@ img {
 .monsterCardEdit1 {
   position: relative;
   z-index: 2;
-  bottom: 430px;
+  bottom: 420px;
   left: 0px;
 }
 .monsterCardDelete1 {
   position: relative;
   z-index: 2;
-  bottom: 430px;
+  bottom: 420px;
   left: 0px;
 }
 
@@ -283,6 +287,7 @@ img {
 .monsterCardBackBoarder2 {
   position: relative;
   bottom: 315px;
+  left: -24px;
   width: 230px;
   height: 340px;
   z-index: 2;
@@ -290,7 +295,7 @@ img {
 .smallWeapon2 {
   position: relative;
   bottom: -60px;
-  left: 283px;
+  left: 257px;
   width: 80px;
   height: 80px;
   z-index: 2;
@@ -301,7 +306,7 @@ img {
   height: 82px;
   z-index: 2;
   bottom: -63px;
-  left: 235px;
+  left: 211px;
 }
 .characterCardName2 {
   position: relative;
@@ -327,6 +332,33 @@ img {
   bottom: 495px;
   left: -120px;
 }
+.monsterCardBio2 {
+  position: relative;
+  z-index: 2;
+  bottom: 760px;
+  left: 266px;
+  word-wrap: break-word;
+  overflow: hidden;
+  width: 190px;
+  height: 180px;
+  /* background-color: aqua; */
+  font-size: 19px;
+  font-weight: 500;
+  color: rgb(255, 255, 255);
+  text-shadow: 0px 0px 2px rgb(0, 0, 0), 0 0 0.2em rgb(142, 0, 0);
+}
+.monsterCardEdit2 {
+  position: relative;
+  z-index: 2;
+  bottom: 440px;
+  left: 0px;
+}
+.monsterCardDelete2 {
+  position: relative;
+  z-index: 2;
+  bottom: 440px;
+  left: 0px;
+}
 
 
 /* ######################### END Character Card CSS ######################### */
@@ -342,11 +374,12 @@ img {
   left: 0px;
   width: 250px;
   height: 350px;
-  z-index: 1;
+  z-index: 10;
 }
 .monsterCardBackBoarder3 {
   position: relative;
   bottom: 307px;
+  left: -23px;
   width: 230px;
   height: 335px;
   z-index: 2;
@@ -355,7 +388,7 @@ img {
 .smallWeapon3 {
   position: relative;
   bottom: -52px;
-  left: 285px;
+  left: 261px;
   width: 80px;
   height: 80px;
   z-index: 2;
@@ -366,7 +399,7 @@ img {
   height: 80px;
   z-index: 2;
   bottom: -52px;
-  left: 234px;
+  left: 211px;
 }
 .characterCardName3 {
   position: relative;
@@ -375,6 +408,7 @@ img {
   left: -120px;
   font-size: 20px;
   font-weight: 700;
+  z-index: 11;
 }
 .monsterCardLevel3 {
   position: relative;
@@ -384,6 +418,7 @@ img {
   font-size: 20px;
   font-weight: 700;
   color: rgb(38, 0, 255);
+  z-index: 11;
 }
 .monsterCardExtras3 {
   position: relative;
@@ -391,12 +426,13 @@ img {
   font-size: 14px;
   bottom: 450px;
   left: -118px;
+  z-index: 11;
 }
 .monsterCardBio3 {
   position: relative;
   z-index: 2;
   bottom: 715px;
-  left: 290px;
+  left: 267px;
   word-wrap: break-word;
   overflow: hidden;
   width: 190px;
@@ -414,33 +450,6 @@ img {
   left: 0px;
 }
 .monsterCardDelete3 {
-  position: relative;
-  z-index: 2;
-  bottom: 415px;
-  left: 0px;
-}
-.monsterCardBio2 {
-  position: relative;
-  z-index: 2;
-  bottom: 760px;
-  left: 290px;
-  word-wrap: break-word;
-  overflow: hidden;
-  width: 190px;
-  height: 180px;
-  /* background-color: aqua; */
-  font-size: 19px;
-  font-weight: 500;
-  color: rgb(255, 255, 255);
-  text-shadow: 0px 0px 2px rgb(0, 0, 0), 0 0 0.2em rgb(142, 0, 0);
-}
-.monsterCardEdit2 {
-  position: relative;
-  z-index: 2;
-  bottom: 415px;
-  left: 0px;
-}
-.monsterCardDelete2 {
   position: relative;
   z-index: 2;
   bottom: 415px;
