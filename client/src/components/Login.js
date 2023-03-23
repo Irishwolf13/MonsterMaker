@@ -44,11 +44,12 @@ function Login({ setUser, monsterState, setMonsterState }) {
 
   return (
     <>
-      <div className='userNameDiv'>Login</div>
+      <div className='userNameDiv'></div>
       <div id="login-form">
         <form className="form" onSubmit={handleSubmit}>
             <input name="username" type="text" required onChange={handleChange} value={formState.username} placeholder="username"/>
             <input name="password" type="password" required onChange={handleChange} value={formState.password} placeholder="password"/>
+            <br></br>
             <button type="submit">Login</button>
         </form>
       </div>

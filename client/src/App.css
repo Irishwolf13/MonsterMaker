@@ -169,6 +169,7 @@ img {
   cursor: pointer;
 }
 .characterCardContainer{
+  /* background-color: aqua; */
   display: flex;
   flex-wrap: wrap;
 }
@@ -533,7 +534,7 @@ img {
   left: 600px;
   width: 500px;
   height: auto;
-  background-color: rgb(255, 255, 255);
+  background-color: rgb(0, 0, 0);
   padding: 10px;
   border-color: #ec962c;
   border-style: solid;

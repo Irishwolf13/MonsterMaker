@@ -42,7 +42,7 @@ function App() {
   const initalState = { 
     monster_name: 'not Frank',
     look_id: 1,
-    user_id : 1,
+    // user_id : 1,
     armor_id: 1,
     weapon_id: 1,
     level: 1,
@@ -77,7 +77,8 @@ function App() {
 
   //handles logout clicked
   const handleLogOut = () => {
-    //console.log(user)
+    setUser({})
+    setMonsterState(initalState)
     fetch('http://localhost:3000/logout', {
       method: 'DELETE',
     })
@@ -98,26 +99,32 @@ function App() {
     navigate('/show/monsters/')
   }
   const handleCreateMonsters = () => {
-    setMonsterState(initalState)
+    setMonsterState(prevState => ({ ...prevState, initalState }))
     setArmorBoard([])
     setWeaponBoard([])
     navigate('/choose/monster')
   }
-
+  const handleLogIn = () => {
+    navigate('/login')
+  }
   // const updateUser = (user) => setUser(user)
   // console.log('My user is:')
-  // console.log(user)
+  console.log(user)
   return (
     <div className="App">
       <div className='background'><ParticleBackground settings={settings}/></div>
       <DndProvider backend={ HTML5Backend }>
+      {user.id ? (
         <button onClick={handleLogOut}>LogOut</button>
+      ) : (
+        <button onClick={handleLogIn}>LogIn</button>
+      )}
         <button onClick={handleShowMonsters}>Show My Monsters</button>
         <button onClick={handleCreateMonsters}>New Monster</button>
         <Routes>
           <Route
             path="/"
-            element={<HomePage user={user}/>}
+            element={<HomePage handleLogIn={handleLogIn} user={user}/>}
           />
           <Route
             path="/login"
@@ -130,7 +137,12 @@ function App() {
           />
           <Route
             path="/signup"
-            element={<Signup />}
+            element={<Signup 
+              user={user} 
+              monsterState={monsterState} 
+              setMonsterState={setMonsterState}
+              monsters={monsters}
+            />}
           />
           <Route
             path="/choose/monster"

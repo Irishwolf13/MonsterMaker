@@ -24,4 +24,14 @@ class UsersController < ApplicationController
     session[:user_id] = newUser.id
     render json: newUser, status: :created
   end
+
+  private
+
+  def strong_params
+    params.permit(
+      :username,
+      :password,
+      :email
+    )
+  end
 end
