@@ -99,7 +99,18 @@ function App() {
     navigate('/show/monsters/')
   }
   const handleCreateMonsters = () => {
-    setMonsterState(prevState => ({ ...prevState, initalState }))
+    setMonsterState(prevState => ({ ...prevState,
+      monster_name: 'Frank',
+      armor_id: 1,
+      weapon_id: 1,
+      level: 1,
+      hit_points: 1,
+      base_armor: 1,
+      attack: 1,
+      magic: 1,
+      movement: 1,
+      bio: ''
+    }))
     setArmorBoard([])
     setWeaponBoard([])
     navigate('/choose/monster')
@@ -107,9 +118,7 @@ function App() {
   const handleLogIn = () => {
     navigate('/login')
   }
-  // const updateUser = (user) => setUser(user)
-  // console.log('My user is:')
-  console.log(user)
+  
   return (
     <div className="App">
       <div className='background'><ParticleBackground settings={settings}/></div>
