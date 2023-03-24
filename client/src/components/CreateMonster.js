@@ -1,54 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { useDrop } from 'react-dnd'
-import Picture from './Picture';
-import Weapons from './Weapons';
 import MonsterImageCard2 from './MonsterImageCard2.js'
 import { useNavigate } from 'react-router-dom';
+import DragDrop from './DragDrop';
 
 function CreateMonster({user, setMonsterState, monsterState, monsters,setArmorBoard,setWeaponBoard,armorBoard,weaponBoard}) {
   //allow navigation
   const navigate = useNavigate();
-  
-  //States
-  const [deletedItems, setDeletedItems] = useState([])
-  const [armorList, setArmorList] = useState([])
-  const [weaponList, setWeaponList] = useState([])
-  const [showArmors, setShowArmors] = useState(false);
-  const [showWeapons, setShowWeapons] = useState(false);
-
-  const [{ isOver: isOverBoard }, dropBoard] = useDrop(() => (
-    {
-      accept: "image",
-      drop: (item) => {
-        addImageToBoard(item.id)
-        setShowArmors(false)
-      },
-      collect: (monitor) => ({
-        isOver: !!monitor.isOver()
-      })
-    }
-  ))
-  const [{ isOver: isOverWeaponBoard }, dropWeaponBoard] = useDrop(() => (
-    {
-      accept: "sword",
-      drop: (item) => {
-        addWeaponToBoard(item.id);
-        setShowWeapons(false)
-      },
-      collect: (monitor) => ({
-        isOver: !!monitor.isOver()
-      })
-    }
-  ))
-
-  useEffect(() => {
-    fetch('http://localhost:3000/armors')
-      .then(response => response.json())
-      .then(data => setArmorList(data));
-    fetch('http://localhost:3000/weapons')
-    .then(response => response.json())
-    .then(data => setWeaponList(data))
-  },[])
 
   const saveMonster = () => {
     fetch('http://localhost:3000/monsters',{
@@ -65,64 +22,6 @@ function CreateMonster({user, setMonsterState, monsterState, monsters,setArmorBo
     // .then(data => {console.log(data);})
     .catch(error => alert(`Error: ${error.message}`))
   }
-
-  // Adding images to boards
-  const addImageToBoard = (item) => {
-    setMonsterState(prevState => ({ ...prevState, armor_id: item }));
-    fetch(`http://localhost:3000/armors/${item}`)
-    .then(response => response.json())
-    .then(data => setArmorBoard([data]));
-  }
-
-  // Adding images to boards
-  const addWeaponToBoard = (item) => {
-    setMonsterState(prevState => ({ ...prevState, weapon_id: item }));
-    fetch(`http://localhost:3000/weapons/${item}`)
-      .then(response => response.json())
-      .then(data => setWeaponBoard([data]));
-  }
-  // Armors
-  const myArmors = armorList.map(armor => {
-    return <Picture key={ armor.id } id={ armor.id } url={ armor.image }/>
-  })
-
-  // Weapons
-  const myWeapons = weaponList.map(weapon => {
-    return <Weapons key={ weapon.id } id={ weapon.id } url={ weapon.image }/>
-  })
-
-  const removeArmor = (id) => {
-    const filteredPictures = armorBoard.filter((armor) => id == armor.id)
-    const newArmorBoard = armorBoard.filter((armor) => id !== armor.id)
-    setDeletedItems([...deletedItems, filteredPictures[0]])
-    setArmorBoard(newArmorBoard)
-    setMonsterState(prevState => ({ ...prevState, armor_id: 1 }));
-  }
-  const removeWeapon = (id) => {
-    const myWeapons = weaponBoard.filter((weapon) => id == weapon.id)
-    const newWeaponBoard = weaponBoard.filter((weapon) => id !== weapon.id)
-    setDeletedItems([...deletedItems, myWeapons[0]])
-    setWeaponBoard(newWeaponBoard)
-    setMonsterState(prevState => ({ ...prevState, weapon_id: 1 }));
-  }
-
-  const myArmorBoard = armorBoard.map((armor) => {
-    return (
-      <div className='currentItem' key={armor.id}>
-        <Picture id={armor.id} url={armor.image}  />
-        <button onClick={() => removeArmor(armor.id)}> Remove </button>
-      </div>
-    );
-  });
-
-  const myWeaponBoard = weaponBoard.map((weapon) => {
-    return (
-      <div className='currentItem' key={weapon.id}>
-        <Weapons id={weapon.id} url={weapon.image} />
-        <button onClick={() => removeWeapon(weapon.id)}> Remove </button>
-      </div>
-    );
-  });
 
   const viewMonsters = () => {
     return monsters.filter(monster => monster.id === monsterState.look_id).map(monster => (
@@ -163,20 +62,7 @@ function CreateMonster({user, setMonsterState, monsterState, monsters,setArmorBo
     }))
   }
 
-  // Pretty sure I'll be able to refactor these into one function
-  const handleArmorsClick = () => {
-    setShowArmors(!showArmors)
-    if(showWeapons == true) {
-      setShowWeapons(!showWeapons)
-    }
-  }
-  const handleWeaponsClick = () => {
-    setShowWeapons(!showWeapons)
-    if(showArmors == true) {
-      setShowArmors(!showArmors)
-    }
-  }
-console.log(showWeapons)
+// console.log(showWeapons)
   return (
     <>
     <div>
@@ -219,33 +105,34 @@ console.log(showWeapons)
         </div>
       </form>
     </div>
-
+    <DragDrop 
+      setMonsterState={setMonsterState}
+      setMyBoard={setArmorBoard}
+      myBoard={armorBoard}
+      fetchURL={'http://localhost:3000/armors'}
+      boardNumber={'Board1'}
+      imageClassName={'armorFrame'}
+      buttonClassName={'armorsButton'}
+      buttonText={'Armors'}
+      myAccpets={'image'}
+      item_id={'armor_id'}
+      drop_type={'image'}
+    />
+        <DragDrop 
+      setMonsterState={setMonsterState}
+      setMyBoard={setWeaponBoard}
+      myBoard={weaponBoard}
+      fetchURL={'http://localhost:3000/weapons'}
+      boardNumber={'Board2'}
+      imageClassName={'armorFrame'}
+      buttonClassName={'weaponsButton'}
+      buttonText={'Weapons'}
+      myAccpets={'sword'}
+      item_id={'weapon_id'}
+      drop_type={'sword'}
+    />
     <div>
       {viewMonsters()}
-      <div className='Board1' ref={dropBoard}>
-        <img className='armorFrame' src={'https://raw.githubusercontent.com/Irishwolf13/monsterImages/main/frames/rectangle1.png'}/>
-        {myArmorBoard}
-        </div>
-      <div className='Board2' ref={dropWeaponBoard}>
-        <img className='armorFrame' src={'https://raw.githubusercontent.com/Irishwolf13/monsterImages/main/frames/rectangle1.png'}/>
-        {myWeaponBoard}
-        </div>
-    </div>
-    <div>
-      <button className='armorsButton' onClick={handleArmorsClick}>Armors</button>
-      {showArmors && (
-        <div className='picturesContainer' title='Drag and Drop Items'>
-          <div className='dropDownPictures'>{myArmors}</div>
-        </div>
-      )}
-    </div>
-    <div>
-      <button className='weaponsButton'onClick={handleWeaponsClick}>Weapons</button>
-      {showWeapons && (
-        <div className='picturesContainer' title='Drag and Drop Items'>
-          <div className='dropDownPictures'>{myWeapons}</div>
-        </div>
-      )}
     </div>
   </>
   )
