@@ -34,6 +34,7 @@ function ShowMonsters({ user, monsterState }) {
         weapon_image={monster.weapon.image}
         movement={monster.movement}
         bio={monster.bio}
+        augmnet={monster.augmnet}
         handleMonsterDelete={handleMonsterDelete}
       />
     ))

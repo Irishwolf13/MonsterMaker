@@ -1,7 +1,7 @@
 import '../App.css';
 import { useNavigate } from 'react-router-dom';
 
-function MonsterCharacterCard({id, url, level, monsterName, HP, MP, attack, armor_type, armor_image, weapon_image, movement, bio, handleMonsterDelete }) {
+function MonsterCharacterCard({id, url, level, monsterName, HP, MP, attack, armor_type, armor_image, weapon_image, movement, bio, augmnet, handleMonsterDelete }) {
   //allow navigation
   const navigate = useNavigate();
   
@@ -18,6 +18,7 @@ function MonsterCharacterCard({id, url, level, monsterName, HP, MP, attack, armo
   let forBio;
   let forDelete;
   let forEdit;
+  let forAugment;
   switch (true) {
     case level > 10:
       myImage = 'http://cloud-3.steamusercontent.com/ugc/2042984690529224232/F60F430287941F7F6BFBAA29B1C7AF29BE99330A/';
@@ -33,6 +34,7 @@ function MonsterCharacterCard({id, url, level, monsterName, HP, MP, attack, armo
       forBio = 'monsterCardBio3'
       forEdit = 'monsterCardEdit3'
       forDelete = 'monsterCardDelete3'
+      forAugment = 'monsterCardAugment3'
       break;
     case level > 1 && level <= 10:
       myImage = "https://raw.githubusercontent.com/Irishwolf13/monsterImages/main/frames/card_1_B.png";
@@ -48,6 +50,7 @@ function MonsterCharacterCard({id, url, level, monsterName, HP, MP, attack, armo
       forBio = 'monsterCardBio2'
       forEdit = 'monsterCardEdit2'
       forDelete = 'monsterCardDelete2'
+      forAugment = 'monsterCardAugment2'
       break;
     default:
       myImage = 'http://cloud-3.steamusercontent.com/ugc/2042984690529165000/768B0F9519797294A9A1251EA5015ACA97ED8C02/';
@@ -63,6 +66,7 @@ function MonsterCharacterCard({id, url, level, monsterName, HP, MP, attack, armo
       forBio = 'monsterCardBio1'
       forEdit = 'monsterCardEdit1'
       forDelete = 'monsterCardDelete1'
+      forAugment = 'monsterCardAugment1'
   }
   
   const handleClicked = () => {
@@ -85,15 +89,16 @@ function MonsterCharacterCard({id, url, level, monsterName, HP, MP, attack, armo
       <div>
         <div className={forLevel}>{level} </div>
         <div className={forExtras}>
-          <div>Armor type: {armor_type}</div>
-          <div>HitPoints: {HP} </div>
-          <div>MagicPoints: {MP} </div>
+          <div>Move Speed: {movement}</div>
+          <div>Hit Points: {HP} </div>
+          <div>Magic Points: {MP} </div>
           <div>Attack Rating: {attack} </div>
         </div>
       </div>
       <button className={forDelete} onClick={handleClicked}>Delete</button>
       <button className={forEdit} onClick={handleEditMonster}>Edit Monster</button>
       <div className={forBio} >{bio}</div>
+      <img className={forAugment} src={'https://raw.githubusercontent.com/Irishwolf13/monsterImages/main/orbs/green.png'} />
     </div>
   );
 }
