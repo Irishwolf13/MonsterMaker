@@ -1,80 +1,97 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDrop } from 'react-dnd'
 import Picture from './Picture';
 import Weapons from './Weapons';
 
-const PictureList = [
+function DragDrop({
+  setMonsterState,
+  setMyBoard,
+  myBoard,
+  fetchURL,
+  imageClassName,
+  buttonClassName,
+  buttonText,
+  boardNumber,
+  myAccpets,
+  item_id,
+  drop_type
+})
   {
-    id: 1,
-    url: "https://www.kidsmathgamesonline.com/images/pictures/numbers600/number1.jpg"
-  },
-  {
-    id: 2,
-    url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRG1OX6r_H8VLliuAsMYNYdfvN8ImFhUt8ntw&usqp=CAU"
-  },
-  {
-    id: 3,
-    url: "https://us.123rf.com/450wm/inkdrop/inkdrop1903/inkdrop190301379/119198987-gold-glitter-number-3-shiny-sparkling-golden-number-3d-rendering.jpg?ver=6"
-  }
-]
 
-function DragDrop() {
-
-  const [board, setBoard] = useState([])
-  const [weaponBoard, setWeaponBoard] = useState([])
+  const [deletedItems, setDeletedItems] = useState([])
+  const [myList, setMyList] = useState([])
+  const [myThings, setShowMyThings] = useState(false);
+  
+  // This will end up needing to be a switch for a function as we build this up
+  const ItemComponent = drop_type === 'picture' ? Picture : Weapons;
 
   const [{ isOver: isOverBoard }, dropBoard] = useDrop(() => (
     {
-      accept: "image",
-      drop: (item) => addImageToBoard(item.id),
+      accept: myAccpets,
+      drop: (item) => {
+        addImageToBoard(item.id, item_id)
+        setShowMyThings(false)
+      },
       collect: (monitor) => ({
         isOver: !!monitor.isOver()
       })
     }
   ))
 
-  const [{ isOver: isOverWeaponBoard }, dropWeaponBoard] = useDrop(() => (
-    {
-      accept: "sword",
-      drop: (item) => addWeaponToBoard(item.id),
-      collect: (monitor) => ({
-        isOver: !!monitor.isOver()
-      })
-    }
-  ))
+  useEffect(() => {
+    fetch(fetchURL)
+      .then(response => response.json())
+      .then(data => setMyList(data));
+  },[])
 
-  const addImageToBoard = (id) => {
-    const filteredPictures = PictureList.filter((picture) => id == picture.id)
-    setBoard((board) => [...board, filteredPictures[0]])
+  // Adding images to boards
+  const addImageToBoard = (item, item_id) => {
+    setMonsterState(prevState => ({ ...prevState, [item_id]: item }));
+    fetch(`${fetchURL}/${item}`)
+    .then(response => response.json())
+    .then(data => setMyBoard([data]));
   }
 
-  const addWeaponToBoard = (id) => {
-    const myWeapons = PictureList.filter((picture) => id == picture.id)
-    setWeaponBoard((board) => [...board, myWeapons[0]])
+  // Items
+  const thingsToShow = myList.map(item => {
+    return <ItemComponent key={ item.id } id={ item.id } url={ item.image }/>
+  })
+
+  const removeItem = (id, item_id) => {
+    const filtered = myBoard.filter((item) => id == item.id)
+    const tempBoard = myBoard.filter((item) => id !== item.id)
+    setDeletedItems([...deletedItems, filtered[0]])
+    setMyBoard(tempBoard)
+    setMonsterState(prevState => ({ ...prevState, [item_id]: 1 }));
   }
 
-  const myPictures = PictureList.map(picture => {
-    return <Picture key={ picture.id } id={ picture.id } url={ picture.url }/>
-  })
+  const myItemBoard = myBoard.map((item) => {
+    return (
+      <div className='currentItem' key={item.id}>
+        <ItemComponent id={item.id} url={item.image}  />
+        <button onClick={() => removeItem(item.id, item_id)}> Remove </button>
+      </div>
+    );
+  });
 
-  const myBoard = board.map((picture) => {
-    return <Picture url={picture.url} id={picture.id} />
-  })
-
-  const myWeapons = PictureList.map(picture => {
-    return <Weapons key={ picture.id } id={ picture.id } url={ picture.url }/>
-  })
-
-  const myWeaponBoard = weaponBoard.map((weapon) => {
-    return <Weapons key={ weapon.id } id={ weapon.id } url={ weapon.url } />
-  })
+  const handleItemsClick = () => {
+    setShowMyThings(!myThings)
+  }
 
   return (
     <>
-      <div className='Pictures'> { myPictures } </div>
-      <div className='Board' ref={dropBoard}> { myBoard } </div>
-      <div className='Board' ref={dropWeaponBoard}> { myWeaponBoard } </div>
-      <div className='Pictures'> { myWeapons }</div>
+      <div className={boardNumber} ref={dropBoard}>
+        <img className={imageClassName} src={'https://raw.githubusercontent.com/Irishwolf13/monsterImages/main/frames/rectangle1.png'}/>
+        {myItemBoard}
+      </div>
+      <div>
+        <button className={buttonClassName} onClick={handleItemsClick}>{buttonText}</button>
+        {myThings && (
+          <div className='picturesContainer' title='Drag and Drop Items'>
+            <div className='dropDownPictures'>{thingsToShow}</div>
+          </div>
+        )}
+      </div>
     </>
   )
 }
