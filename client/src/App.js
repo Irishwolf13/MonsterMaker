@@ -180,13 +180,8 @@ function App() {
             path="/create/monster/"
             element={<CreateMonster 
               user={user} 
-              monsterState={monsterState} 
-              setMonsterState={setMonsterState}
+              monsterState={monsterState}
               monsters={monsters}
-              setArmorBoard={setArmorBoard}
-              setWeaponBoard={setWeaponBoard}
-              armorBoard={armorBoard}
-              weaponBoard={weaponBoard}
               />}
           />
         </Routes>
