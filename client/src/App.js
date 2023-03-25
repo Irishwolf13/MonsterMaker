@@ -121,15 +121,17 @@ function App() {
   
   return (
     <div className="App">
+      {!user.id && <button onClick={() => {navigate('/')}}>Home</button>}
       <div className='background'><ParticleBackground settings={settings}/></div>
       <DndProvider backend={ HTML5Backend }>
-      {user.id ? (
-        <button onClick={handleLogOut}>LogOut</button>
-      ) : (
-        <button onClick={handleLogIn}>LogIn</button>
-      )}
-        <button onClick={handleShowMonsters}>Show My Monsters</button>
-        <button onClick={handleCreateMonsters}>New Monster</button>
+      {
+        user.id &&
+        <>
+          <button onClick={handleLogOut}>LogOut</button>
+          <button onClick={handleShowMonsters}>Show My Monsters</button>
+          <button onClick={handleCreateMonsters}>New Monster</button>
+        </>
+      }
         <Routes>
           <Route
             path="/"
