@@ -164,23 +164,16 @@ function App() {
           />
           <Route
             path="/show/monsters/"
-            element={<ShowMonsters 
-              user={user} 
-              monsterState={monsterState} 
-              setMonsterState={setMonsterState}
+            element={<ShowMonsters
+              userMonsters={monsterState.user_id}
             />}
           />
           <Route
             path="/show/monster/:id"
-            element={<ShowMyMonster 
-              user={user} 
-              monsterState={monsterState} 
-              setMonsterState={setMonsterState}
+            element={<ShowMyMonster
+              user={user}
+              monsterState={monsterState}
               monsters={monsters}
-              setArmorBoard={setArmorBoard}
-              setWeaponBoard={setWeaponBoard}
-              armorBoard={armorBoard}
-              weaponBoard={weaponBoard}
             />}
           />
           <Route

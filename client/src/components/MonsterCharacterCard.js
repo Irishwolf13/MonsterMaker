@@ -1,7 +1,7 @@
 import '../App.css';
 import { useNavigate } from 'react-router-dom';
 
-function MonsterCharacterCard({id, url, level, monsterName, HP, MP, attack, armor_type, armor_image, weapon_image, movement, bio, augmnet, handleMonsterDelete }) {
+function MonsterCharacterCard({monster_id, url, level, monsterName, HP, MP, attack, armor_type, armor_image, weapon_image, movement, bio, augmnet, handleMonsterDelete }) {
   //allow navigation
   const navigate = useNavigate();
   
@@ -70,13 +70,13 @@ function MonsterCharacterCard({id, url, level, monsterName, HP, MP, attack, armo
   }
   
   const handleClicked = () => {
-    fetch(`http://localhost:3000/monsters/${id}`, {
+    fetch(`http://localhost:3000/monsters/${monster_id}`, {
       method: 'DELETE'
     })
-    .then(() => handleMonsterDelete(id))
+    .then(() => handleMonsterDelete(monster_id))
   }
   const handleEditMonster = (e) => {
-    navigate(`/show/monster/${id}`)
+    navigate(`/show/monster/${monster_id}`)
   }
   return (
     <div className='characterCardHolder'>

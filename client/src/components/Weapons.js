@@ -3,7 +3,6 @@ import "../App.css";
 import { useDrag } from 'react-dnd';
 
 function Weapon({ id, url, myButtonClicked }) {
-
   const [{ isDragging }, drag] = useDrag(() => ({
     type: "sword",
     item: {id: id},

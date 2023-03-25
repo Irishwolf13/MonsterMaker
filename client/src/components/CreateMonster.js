@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import MonsterImageCard2 from './MonsterImageCard2.js'
 import { useNavigate } from 'react-router-dom';
-import DragDrop from './DragDrop';
+import ArmorDrop from './ArmorDrop';
 
 function CreateMonster({user, setMonsterState, monsterState, monsters,setArmorBoard,setWeaponBoard,armorBoard,weaponBoard}) {
   //allow navigation
@@ -105,7 +105,7 @@ function CreateMonster({user, setMonsterState, monsterState, monsters,setArmorBo
         </div>
       </form>
     </div>
-    <DragDrop 
+    <ArmorDrop 
       setMonsterState={setMonsterState}
       setMyBoard={setArmorBoard}
       myBoard={armorBoard}
@@ -118,7 +118,7 @@ function CreateMonster({user, setMonsterState, monsterState, monsters,setArmorBo
       item_id={'armor_id'}
       drop_type={'image'}
     />
-    <DragDrop 
+    <ArmorDrop 
       setMonsterState={setMonsterState}
       setMyBoard={setWeaponBoard}
       myBoard={weaponBoard}

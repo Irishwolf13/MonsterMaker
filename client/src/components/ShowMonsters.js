@@ -1,28 +1,24 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 import MonsterCharacterCard from './MonsterCharacterCard';
 
-function ShowMonsters({ user, monsterState }) {
-  //allow navigation
-  const navigate = useNavigate();
-  const [myMonster, setMyMonster] = useState([])
+function ShowMonsters({ userMonsters }) {
+  const [myMonsters, setMyMonsters] = useState([])
 
   useEffect(() => {
-    fetch(`http://localhost:3000/monsters/${monsterState.user_id}`)
-      .then(response => response.json())
-      .then(data => setMyMonster(data));
+    fetch(`http://localhost:3000/monsters/${userMonsters}`)
+      .then(res => res.json())
+      .then(data => setMyMonsters(data))
   },[])
 
-
   const handleMonsterDelete = (id) => {
-    setMyMonster(myMonster.filter(monster => monster.id !== id));
+    setMyMonsters(myMonsters.filter(monster => monster.id !== id));
   };
 
   const viewMonsters = () => {
-    return myMonster.map(monster => (
+    return myMonsters.map(monster => (
       <MonsterCharacterCard
         key={monster.id}
-        id={monster.id}
+        monster_id={monster.id}
         url={monster.look.image}
         level={monster.level}
         monsterName={monster.monster_name}
@@ -40,7 +36,6 @@ function ShowMonsters({ user, monsterState }) {
     ))
   };
 
-// console.log(monsterState)
   return (
     <>
       <div>Show Monsters</div>

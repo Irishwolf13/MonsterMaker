@@ -2,7 +2,7 @@ import React from 'react';
 import "../App.css";
 import { useDrag } from 'react-dnd';
 
-function Picture({ id, url, myButtonClicked }) {
+function Armor({ id, url, myButtonClicked }) {
   const [{ isDragging }, drag] = useDrag(() => ({
     type: "image",
     item: {id: id},
@@ -25,4 +25,4 @@ function Picture({ id, url, myButtonClicked }) {
   );
 }
 
-export default Picture
+export default Armor
