@@ -2,7 +2,7 @@ import React from 'react';
 import "../App.css";
 import { useDrag } from 'react-dnd';
 
-function Picture({ id, url }) {
+function Picture({ id, url, myButtonClicked }) {
   const [{ isDragging }, drag] = useDrag(() => ({
     type: "image",
     item: {id: id},
@@ -13,7 +13,7 @@ function Picture({ id, url }) {
 
   return(
     <>
-      <div className='imageHolder'>
+      <div onClick={myButtonClicked} className='imageHolder'>
         <img
           className='selectionImages'
           ref={drag}

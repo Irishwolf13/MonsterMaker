@@ -110,7 +110,7 @@ function CreateMonster({user, setMonsterState, monsterState, monsters,setArmorBo
       setMyBoard={setArmorBoard}
       myBoard={armorBoard}
       fetchURL={'http://localhost:3000/armors'}
-      boardNumber={'Board1'}
+      boardNumber={'BoardArmor'}
       imageClassName={'armorFrame'}
       buttonClassName={'armorsButton'}
       buttonText={'Armors'}
@@ -118,12 +118,12 @@ function CreateMonster({user, setMonsterState, monsterState, monsters,setArmorBo
       item_id={'armor_id'}
       drop_type={'image'}
     />
-        <DragDrop 
+    <DragDrop 
       setMonsterState={setMonsterState}
       setMyBoard={setWeaponBoard}
       myBoard={weaponBoard}
       fetchURL={'http://localhost:3000/weapons'}
-      boardNumber={'Board2'}
+      boardNumber={'BoardWeapon'}
       imageClassName={'armorFrame'}
       buttonClassName={'weaponsButton'}
       buttonText={'Weapons'}

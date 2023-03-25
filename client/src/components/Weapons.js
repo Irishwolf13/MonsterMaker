@@ -2,7 +2,8 @@ import React from 'react';
 import "../App.css";
 import { useDrag } from 'react-dnd';
 
-function Weapon({ id, url }) {
+function Weapon({ id, url, myButtonClicked }) {
+
   const [{ isDragging }, drag] = useDrag(() => ({
     type: "sword",
     item: {id: id},
@@ -13,7 +14,7 @@ function Weapon({ id, url }) {
 
   return(
     <>
-      <div className='imageHolder'>
+      <div onClick={myButtonClicked} className='imageHolder'>
         <img
           className='selectionImages'
           ref={drag}

@@ -88,7 +88,7 @@ Armor.create(
   defense: 0,
   weight: 0,
   movement_reduction: 0,
-  image: "https://thumbs.dreamstime.com/z/no-history-armor-icon-simple-thin-line-outline-vector-history-ban-prohibition-embargo-interdict-forbiddance-icons-ui-no-179466654.jpg"
+  image: "https://raw.githubusercontent.com/Irishwolf13/monsterImages/main/armor/noArmor.jpg"
 )
 Armor.create(
   material: 'cloth',
@@ -124,7 +124,7 @@ Weapon.create(
   style: "None",
   attack: 0,
   weight: 0,
-  image: "https://thumbs.dreamstime.com/z/bro-fist-bump-power-five-pound-flat-vector-icon-apps-websites-black-white-173031740.jpg"
+  image: "https://raw.githubusercontent.com/Irishwolf13/monsterImages/main/weapon/noWeapon.jpg"
 )
 Weapon.create(
   style: "sword",

@@ -14,35 +14,48 @@ function DragDrop({
   boardNumber,
   myAccpets,
   item_id,
-  drop_type
+  drop_type,
+  myArmor_id
 })
   {
 
   const [deletedItems, setDeletedItems] = useState([])
   const [myList, setMyList] = useState([])
   const [myThings, setShowMyThings] = useState(false);
-  
+
   // This will end up needing to be a switch for a function as we build this up
-  const ItemComponent = drop_type === 'picture' ? Picture : Weapons;
+  const ItemComponent = drop_type === 'image' ? Picture : Weapons;
 
   const [{ isOver: isOverBoard }, dropBoard] = useDrop(() => (
     {
       accept: myAccpets,
       drop: (item) => {
         addImageToBoard(item.id, item_id)
-        setShowMyThings(false)
       },
       collect: (monitor) => ({
         isOver: !!monitor.isOver()
       })
     }
   ))
-
+    // ################## I don't really like how this updates the setMyBoard, but it works ##############
   useEffect(() => {
+    if(myArmor_id !== undefined) {
+      fetch(`${fetchURL}/${myArmor_id}`)
+      .then(response => response.json())
+      .then(data => setMyBoard([data]));
+    }else {
+      fetch(`${fetchURL}/1`)
+      .then(response => response.json())
+      .then(data => setMyBoard([data]));
+    }
     fetch(fetchURL)
       .then(response => response.json())
       .then(data => setMyList(data));
-  },[])
+  },[myArmor_id])
+
+  const handleItemsClick = () => {
+    setShowMyThings(!myThings)
+  }
 
   // Adding images to boards
   const addImageToBoard = (item, item_id) => {
@@ -50,42 +63,29 @@ function DragDrop({
     fetch(`${fetchURL}/${item}`)
     .then(response => response.json())
     .then(data => setMyBoard([data]));
+    setShowMyThings(false)
   }
 
   // Items
   const thingsToShow = myList.map(item => {
-    return <ItemComponent key={ item.id } id={ item.id } url={ item.image }/>
+    return <ItemComponent key={ item.id } id={ item.id } url={ item.image } myButtonClicked={() => {addImageToBoard(item.id, item_id)}}/>
   })
-
-  const removeItem = (id, item_id) => {
-    const filtered = myBoard.filter((item) => id == item.id)
-    const tempBoard = myBoard.filter((item) => id !== item.id)
-    setDeletedItems([...deletedItems, filtered[0]])
-    setMyBoard(tempBoard)
-    setMonsterState(prevState => ({ ...prevState, [item_id]: 1 }));
-  }
 
   const myItemBoard = myBoard.map((item) => {
     return (
       <div className='currentItem' key={item.id}>
-        <ItemComponent id={item.id} url={item.image}  />
-        <button onClick={() => removeItem(item.id, item_id)}> Remove </button>
+        <ItemComponent id={item.id} url={item.image} myButtonClicked={handleItemsClick} />
       </div>
     );
   });
 
-  const handleItemsClick = () => {
-    setShowMyThings(!myThings)
-  }
-
   return (
     <>
-      <div className={boardNumber} ref={dropBoard}>
-        <img className={imageClassName} src={'https://raw.githubusercontent.com/Irishwolf13/monsterImages/main/frames/rectangle1.png'}/>
+      <div className={`${boardNumber} Board`} ref={dropBoard}>
+        <img className={imageClassName} src={'https://raw.githubusercontent.com/Irishwolf13/monsterImages/main/frames/square2.png'}/>
         {myItemBoard}
       </div>
       <div>
-        <button className={buttonClassName} onClick={handleItemsClick}>{buttonText}</button>
         {myThings && (
           <div className='picturesContainer' title='Drag and Drop Items'>
             <div className='dropDownPictures'>{thingsToShow}</div>
