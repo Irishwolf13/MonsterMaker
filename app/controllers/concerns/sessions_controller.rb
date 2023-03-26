@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
       # puts 'Session[:user_id]'
       # puts session[:user_id]
     else
-      render json: {error: 'Sorry, you suck fool!'}, status: :unauthorized
+      render json: {error: 'Incorrect Username or Password, please try again.'}, status: :unauthorized
     end
   end
 

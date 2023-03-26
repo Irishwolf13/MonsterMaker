@@ -51,10 +51,13 @@ function CreateMonster({monsters, monsterState}) {
     .then(res => {
       if (res.ok) {
         alert('Monster Saved!');
+      } else {
+        res.json().then(data => {
+          let messages = Object.values(data.errors).flat();
+          alert(`Validation failed: ${messages.join(', ')}`);
+        });
       }
-      return res.json();
     })
-    // .then(data => {console.log(data);})
     .catch(error => alert(`Error: ${error.message}`))
   }
 

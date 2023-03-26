@@ -1,10 +1,10 @@
 import '../App.css';
 import { useNavigate } from 'react-router-dom';
 
-function MonsterCharacterCard({monster_id, url, level, monsterName, HP, MP, attack, armor_type, armor_image, weapon_image, movement, bio, augmnet, handleMonsterDelete }) {
+function MonsterCharacterCard({monster_id, url, level, monsterName, HP, MP, attack, armor_defense, armor_base, armor_image, weapon_image, movement, bio, augmnet, handleMonsterDelete }) {
   //allow navigation
   const navigate = useNavigate();
-  
+  let myArmorRating = (armor_base + armor_defense);
   let myImage;
   let forBack;
   let forBackBoarder;
@@ -19,6 +19,7 @@ function MonsterCharacterCard({monster_id, url, level, monsterName, HP, MP, atta
   let forDelete;
   let forEdit;
   let forAugment;
+  let forArmorRating;
   switch (true) {
     case level > 10:
       myImage = 'http://cloud-3.steamusercontent.com/ugc/2042984690529224232/F60F430287941F7F6BFBAA29B1C7AF29BE99330A/';
@@ -35,6 +36,7 @@ function MonsterCharacterCard({monster_id, url, level, monsterName, HP, MP, atta
       forEdit = 'monsterCardEdit3'
       forDelete = 'monsterCardDelete3'
       forAugment = 'monsterCardAugment3'
+      forArmorRating= 'armorRating3'
       break;
     case level > 1 && level <= 10:
       myImage = "https://raw.githubusercontent.com/Irishwolf13/monsterImages/main/frames/card_1_B.png";
@@ -51,9 +53,10 @@ function MonsterCharacterCard({monster_id, url, level, monsterName, HP, MP, atta
       forEdit = 'monsterCardEdit2'
       forDelete = 'monsterCardDelete2'
       forAugment = 'monsterCardAugment2'
+      forArmorRating= 'armorRating2'
       break;
     default:
-      myImage = 'http://cloud-3.steamusercontent.com/ugc/2042984690529165000/768B0F9519797294A9A1251EA5015ACA97ED8C02/';
+      myImage = 'https://raw.githubusercontent.com/Irishwolf13/monsterImages/main/frames/card1Front.png';
       forBack = 'https://raw.githubusercontent.com/Irishwolf13/monsterImages/main/frames/card_2_back3.png'
       forName = 'characterCardName1'
       forArmor = 'smallArmor1'
@@ -67,6 +70,7 @@ function MonsterCharacterCard({monster_id, url, level, monsterName, HP, MP, atta
       forEdit = 'monsterCardEdit1'
       forDelete = 'monsterCardDelete1'
       forAugment = 'monsterCardAugment1'
+      forArmorRating= 'armorRating1'
   }
   
   const handleClicked = () => {
@@ -92,13 +96,14 @@ function MonsterCharacterCard({monster_id, url, level, monsterName, HP, MP, atta
           <div>Move Speed: {movement}</div>
           <div>Hit Points: {HP} </div>
           <div>Magic Points: {MP} </div>
-          <div>Attack Rating: {attack} </div>
+          <div>Attack Rating: {attack}</div>
         </div>
       </div>
       <button className={forDelete} onClick={handleClicked}>Delete</button>
       <button className={forEdit} onClick={handleEditMonster}>Edit Monster</button>
       <div className={forBio} >{bio}</div>
       <img className={forAugment} src={'https://raw.githubusercontent.com/Irishwolf13/monsterImages/main/orbs/green.png'} />
+      <div className={forArmorRating}> {myArmorRating} </div>
     </div>
   );
 }

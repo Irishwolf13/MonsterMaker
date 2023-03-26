@@ -34,7 +34,7 @@ function Login({ setUser, monsterState, setMonsterState }) {
           navigate(`/profile/${obj.id}`)
         })
       } else {
-        // res.json().then(data => console.log(data))
+        res.json().then(data => alert(data.error)); 
       }
     })
   }

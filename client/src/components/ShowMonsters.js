@@ -25,7 +25,8 @@ function ShowMonsters({ userMonsters }) {
         HP={monster.hit_points}
         MP={monster.magic}
         attack={monster.attack}
-        armor_type={monster.armor.material}
+        armor_defense={monster.armor.defense}
+        armor_base={monster.base_armor}
         armor_image={monster.armor.image}
         weapon_image={monster.weapon.image}
         movement={monster.movement}

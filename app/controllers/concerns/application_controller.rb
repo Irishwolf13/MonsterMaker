@@ -22,9 +22,9 @@ class ApplicationController < ActionController::API
   end
 
   def authorize
-    @frank = User.find(1)
     # @frank = User.find_by(id: session[:user_id]) #-USE THIS WHEN YOU FIRGURE SHIT OUT.
     # byebug
+    @frank = User.find(1)
     render json: {errors: "Hello World: #{@frank}"}, status: :unauthorized unless @frank
   end
 
