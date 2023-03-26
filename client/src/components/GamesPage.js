@@ -22,6 +22,8 @@ function GamePage({ user, monsterState, monsters }) {
 };
   return (
     <>
+    <div></div>
+    <button>Create New Game</button>
       <div>
         {viewGames()}
       </div>

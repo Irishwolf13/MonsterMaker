@@ -1,18 +1,27 @@
 import React from 'react';
 
 function GameCard({monster}) {
-  // console.log('MonsterDifficulty: ' + monster.difficulty)
-  // monster.join_games.map(item => {
-  //   console.log('GameMonster: ' + item.gameMonster.monster_name)
-  //   console.log('Monster Count: ' + item.monsterCount)
-  // })
+  const handleClicked = (gameId) => {
+    fetch(`http://localhost:3000/games/${gameId}`, {
+      method: 'DELETE'
+    })
+    .then(response => {
+      if (response.ok) {
+        alert("Game successfully deleted!");
+      } else {
+        alert("Something went wrong with delete");
+      }
+    })
+    .catch(error => console.log(error));
+  }
+
   const joinGames = () => {
     return monster.join_games.map(item => (
       <div>
         {[...Array(item.monsterCount)].map((_, i) => ( // create an array with 'item.monsterCount' items and map over it
           <img key={i} className='gameCardSmallImage' src={item.look.image}/> // render the image component in each iteration
           ))}
-          <div className='gameCardNumberCount'> Number of {item.gameMonster.monster_name}s: {item.monsterCount}</div>
+          <div className='gameCardNumberCount'> # of {item.gameMonster.monster_name}s: {item.monsterCount}</div>
       </div>
     ));
   }
@@ -21,9 +30,11 @@ function GameCard({monster}) {
     return uniqueGameIds.map(gameId => (
       <div className='gameCardGameNumber'>
         Game: {gameId}
+        <button onClick={() => handleClicked(gameId)}>Delete Game</button>
       </div>
     ));
   }
+  
   return(
     <>
       <div className='gameCardImageHolder'>

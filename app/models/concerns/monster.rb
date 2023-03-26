@@ -3,7 +3,7 @@ class Monster < ApplicationRecord
   belongs_to :look
   belongs_to :armor
   belongs_to :weapon
-  has_many :join_games
+  has_many :join_games, dependent: :destroy
 
   validates :monster_name, presence: { message: "A Scary monster must have a name" }
   validates :movement, presence: { message: "A scary monster must have movement" }
