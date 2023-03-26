@@ -503,6 +503,38 @@ img {
 .picturesContainer {
   position: relative;
 }
+/* ########################## GAME PAGE ############################# */
+.gameCardImageHolder {
+  /* background-color: aqua; */
+  display: flex;
+  flex-wrap: wrap;
+  width: 1000px;
+  align-items: flex-start;
+  margin-left: 200px;
+  margin-top: 20px;
+}
+
+.gameCardSmallImage {
+  /* background-color: rgb(246, 255, 0); */
+  max-width: 140px;
+  height: auto;
+  flex-shrink: 0;
+  margin-right: -100px;
+}
+.gameCardNumberCount {
+  /* background-color: aqua; */
+  width: 200px;
+  margin-left: 50px;
+}
+.gameCardGameNumber {
+  /* background-color: #ec962c; */
+  width: 200px;
+  font-size: 30px;
+  font-weight: 700;
+  position: relative;
+  left: 10px;
+  top: -130px;
+}
 
 .dropDownPictures {
   display: flex;

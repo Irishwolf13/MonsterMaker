@@ -3,6 +3,7 @@ import MonsterImageCard2 from './MonsterImageCard2.js'
 import { useNavigate, useParams } from 'react-router-dom';
 import ArmorDrop from './ArmorDrop';
 import WeaponDrop from './WeaponDrop';
+import AugmentDrop from './AugmentDrop';
 
 function CreateMonster({monsters, monsterState}) {
   //allow navigation
@@ -10,8 +11,10 @@ function CreateMonster({monsters, monsterState}) {
   const [myMonsterState, setMyMonsterState] = useState({})
   const [armorBoard, setArmorBoard] = useState([])
   const [weaponBoard, setWeaponBoard] = useState([])
+  // const [augmentBoard, setAugmentBoard] = useState([])
   const [armorList, setArmorList] = useState([])
   const [weaponList, setWeaponList] = useState([])
+  // const [augmentList, setAugmentList] = useState([])
 
   useEffect(() => {
     setMyMonsterState({
@@ -34,6 +37,9 @@ function CreateMonster({monsters, monsterState}) {
     fetch('http://localhost:3000/weapons')
     .then(response => response.json())
     .then(data => setWeaponList(data));
+    // fetch('http://localhost:3000/augments')
+    // .then(response => response.json())
+    // .then(data => setAugmentList(data));
   },[])
 
   const saveMonster = () => {
@@ -147,6 +153,13 @@ function CreateMonster({monsters, monsterState}) {
       myMonster={myMonsterState}
       weaponList={weaponList}
     />
+        {/* <AugmentDrop
+      setMyMonsterState={setMyMonsterState}
+      setMyBoard={setAugmentBoard}
+      myBoard={augmentBoard}
+      myMonster={myMonsterState}
+      augmentList={augmentList}
+    /> */}
     <div>
       {viewMonster()}
     </div>

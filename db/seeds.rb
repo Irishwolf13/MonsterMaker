@@ -195,32 +195,68 @@ Monster.create(
 )
 
 puts 'Creating Games'
-Game.create(
+Game.create( #Game_id 1
+  user_id: 1,
+  difficulty: 3
+)
+Game.create(#Game_id 2
+  user_id: 1,
+  difficulty: 4
+)
+Game.create(#Game_id 3
   user_id: 1,
   difficulty: 5
 )
-Game.create(
+
+Game.create(#Game_id 4
   user_id: 2,
-  difficulty: 5
+  difficulty: 6
 )
 
 JoinGame.create(
-  game_id: 1,
-  monster_id: 1,
-  monster_count: 10
+  game_id: 1, #Game_id 1
+  monster_id: 3,
+  monster_count: 3
 )
 JoinGame.create(
-  game_id: 1,
+  game_id: 1, #Game_id 1
   monster_id: 2,
   monster_count: 5
 )
 JoinGame.create(
-  game_id: 2,
+  game_id: 1, #Game_id 1
+  monster_id: 1,
+  monster_count: 4
+)
+JoinGame.create(
+  game_id: 1, #Game_id 1
+  monster_id: 3,
+  monster_count: 4
+)
+
+JoinGame.create(
+  game_id: 2, #Game_id 2
+  monster_id: 2,
+  monster_count: 3
+)
+JoinGame.create(
+  game_id: 2, #Game_id 2
+  monster_id: 1,
+  monster_count: 1
+)
+JoinGame.create(
+  game_id: 2, #Game_id 2
+  monster_id: 2,
+  monster_count: 4
+)
+
+JoinGame.create(
+  game_id: 3, #Game_id 3
   monster_id: 2,
   monster_count: 20
 )
 JoinGame.create(
-  game_id: 2,
+  game_id: 4, #Game_id 4
   monster_id: 3,
   monster_count: 3
 )

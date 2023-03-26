@@ -4,15 +4,15 @@ class UsersController < ApplicationController
   end
 
   def show
-    # render json: User.find(params[:id]), status: :ok
+    render json: User.find(params[:id]), status: :ok
 
-  # Going to have to get user working properly to get auth working.
-    user = User.find_by(id: session[:user_id])
-    if user
-      render json: user, status: :ok
-    else
-      render json:{errors:"Not Authorized"}, status: :unauthorized
-    end
+    # Going to have to get user working properly to get auth working.
+    # user = User.find_by(id: session[:user_id])
+    # if user
+    #   render json: user, status: :ok
+    # else
+    #   render json:{errors:"Not Authorized"}, status: :unauthorized
+    # end
   end
 
   # def showMonsters

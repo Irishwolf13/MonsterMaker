@@ -6,14 +6,17 @@ import { useNavigate } from 'react-router-dom';
 
 // import DragDrop from './components/DragDrop';
 import './App.css'
+import ParticleBackground from 'react-particle-backgrounds'
+// All the pages we will route to
 import HomePage from './components/HomePage';
+import Login from './components/Login';
+import Signup from './components/Signup';
+import ProfilePage from './components/ProfilePage';
+import GamePage from './components/GamesPage';
 import CreateMonster from './components/CreateMonster';
 import ChooseMonster from './components/ChooseMonster';
-import Login from './components/Login';
 import ShowMonsters from './components/ShowMonsters';
 import ShowMyMonster from './components/ShowMyMonster';
-import Signup from './components/Signup';
-import ParticleBackground from 'react-particle-backgrounds'
 
 function App() {
   //allow navigation
@@ -118,7 +121,9 @@ function App() {
   const handleLogIn = () => {
     navigate('/login')
   }
-  
+  const handleProfilePage = () => {
+    navigate(`/profile/${user.id}`)
+  }
   return (
     <div className="App">
       {!user.id && <button onClick={() => {navigate('/')}}>Home</button>}
@@ -130,6 +135,7 @@ function App() {
           <button onClick={handleLogOut}>LogOut</button>
           <button onClick={handleShowMonsters}>Show My Monsters</button>
           <button onClick={handleCreateMonsters}>New Monster</button>
+          <button onClick={handleProfilePage}>Profile Page</button>
         </>
       }
         <Routes>
@@ -152,6 +158,22 @@ function App() {
               user={user} 
               monsterState={monsterState} 
               setMonsterState={setMonsterState}
+              monsters={monsters}
+            />}
+          />
+          <Route
+            path="/profile/:id"
+            element={<ProfilePage 
+              user={user} 
+              monsterState={monsterState}
+              monsters={monsters}
+            />}
+          />
+          <Route
+            path="/gamePage/:id"
+            element={<GamePage 
+              user={user} 
+              monsterState={monsterState}
               monsters={monsters}
             />}
           />

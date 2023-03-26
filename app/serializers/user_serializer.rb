@@ -1,11 +1,4 @@
 class UserSerializer < ActiveModel::Serializer
-  attributes :id, :username, :password_digest, :email, :monsters
+  attributes :id, :username, :password_digest, :email, :games, :monsters
 
-  def frank
-    object.monsters.map do |item|
-      {
-        race: item
-      }
-    end
-  end
 end
