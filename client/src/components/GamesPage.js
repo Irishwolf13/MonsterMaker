@@ -11,13 +11,19 @@ function GamePage({ user, monsterState, monsters }) {
 
   useEffect(() => {
     fetch(`http://localhost:3000/games/${id}`)
-      .then(res => res.json())
-      .then(data => setMyGames(data))
+    .then(res => res.json())
+    .then(data => setMyGames(data))
   },[])
+
+  const handleGameChange = () => {
+    fetch(`http://localhost:3000/games/${id}`)
+    .then(res => res.json())
+    .then(data => setMyGames(data))
+  }
   // console.log(myGames)
  const viewGames = () => {
   return myGames.map(monster => (
-    <GameCard key={monster.id} monster={monster}/>
+    <GameCard key={monster.id} monster={monster} handleGameChange={handleGameChange}/>
   ))
 };
   return (
