@@ -30,12 +30,9 @@ function SignUp({ setUser, monsterState, setMonsterState }) {
     .then(res => {
       if(res.ok){
         res.json().then(obj => {
-          // console.log('Change User')
-          // console.log(obj)
-          // setUser(obj)
+          setUser(obj)
           setMonsterState(prevState => ({ ...prevState, user_id: obj.id }))
-          // console.log('Change monsterState')
-          navigate('/choose/monster')
+          navigate(`/profile/${obj.id}`)
         })
       } else {
         // res.json().then(data => console.log(data))

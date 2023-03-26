@@ -156,6 +156,7 @@ function App() {
             path="/signup"
             element={<Signup 
               user={user} 
+              setUser={setUser}
               monsterState={monsterState} 
               setMonsterState={setMonsterState}
               monsters={monsters}

@@ -4,6 +4,7 @@ class GameSerializer < ActiveModel::Serializer
     def join_games
     object.join_games.map do |item|
       {
+        join_id: item.id,
         game_id: item.game_id,
         monsterCount: item.monster_count,
         gameMonster: item.monster,
