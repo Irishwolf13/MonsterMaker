@@ -8,7 +8,7 @@ function GamePage({ user, monsterState, monsters }) {
   //allow navigation
   const navigate = useNavigate();
   const [myGames, setMyGames] = useState([]);
-
+ 
   useEffect(() => {
     fetch(`http://localhost:3000/games/${id}`)
     .then(res => res.json())
