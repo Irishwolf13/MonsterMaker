@@ -282,7 +282,7 @@ img {
   position: relative;
   z-index: 5;
   width: 50px;
-  bottom: 1029px;
+  bottom: 1040px;
   left: 188px;
   font-size: 25px;
   font-weight: 700;
@@ -400,7 +400,7 @@ img {
   position: relative;
   z-index: 2;
   width: 40px;
-  bottom: 983px;
+  bottom: 990px;
   left: -177px;
   z-index: 10;
 }
@@ -408,7 +408,7 @@ img {
   position: relative;
   z-index: 5;
   width: 50px;
-  bottom: 745px;
+  bottom: 755px;
   left: 107px;
   font-size: 25px;
   font-weight: 600;
@@ -419,7 +419,7 @@ img {
  .forBackground2 {
   position: relative;
   top: -1072px;
-  left: 50px;
+  left: 40px;
   width: 200px;
   height: 200px;
   z-index: -1;
