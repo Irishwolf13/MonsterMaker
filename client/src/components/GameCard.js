@@ -6,7 +6,7 @@ function GameCard({monster, handleGameChange}) {
   const displayGame = () => {
     return (
       <div>
-        <div>GameCard: {monster.id}</div>
+        {/* <div>GameCard: {monster.id}</div> */}
         <GameCardMonster monster={monster.join_games} handleGameChange={handleGameChange}/>
       </div>
     )

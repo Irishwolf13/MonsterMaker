@@ -9,6 +9,12 @@ class JoinGamesController < ApplicationController
     render json: myJoin, status: :accepted
   end
 
+  def destroy
+    myJoin = JoinGame.find(params[:id])
+    myJoin.destroy
+    head :no_content
+  end
+
   private
 
   def strong_params

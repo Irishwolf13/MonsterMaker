@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { HTML5Backend } from "react-dnd-html5-backend";
 import ParticleBackground from 'react-particle-backgrounds'
 
-function MonsterCharacterCard({monster_id, url, level, monsterName, HP, MP, attack, armor_defense, armor_base, armor_image, weapon_image, movement, bio, augmnet, handleMonsterDelete }) {
+function MonsterCharacterCard({user_id, monster_id, url, level, monsterName, HP, MP, attack, armor_defense, armor_base, armor_image, weapon_image, movement, bio, augmnet, handleMonsterDelete }) {
   //allow navigation
   const navigate = useNavigate();
   
@@ -28,21 +28,21 @@ function MonsterCharacterCard({monster_id, url, level, monsterName, HP, MP, atta
   }
   const settings2 = {
     particle: {
-      particleCount: 250,
+      particleCount: 50,
       color: "#e2b16d",
       minSize: 1,
-      maxSize: 1.5
+      maxSize: 2
     },
     velocity: {
       directionAngle: -95,
       directionAngleVariance: 10,
-      minSpeed: 3.1,
-      maxSpeed: 15
+      minSpeed: 0.1,
+      maxSpeed: 1
     },
     opacity: {
       minOpacity: 0,
       maxOpacity: 0.4,
-      opacityTransitionTime: 1000
+      opacityTransitionTime: 10000
     }
   }
 
@@ -86,6 +86,7 @@ function MonsterCharacterCard({monster_id, url, level, monsterName, HP, MP, atta
   let forArmorRating;
   let forBackgroundBubbles;
   let forBubblesStyle;
+  let forFormAdd;
   switch (true) {
     case level > 10:
       myImage = 'http://cloud-3.steamusercontent.com/ugc/2042984690529224232/F60F430287941F7F6BFBAA29B1C7AF29BE99330A/';
@@ -105,6 +106,7 @@ function MonsterCharacterCard({monster_id, url, level, monsterName, HP, MP, atta
       forArmorRating= 'armorRating3'
       forBackgroundBubbles= 'forBackground3'
       forBubblesStyle=settings3
+      forFormAdd='forFormAdd3'
       break;
     case level > 1 && level <= 10:
       myImage = "https://raw.githubusercontent.com/Irishwolf13/monsterImages/main/frames/card_1_B.png";
@@ -124,6 +126,7 @@ function MonsterCharacterCard({monster_id, url, level, monsterName, HP, MP, atta
       forArmorRating= 'armorRating2'
       forBackgroundBubbles= 'forBackground2'
       forBubblesStyle=settings2
+      forFormAdd='forFormAdd2'
       break;
     default:
       myImage = 'https://raw.githubusercontent.com/Irishwolf13/monsterImages/main/frames/card1Front.png';
@@ -143,6 +146,7 @@ function MonsterCharacterCard({monster_id, url, level, monsterName, HP, MP, atta
       forArmorRating= 'armorRating1'
       forBackgroundBubbles= 'forBackground1'
       forBubblesStyle=settings1
+      forFormAdd='forFormAdd1'
   }
   
   const handleClicked = () => {
@@ -154,6 +158,17 @@ function MonsterCharacterCard({monster_id, url, level, monsterName, HP, MP, atta
   const handleEditMonster = (e) => {
     navigate(`/show/monster/${monster_id}`)
   }
+  const handleAddToGame = (e) => {
+    e.preventDefault();
+    const selectElement = e.target.elements.gameNumber;
+    const selectedOption = selectElement.options[selectElement.selectedIndex];
+    const selectedValue = selectedOption.value;
+    console.log("game_id: "+ selectedValue);
+    console.log("monster_id: " + monster_id)
+    console.log("user_id: "+user_id)
+    // HERE WE WILL NEED TO DO A POST/PATCH TO GAMES (OR MAYBE JOIN_GAMES)
+    // ALSO, GOING TO NEED TO DYNAMICALLY SET THE CHIOCES ON THE SELECT BELOW.........
+  };
   return (
     <div className='characterCardHolder'>
       <div className={forName}>{monsterName}</div>
@@ -177,6 +192,14 @@ function MonsterCharacterCard({monster_id, url, level, monsterName, HP, MP, atta
       <img className={forAugment} src={'https://raw.githubusercontent.com/Irishwolf13/monsterImages/main/orbs/green.png'} />
       <div className={forArmorRating}> {myArmorRating} </div>
       <div className={forBackgroundBubbles}><ParticleBackground settings={forBubblesStyle}/></div>
+      <form className={forFormAdd} onSubmit={handleAddToGame}>
+        <button type="submit">Add to Game</button>
+        <select name="gameNumber" defaultValue="1">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+        </select>
+      </form>
     </div>
   );
 }

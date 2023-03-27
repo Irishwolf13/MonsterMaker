@@ -285,6 +285,12 @@ img {
   z-index: -1;
   background-image: linear-gradient(to bottom, rgb(0, 0, 0), rgb(88, 50, 0));
 }
+.forFormAdd1 {
+  position: relative;
+  z-index: 2;
+  bottom: 918px;
+  left: 0px;
+}
 
 /* ######################### END Character Card CSS ######################### */
 .monsterCard2 {
@@ -403,6 +409,12 @@ img {
   height: 200px;
   z-index: -1;
   background-image: linear-gradient(to bottom, rgb(147, 108, 0), rgb(0, 0, 0));
+}
+.forFormAdd2 {
+  position: relative;
+  z-index: 2;
+  bottom: 908px;
+  left: 0px;
 }
 /* ######################### END Character Card CSS ######################### */
 .monsterCard3 {
@@ -526,7 +538,13 @@ img {
   height: 200px;
   z-index: -1;
   background-image: linear-gradient(to bottom, rgb(0, 0, 0), rgb(31, 84, 133));
-}rgb(0, 0, 0)
+}
+.forFormAdd3 {
+  position: relative;
+  z-index: 2;
+  bottom: 883px;
+  left: 0px;
+}
 /* ######################### END Character Card CSS ######################### */
 
 .saveButton {

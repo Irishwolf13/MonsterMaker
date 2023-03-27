@@ -13,7 +13,7 @@ function ShowMonsters({ userMonsters }) {
   const handleMonsterDelete = (id) => {
     setMyMonsters(myMonsters.filter(monster => monster.id !== id));
   };
-
+  console.log(myMonsters)
   const viewMonsters = () => {
     return myMonsters.map(monster => (
       <MonsterCharacterCard
@@ -33,6 +33,7 @@ function ShowMonsters({ userMonsters }) {
         bio={monster.bio}
         augmnet={monster.augmnet}
         handleMonsterDelete={handleMonsterDelete}
+        user_id={monster.user_id}
       />
     ))
   };

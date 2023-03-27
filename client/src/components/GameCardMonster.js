@@ -12,37 +12,58 @@ function GameCardMonster({monster, handleGameChange}) {
       }
       setDisplayArray(myArray)
     })
+    console.log(myArray)
   },[monster])
 
-  const handleClicked = (item) => {
-    let newCount = item.monsterCount -1
-    fetch(`http://localhost:3000/join_games/${item.join_id}`,{
-      method: 'PATCH',
-      headers: {'content-type': 'application/json'},
-      body: JSON.stringify({monster_count: newCount})
-    })
-    .then(() => {
-      // update displayArray directly here
-      let myArray = []
-      monster.map(item => {
-        console.log(item)
-        for (let i = 0; i < item.monsterCount; i++) {
-          myArray.push((<img className='gameCardSmallImage'src={item.look.image} />))
-        }
+  const handleClicked = (item, number) => {
+    let newCount = item.monsterCount + number
+    if (newCount === 0) {
+      fetch(`http://localhost:3000/join_games/${item.join_id}`,{
+        method: 'DELETE',
+        headers: {'content-type': 'application/json'}
       })
-      setDisplayArray(myArray)
-      handleGameChange()
+      .then(() => {
+        setDisplayArray([])
+        handleGameChange()
+        // handleDisplayUpdate()
+      })
+    } else {
+      fetch(`http://localhost:3000/join_games/${item.join_id}`,{
+        method: 'PATCH',
+        headers: {'content-type': 'application/json'},
+        body: JSON.stringify({monster_count: newCount})
+      })
+      .then(() => {
+        handleDisplayUpdate()
+      })
+    }
+  }
+
+  // This bit handles updating the display so I didn't write it twice in the handleClicked function
+  const handleDisplayUpdate = () => {
+    let myArray = []
+    monster.map(item => {
+      // console.log(item)
+      for (let i = 0; i < item.monsterCount; i++) {
+        myArray.push((<img className='gameCardSmallImage'src={item.look.image} />))
+      }
     })
+    setDisplayArray(myArray)
+    handleGameChange()
   }
 
   // console.log(displayArray)
   const displayMonsterName = () => {
+    // console.log(monster)
     return monster.map(item => (
       <div>
-       <button onClick={() => handleClicked(item)}>Join Game:  {item.join_id}</button>
+      {/* <div>{item.game_id}</div> */}
+       <button onClick={() => handleClicked(item, -1)}>-1 {item.gameMonster.monster_name}</button>
+       <button onClick={() => handleClicked(item, 1)}>+1 {item.gameMonster.monster_name}</button>
       </div>
     ))
   }
+
   return(
     <>
       {displayArray}
