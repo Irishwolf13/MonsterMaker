@@ -35,7 +35,10 @@ function SignUp({ setUser, monsterState, setMonsterState }) {
           navigate(`/profile/${obj.id}`)
         })
       } else {
-        // res.json().then(data => console.log(data))
+        res.json().then(data => {
+          let messages = Object.values(data.errors).flat();
+          alert(`Please Try again, ${messages.join(', ')}`);
+        });
       }
     })
   }

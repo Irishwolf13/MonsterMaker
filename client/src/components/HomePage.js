@@ -11,8 +11,8 @@ function HomePage({ handleLogIn }) {
   return (
     <>
       <div>
-        <button className='logInButton'onClick={handleLogIn}> Log IN </button>
-        <button className='logInButton'onClick={handleSignUp}> Sign Up </button>
+        <button className='logInButton newbutton' onClick={handleLogIn}> Log IN </button>
+        <button className='logInButton newbutton' onClick={handleSignUp}> Sign Up </button>
       </div>
     </>
   );

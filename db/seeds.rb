@@ -95,28 +95,63 @@ Armor.create(
   defense: 1,
   weight: 10,
   movement_reduction: 0,
-  image: "http://cloud-3.steamusercontent.com/ugc/2042984690529029903/CA58EF737CFB7C388383D1547CA642498A7F61A8/"
+  image: "https://raw.githubusercontent.com/Irishwolf13/monsterImages/main/armor/cloth_1.jpg"
+)
+Armor.create(
+  material: 'flame robe',
+  defense: 1,
+  weight: 10,
+  movement_reduction: 0,
+  image: "https://raw.githubusercontent.com/Irishwolf13/monsterImages/main/armor/flameRobe.png"
+)
+Armor.create(
+  material: 'ice robe',
+  defense: 1,
+  weight: 10,
+  movement_reduction: 0,
+  image: "https://raw.githubusercontent.com/Irishwolf13/monsterImages/main/armor/iceRobe.png"
 )
 Armor.create(
   material: 'leather',
-  defense: 5,
+  defense: 3,
   weight: 20,
   movement_reduction: 2,
-  image: "http://cloud-3.steamusercontent.com/ugc/2042984690529030495/37B49E15A1FF66D29397D97109325ED5D1B2904B/"
+  image: "https://raw.githubusercontent.com/Irishwolf13/monsterImages/main/armor/leather_1.jpg"
 )
 Armor.create(
-  material: 'chain',
+  material: 'turtle shell',
+  defense: 5,
+  weight: 23,
+  movement_reduction: 2,
+  image: "https://raw.githubusercontent.com/Irishwolf13/monsterImages/main/armor/shell1.png"
+)
+Armor.create(
+  material: 'mail',
   defense: 10,
   weight: 40,
   movement_reduction: 4,
-  image: "http://cloud-3.steamusercontent.com/ugc/2042984690529031712/B5AFEAFB7CD650FEFA0707EDDBCAAA46A38D42E9/"
+  image: "https://raw.githubusercontent.com/Irishwolf13/monsterImages/main/armor/mail_1.jpg"
+)
+Armor.create(
+  material: 'silver',
+  defense: 12,
+  weight: 50,
+  movement_reduction: 4,
+  image: "https://raw.githubusercontent.com/Irishwolf13/monsterImages/main/armor/silver.png"
+)
+Armor.create(
+  material: 'silver & gold',
+  defense: 14,
+  weight: 50,
+  movement_reduction: 4,
+  image: "https://raw.githubusercontent.com/Irishwolf13/monsterImages/main/armor/silverGold.png"
 )
 Armor.create(
   material: 'magical',
-  defense: 10,
+  defense: 15,
   weight: 40,
   movement_reduction: 4,
-  image: "http://cloud-3.steamusercontent.com/ugc/2042984690529031096/1F736D9D60E147B2723BC7C3E24E7B3CE83128B5/"
+  image: "https://raw.githubusercontent.com/Irishwolf13/monsterImages/main/armor/magic_1.jpg"
 )
 
 puts 'seeding weapons'
@@ -130,25 +165,85 @@ Weapon.create(
   style: "sword",
   attack: 5,
   weight: 1,
-  image: "http://cloud-3.steamusercontent.com/ugc/2042984690528986021/51D56CF301E09EF74EF32C22A1287DDFA1A0E983/"
+  image: "https://raw.githubusercontent.com/Irishwolf13/monsterImages/main/weapon/sword_1.jpg"
 )
 Weapon.create(
   style: "stone axe",
-  attack: 8,
+  attack: 2,
   weight: 2,
-  image: "http://cloud-3.steamusercontent.com/ugc/2042984690528993900/76F44796A5A3B3031EFFA8F93B007CC5AF35C857/"  
+  image: "https://raw.githubusercontent.com/Irishwolf13/monsterImages/main/weapon/axe_1.jpg"
 )
 Weapon.create(
   style: "iron axe",
-  attack: 12,
+  attack: 3,
   weight: 4,
-  image: "http://cloud-3.steamusercontent.com/ugc/2042984690528994609/AA652C203CDD02734B704E306343A0A6B3C4C621/"  
+  image: "https://raw.githubusercontent.com/Irishwolf13/monsterImages/main/weapon/axe_2.jpg"
 )
 Weapon.create(
   style: "knife",
   attack: 3,
   weight: 1,
-  image: "http://cloud-3.steamusercontent.com/ugc/2042984690528984802/49F31920C43E2740793CB62F38753918DE02B986/"  
+  image: "https://raw.githubusercontent.com/Irishwolf13/monsterImages/main/weapon/blade_ice_1.jpg"
+)
+Weapon.create(
+  style: "spiked club",
+  attack: 3,
+  weight: 1,
+  image: "https://raw.githubusercontent.com/Irishwolf13/monsterImages/main/weapon/club1.png"
+)
+Weapon.create(
+  style: "jagged dagger",
+  attack: 3,
+  weight: 1,
+  image: "https://raw.githubusercontent.com/Irishwolf13/monsterImages/main/weapon/dagger_jagged.png"
+)
+Weapon.create(
+  style: "shadow dagger",
+  attack: 4,
+  weight: 1,
+  image: "https://raw.githubusercontent.com/Irishwolf13/monsterImages/main/weapon/dagger_shadow.png"
+)
+Weapon.create(
+  style: "spiked mace",
+  attack: 4,
+  weight: 1,
+  image: "https://raw.githubusercontent.com/Irishwolf13/monsterImages/main/weapon/mace1.png"
+)
+Weapon.create(
+  style: "magic sword",
+  attack: 10,
+  weight: 1,
+  image: "https://raw.githubusercontent.com/Irishwolf13/monsterImages/main/weapon/sword_purple.png"
+)
+Weapon.create(
+  style: "flame sword",
+  attack: 10,
+  weight: 1,
+  image: "https://raw.githubusercontent.com/Irishwolf13/monsterImages/main/weapon/sword_red.png"
+)
+Weapon.create(
+  style: "magic wand",
+  attack: 10,
+  weight: 1,
+  image: "https://raw.githubusercontent.com/Irishwolf13/monsterImages/main/weapon/wand_pink.png"
+)
+Weapon.create(
+  style: "fire wand",
+  attack: 10,
+  weight: 1,
+  image: "https://raw.githubusercontent.com/Irishwolf13/monsterImages/main/weapon/want_fire.png"
+)
+Weapon.create(
+  style: "ice wand",
+  attack: 10,
+  weight: 1,
+  image: "https://raw.githubusercontent.com/Irishwolf13/monsterImages/main/weapon/want_ice.png"
+)
+Weapon.create(
+  style: "a stick",
+  attack: 1,
+  weight: 1,
+  image: "https://raw.githubusercontent.com/Irishwolf13/monsterImages/main/weapon/stick.png"
 )
 puts 'Creating Monsters'
 Monster.create(

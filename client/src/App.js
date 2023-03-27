@@ -101,6 +101,9 @@ function App() {
   const handleShowMonsters = () => {
     navigate('/show/monsters/')
   }
+  const handleShowGames = () => {
+    navigate(`/gamePage/${user.id}`)
+  }
   const handleCreateMonsters = () => {
     setMonsterState(prevState => ({ ...prevState,
       monster_name: 'Frank',
@@ -126,16 +129,17 @@ function App() {
   }
   return (
     <div className="App">
-      {!user.id && <button onClick={() => {navigate('/')}}>Home</button>}
+      {!user.id && <button className='newbutton navButton' onClick={() => {navigate('/')}}>Home</button>}
       <div className='background'><ParticleBackground settings={settings}/></div>
       <DndProvider backend={ HTML5Backend }>
       {
         user.id &&
         <>
-          <button onClick={handleLogOut}>LogOut</button>
-          <button onClick={handleShowMonsters}>Show My Monsters</button>
-          <button onClick={handleCreateMonsters}>New Monster</button>
-          <button onClick={handleProfilePage}>Profile Page</button>
+          <button className='newbutton navButton' onClick={handleLogOut}>LogOut</button>
+          <button className='newbutton navButton' onClick={handleProfilePage}>Profile Page</button>
+          <button className='newbutton navButton' onClick={handleShowMonsters}>My Monsters</button>
+          <button className='newbutton navButton' onClick={handleShowGames}>My Games</button>
+          <button className='newbutton navButton' onClick={handleCreateMonsters}>New Monster</button>
         </>
       }
         <Routes>

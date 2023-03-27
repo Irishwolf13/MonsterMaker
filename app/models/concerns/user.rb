@@ -3,6 +3,8 @@ class User < ApplicationRecord
   has_many :monsters
   has_many :games
 
-  validates :username, presence: true, uniqueness: true
-  validates :email, presence: true, uniqueness: true
+  validates :username, uniqueness: { message: "%{value} is already in use." }
+  validates :email, presence: true,
+  uniqueness: { message: "%{value} has already been taken" },
+  format: { with: URI::MailTo::EMAIL_REGEXP, message: "must be a valid email address" }
 end

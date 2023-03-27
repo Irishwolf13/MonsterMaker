@@ -40,7 +40,6 @@ function ShowMonsters({ userMonsters }) {
 
   return (
     <>
-      <div>Show Monsters</div>
       <div className='characterCardContainer'>{viewMonsters()}</div>
     </>
   );
