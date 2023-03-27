@@ -166,8 +166,8 @@ img {
 .crewCardSpacing {
   margin-bottom: 10px;
   width: 900px;
-  margin-left: auto;
-  margin-right: auto;
+  /* margin-left: auto;
+  margin-right: auto; */
   background-color: #ff9900;
   border: 2px solid black;
   border-radius: 5px;
@@ -611,22 +611,30 @@ img {
   position: relative;
 }
 /* ########################## GAME PAGE ############################# */
-.gameCardImageHolder {
-  /* background-color: aqua; */
+/* .gameCardImageHolder {
+  background-color: aqua;
   display: flex;
   flex-wrap: wrap;
   width: 1000px;
   align-items: flex-start;
   margin-left: 200px;
   margin-top: 20px;
+} */
+.gameCardSmallHolder {
+  display: inline-block;
 }
-
 .gameCardSmallImage {
   /* background-color: rgb(246, 255, 0); */
   max-width: 140px;
-  height: auto;
-  flex-shrink: 0;
-  margin-right: -100px;
+  word-wrap: break-word;
+  margin-left: -70px
+}
+.gameCardSmallName {
+  position: relative;
+  /* background-color: rgb(246, 255, 0); */
+  max-width: 70px;
+  left: -40px;
+  word-wrap: break-word;
 }
 .gameCardNumberCount {
   /* background-color: aqua; */
@@ -800,12 +808,14 @@ img {
 .newbuttonContainer {
   position: relative;
   top: -150px;
-  left: -150px
+  left: -280px
 }
 
 .crewImageHolder {
+  /* background-color: aqua; */
   display: inline-block;
-  width: 800px;
+  width: 900px;
+  margin-left: 100px;
 }
 .crewAddButtons {
   text-align: center;

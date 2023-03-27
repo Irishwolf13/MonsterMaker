@@ -7,14 +7,24 @@ function CrewCardMonster({monster, handleGameChange}) {
   useEffect(() => {
     let myArray = []
     monster.map(item => {
+      // console.log(item)
       for (let i = 0; i < item.monsterCount; i++) {
-        myArray.push((<img className='gameCardSmallImage'src={item.look.image} />))
+        myArray.push((
+          <div className='gameCardSmallHolder'>
+            <div onClick={handleClicked2} className='gameCardSmallName'>{item.gameMonster.monster_name}</div>
+            <img className='gameCardSmallImage' src={item.look.image} />
+            <div className='gameCardSmallName'>Level: {item.gameMonster.level}</div>
+          </div>
+        ))
       }
       setDisplayArray(myArray)
     })
     // console.log(myArray)
   },[monster])
 
+  const handleClicked2 = () => {
+    console.log('iran')
+  }
   const handleClicked = (item, number) => {
     let newCount = item.monsterCount + number
     if (newCount === 0) {
