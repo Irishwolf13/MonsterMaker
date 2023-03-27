@@ -158,7 +158,7 @@ function MonsterCharacterCard({user_id, monster_id, url, level, monsterName, HP,
   const handleEditMonster = (e) => {
     navigate(`/show/monster/${monster_id}`)
   }
-  const handleAddToGame = (e) => {
+  const handleAddToCrew = (e) => {
     e.preventDefault();
     const selectElement = e.target.elements.gameNumber;
     const selectedOption = selectElement.options[selectElement.selectedIndex];
@@ -168,6 +168,13 @@ function MonsterCharacterCard({user_id, monster_id, url, level, monsterName, HP,
     console.log("user_id: "+user_id)
     // HERE WE WILL NEED TO DO A POST/PATCH TO GAMES (OR MAYBE JOIN_GAMES)
     // ALSO, GOING TO NEED TO DYNAMICALLY SET THE CHIOCES ON THE SELECT BELOW.........
+    let myJoinGame = {game_id: selectedValue, monster_id: monster_id, monster_count: 1}
+    console.log(myJoinGame)
+    fetch(`http://localhost:3000/join_games`,{
+      method: 'POST',
+      headers: {'content-type': 'application/json'},
+      body: JSON.stringify(myJoinGame)
+    })
   };
   return (
     <div className='characterCardHolder'>
@@ -192,9 +199,10 @@ function MonsterCharacterCard({user_id, monster_id, url, level, monsterName, HP,
       <img className={forAugment} src={'https://raw.githubusercontent.com/Irishwolf13/monsterImages/main/orbs/green.png'} />
       <div className={forArmorRating}> {myArmorRating} </div>
       <div className={forBackgroundBubbles}><ParticleBackground settings={forBubblesStyle}/></div>
-      <form className={forFormAdd} onSubmit={handleAddToGame}>
+      <form className={forFormAdd} onSubmit={handleAddToCrew}>
         <button className='newbutton2' type="submit">Add to Crew</button>
         <select className='newbutton2' name="gameNumber" defaultValue="1">
+          {/* I still need to get games for user, and loop through thoses and populate options dynamically */}
           <option className='orange' value="1">1</option>
           <option className='orange' value="2">2</option>
           <option className='orange' value="3">3</option>
