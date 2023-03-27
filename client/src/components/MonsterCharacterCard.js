@@ -1,9 +1,73 @@
 import '../App.css';
 import { useNavigate } from 'react-router-dom';
+import { HTML5Backend } from "react-dnd-html5-backend";
+import ParticleBackground from 'react-particle-backgrounds'
 
 function MonsterCharacterCard({monster_id, url, level, monsterName, HP, MP, attack, armor_defense, armor_base, armor_image, weapon_image, movement, bio, augmnet, handleMonsterDelete }) {
   //allow navigation
   const navigate = useNavigate();
+  
+  const settings3 = {
+    particle: {
+      particleCount: 150,
+      color: "#e3d5d5",
+      minSize: 1,
+      maxSize: 4
+    },
+    velocity: {
+      directionAngle: 180,
+      directionAngleVariance: 30,
+      minSpeed: 0.1,
+      maxSpeed: 0.5
+    },
+    opacity: {
+      minOpacity: 0,
+      maxOpacity: 0.4,
+      opacityTransitionTime: 10000
+    }
+  }
+  const settings2 = {
+    particle: {
+      particleCount: 250,
+      color: "#e2b16d",
+      minSize: 1,
+      maxSize: 1.5
+    },
+    velocity: {
+      directionAngle: -95,
+      directionAngleVariance: 10,
+      minSpeed: 3.1,
+      maxSpeed: 15
+    },
+    opacity: {
+      minOpacity: 0,
+      maxOpacity: 0.4,
+      opacityTransitionTime: 1000
+    }
+  }
+
+  const settings1 = {
+    canvas: {
+      useBouncyWalls: true
+    },
+    particle: {
+      particleCount: 250,
+      color: "#FFF",
+      minSize: 0.5,
+      maxSize: 1
+    },
+    velocity: {
+      directionAngle: 90,
+      directionAngleVariance: 180,
+      minSpeed: 0.03,
+      maxSpeed: 0.08
+    },
+    opacity: {
+      minOpacity: 0,
+      maxOpacity: 0.7,
+      opacityTransitionTime: 7000
+    }
+  }
   let myArmorRating = (armor_base + armor_defense);
   let myImage;
   let forBack;
@@ -20,6 +84,8 @@ function MonsterCharacterCard({monster_id, url, level, monsterName, HP, MP, atta
   let forEdit;
   let forAugment;
   let forArmorRating;
+  let forBackgroundBubbles;
+  let forBubblesStyle;
   switch (true) {
     case level > 10:
       myImage = 'http://cloud-3.steamusercontent.com/ugc/2042984690529224232/F60F430287941F7F6BFBAA29B1C7AF29BE99330A/';
@@ -37,6 +103,8 @@ function MonsterCharacterCard({monster_id, url, level, monsterName, HP, MP, atta
       forDelete = 'monsterCardDelete3'
       forAugment = 'monsterCardAugment3'
       forArmorRating= 'armorRating3'
+      forBackgroundBubbles= 'forBackground3'
+      forBubblesStyle=settings3
       break;
     case level > 1 && level <= 10:
       myImage = "https://raw.githubusercontent.com/Irishwolf13/monsterImages/main/frames/card_1_B.png";
@@ -54,6 +122,8 @@ function MonsterCharacterCard({monster_id, url, level, monsterName, HP, MP, atta
       forDelete = 'monsterCardDelete2'
       forAugment = 'monsterCardAugment2'
       forArmorRating= 'armorRating2'
+      forBackgroundBubbles= 'forBackground2'
+      forBubblesStyle=settings2
       break;
     default:
       myImage = 'https://raw.githubusercontent.com/Irishwolf13/monsterImages/main/frames/card1Front.png';
@@ -71,6 +141,8 @@ function MonsterCharacterCard({monster_id, url, level, monsterName, HP, MP, atta
       forDelete = 'monsterCardDelete1'
       forAugment = 'monsterCardAugment1'
       forArmorRating= 'armorRating1'
+      forBackgroundBubbles= 'forBackground1'
+      forBubblesStyle=settings1
   }
   
   const handleClicked = () => {
@@ -104,6 +176,7 @@ function MonsterCharacterCard({monster_id, url, level, monsterName, HP, MP, atta
       <div className={forBio} >{bio}</div>
       <img className={forAugment} src={'https://raw.githubusercontent.com/Irishwolf13/monsterImages/main/orbs/green.png'} />
       <div className={forArmorRating}> {myArmorRating} </div>
+      <div className={forBackgroundBubbles}><ParticleBackground settings={forBubblesStyle}/></div>
     </div>
   );
 }
