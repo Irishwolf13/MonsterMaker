@@ -51,7 +51,7 @@ function ChooseMonster({user, setMonsterState, monsterState, monsters}) {
     <>
       <label>
         <div className='smalltitleDiv'>Filter by Name:
-        <input type="text" value={filterName} onChange={(e) => setFilterName(e.target.value.toLowerCase())} />
+        <input className='newInput' type="text" value={filterName} onChange={(e) => setFilterName(e.target.value.toLowerCase())} />
         </div>
       </label>
       <div className='titleDiv'>Select Avatar</div>

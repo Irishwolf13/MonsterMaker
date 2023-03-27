@@ -48,11 +48,11 @@ function SignUp({ setUser, monsterState, setMonsterState }) {
       <div className='userNameDiv'></div>
       <div id="login-form">
         <form className="form" onSubmit={handleSubmit}>
-            <input name="username" type="text" required onChange={handleChange} value={formState.username} placeholder="username"/>
-            <input name="password" type="password" required onChange={handleChange} value={formState.password} placeholder="password"/>
-            <input name="email" type="text" required onChange={handleChange} value={formState.email} placeholder="email"/>
+            <input className='newInput' name="username" type="text" required onChange={handleChange} value={formState.username} placeholder="username"/>
+            <input className='newInput' name="password" type="password" required onChange={handleChange} value={formState.password} placeholder="password"/>
+            <input className='newInput' name="email" type="text" required onChange={handleChange} value={formState.email} placeholder="email"/>
             <br></br>
-            <button type="submit">Sign up</button>
+            <button className='newbutton loginButton2' type="submit">Sign up</button>
         </form>
       </div>
     </>

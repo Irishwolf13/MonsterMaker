@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react'
 import { useNavigate, useParams } from 'react-router-dom';
-import GameCard from './GameCard';
+import GameCard from './CrewCard';
 
-function GamePage({ user, monsterState, monsters }) {
+function CrewPage({ user, monsterState, monsters }) {
   let { id } = useParams()
 
   //allow navigation
@@ -29,7 +29,7 @@ function GamePage({ user, monsterState, monsters }) {
   return (
     <>
     <div></div>
-    <button>Create New Game</button>
+    <button>Create New Crew</button>
       <div>
         {viewGames()}
       </div>
@@ -37,4 +37,4 @@ function GamePage({ user, monsterState, monsters }) {
   );
 }
 
-export default GamePage;
+export default CrewPage;

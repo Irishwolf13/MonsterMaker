@@ -12,7 +12,7 @@ import HomePage from './components/HomePage';
 import Login from './components/Login';
 import Signup from './components/Signup';
 import ProfilePage from './components/ProfilePage';
-import GamePage from './components/GamesPage';
+import GamePage from './components/CrewPage';
 import CreateMonster from './components/CreateMonster';
 import ChooseMonster from './components/ChooseMonster';
 import ShowMonsters from './components/ShowMonsters';
@@ -135,11 +135,11 @@ function App() {
       {
         user.id &&
         <>
-          <button className='newbutton navButton' onClick={handleLogOut}>LogOut</button>
-          <button className='newbutton navButton' onClick={handleProfilePage}>Profile Page</button>
-          <button className='newbutton navButton' onClick={handleShowMonsters}>My Monsters</button>
-          <button className='newbutton navButton' onClick={handleShowGames}>My Games</button>
-          <button className='newbutton navButton' onClick={handleCreateMonsters}>New Monster</button>
+          <button className='newbutton' onClick={handleLogOut}>LogOut</button>
+          <button className='newbutton ' onClick={handleProfilePage}>Profile Page</button>
+          <button className='newbutton ' onClick={handleShowMonsters}>My Monsters</button>
+          <button className='newbutton ' onClick={handleShowGames}>My Crews</button>
+          <button className='newbutton ' onClick={handleCreateMonsters}>New Monster</button>
         </>
       }
         <Routes>

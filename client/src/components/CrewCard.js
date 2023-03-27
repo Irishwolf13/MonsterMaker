@@ -1,13 +1,13 @@
 import React from 'react';
-import GameCardMonster from './GameCardMonster';
+import CrewCardMonster from './CrewCardMonster';
 
-function GameCard({monster, handleGameChange}) {
+function CrewCard({monster, handleGameChange}) {
   // console.log(monster.join_games)
   const displayGame = () => {
     return (
       <div>
         {/* <div>GameCard: {monster.id}</div> */}
-        <GameCardMonster monster={monster.join_games} handleGameChange={handleGameChange}/>
+        <CrewCardMonster monster={monster.join_games} handleGameChange={handleGameChange}/>
       </div>
     )
   }
@@ -19,4 +19,4 @@ function GameCard({monster, handleGameChange}) {
   );
 }
 
-export default GameCard
+export default CrewCard

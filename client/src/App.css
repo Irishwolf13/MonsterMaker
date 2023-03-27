@@ -17,6 +17,12 @@
   padding: 3px;
   color: white;
 }
+.loginButton2 {
+  margin-top: 10px;
+}
+.loginButton2:hover {
+  background-color: rgb(255, 146, 83);
+}
 .logInButton {
   margin-right: 10px;
   margin-top: 200px;
@@ -26,9 +32,6 @@
 }
 .navButton {
   margin-right: 10px;
-}
-.navButton:hover {
-  background-color: rgb(255, 146, 83);
 }
 .background{
   position: fixed;
@@ -657,7 +660,7 @@ img {
   }
 }
 
-/* Trying the new button */
+/* ##################### Trying the new button ##################### */
 
 .newbutton {
   --b: 3px;   /* border thickness */
@@ -668,9 +671,9 @@ img {
   color: var(--c);
   --_p: var(--s);
   background:
-    conic-gradient(from 90deg at var(--b) var(--b),#0000 90deg,var(--c) 0)
+    conic-gradient(from 90deg at var(--b) var(--b),#ff9900 90deg,var(--c) 0)
     var(--_p) var(--_p)/calc(100% - var(--b) - 2*var(--_p)) calc(100% - var(--b) - 2*var(--_p));
-  transition: .3s linear, color 0s, background-color 0s;
+  transition: .1s linear, color 0s, background-color 0s;
   outline: var(--b) solid #0000;
   outline-offset: .1em;
 }
@@ -680,24 +683,36 @@ img {
   outline-color: var(--c);
   outline-offset: .05em;
 }
-.newbutton:active {
-  background: var(--c);
-  color: #fff;
-}
-
-/* body {
-  height: 100vh;
-  margin: 0;
-  display: grid;
-  grid-template-columns: auto auto;
-  gap: 20px;
-  place-content: center;
-  background: #DAEDFB;
-} */
 .newbutton {
   font-family: system-ui, sans-serif;
   font-weight: bold;
   font-size: 1.5rem;
   cursor: pointer;
   border: none;
+  margin-right: 10px;
+}
+
+/* ##################### Trying the new Input ##################### */
+
+.newInput {
+  --b: 3px;   /* border thickness */
+  --s: .1em; /* size of the corner */
+  --c: #000000;
+  
+  padding: calc(.01em + var(--s)) calc(.3em + var(--s));
+  color: var(--c);
+  --_p: var(--s);
+  background:
+    conic-gradient(from 90deg at var(--b) var(--b),#ffffff00 90deg,var(--c) 0)
+    var(--_p) var(--_p)/calc(100% - var(--b) - 2*var(--_p)) calc(100% - var(--b) - 2*var(--_p));
+  transition: .3s linear, color 0s, background-color 0s;
+  outline: var(--b) solid #0000;
+  outline-offset: .1em;
+}
+.newInput {
+  font-family: system-ui, sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+  border: none;
+  margin-right: 10px;
 }

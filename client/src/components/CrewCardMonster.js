@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState, useEffect } from 'react'
 
-function GameCardMonster({monster, handleGameChange}) {
+function CrewCardMonster({monster, handleGameChange}) {
   const [displayArray, setDisplayArray] = useState([])
 
   useEffect(() => {
@@ -72,4 +72,4 @@ function GameCardMonster({monster, handleGameChange}) {
   );
 }
 
-export default GameCardMonster
+export default CrewCardMonster
