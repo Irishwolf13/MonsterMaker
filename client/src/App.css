@@ -163,12 +163,22 @@ img {
   display: flex;
   flex-wrap: wrap;
 }
+.crewCardSpacing {
+  margin-bottom: 10px;
+  width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #ff9900;
+  border: 2px solid black;
+  border-radius: 5px;
+  margin-top: 20px;
+}
 /* ######################### Character Card CSS ######################### */
 .characterCardHolder{
   position: relative;
   /* background-color: rgb(255, 0, 0); */
   padding-bottom: 30px;
-  margin-bottom: 10px;
+  margin-bottom: 30px;
   width: 510px;
   height: 360px;
 }
@@ -250,21 +260,21 @@ img {
 }
 .monsterCardEdit1 {
   position: relative;
-  z-index: 2;
-  bottom: 420px;
-  left: 0px;
+  z-index: 3;
+  bottom: 410px;
+  left: -110px;
 }
 .monsterCardDelete1 {
   position: relative;
-  z-index: 2;
-  bottom: 420px;
-  left: 0px;
+  z-index: 3;
+  bottom: 410px;
+  left: -110px;
 }
 .monsterCardAugment1 {
   position: relative;
   z-index: 2;
   width: 40px;
-  bottom: 730px;
+  bottom: 740px;
   left: 113px;
   z-index: 10;
 }
@@ -283,8 +293,8 @@ img {
 
  .forBackground1 {
   position: relative;
-  top: -1070px;
-  left: 50px;
+  top: -1080px;
+  left: 45px;
   width: 200px;
   height: 200px;
   z-index: -1;
@@ -293,8 +303,8 @@ img {
 .forFormAdd1 {
   position: relative;
   z-index: 2;
-  bottom: 918px;
-  left: 0px;
+  bottom: 940px;
+  left: 120px;
 }
 
 /* ######################### END Character Card CSS ######################### */
@@ -376,15 +386,15 @@ img {
 }
 .monsterCardEdit2 {
   position: relative;
-  z-index: 2;
-  bottom: 440px;
-  left: 0px;
+  z-index: 3;
+  bottom: 437px;
+  left: -120px;
 }
 .monsterCardDelete2 {
   position: relative;
-  z-index: 2;
-  bottom: 440px;
-  left: 0px;
+  z-index: 3;
+  bottom: 437px;
+  left: -120px;
 }
 .monsterCardAugment2 {
   position: relative;
@@ -408,7 +418,7 @@ img {
  }
  .forBackground2 {
   position: relative;
-  top: -1064px;
+  top: -1072px;
   left: 50px;
   width: 200px;
   height: 200px;
@@ -418,19 +428,19 @@ img {
 .forFormAdd2 {
   position: relative;
   z-index: 2;
-  bottom: 908px;
-  left: 0px;
+  bottom: 937px;
+  left: 115px;
 }
 /* ######################### END Character Card CSS ######################### */
 .monsterCard3 {
   position: relative;
-  bottom: 0px;
+  bottom: -10px;
   left: -217px;
   width: 250px;
 }
 .monsterCardBoarder3 {
   position: relative;
-  bottom: 300px;
+  bottom: 292px;
   left: 0px;
   width: 250px;
   height: 350px;
@@ -438,7 +448,7 @@ img {
 }
 .monsterCardBackBoarder3 {
   position: relative;
-  bottom: 307px;
+  bottom: 300px;
   left: -23px;
   width: 230px;
   height: 335px;
@@ -447,7 +457,7 @@ img {
 }
 .smallWeapon3 {
   position: relative;
-  bottom: -52px;
+  bottom: -58px;
   left: 261px;
   width: 80px;
   height: 80px;
@@ -458,13 +468,13 @@ img {
   width: 80px;
   height: 80px;
   z-index: 2;
-  bottom: -52px;
+  bottom: -58px;
   left: 211px;
 }
 .characterCardName3 {
   position: relative;
   z-index: 2;
-  bottom: -205px;
+  bottom: -215px;
   left: -120px;
   font-size: 20px;
   font-weight: 700;
@@ -473,9 +483,9 @@ img {
 .monsterCardLevel3 {
   position: relative;
   z-index: 2;
-  bottom: 356px;
+  bottom: 351px;
   left: -213px;
-  font-size: 20px;
+  font-size: 25px;
   font-weight: 700;
   color: rgb(38, 0, 255);
   z-index: 11;
@@ -491,7 +501,7 @@ img {
 .monsterCardBio3 {
   position: relative;
   z-index: 2;
-  bottom: 715px;
+  bottom: 725px;
   left: 267px;
   word-wrap: break-word;
   overflow: hidden;
@@ -505,21 +515,21 @@ img {
 }
 .monsterCardEdit3 {
   position: relative;
-  z-index: 2;
-  bottom: 415px;
-  left: 0px;
+  z-index: 3;
+  bottom: 405px;
+  left: -115px;
 }
 .monsterCardDelete3 {
   position: relative;
-  z-index: 2;
-  bottom: 415px;
-  left: 0px;
+  z-index: 3;
+  bottom: 405px;
+  left: -115px;
 }
 .monsterCardAugment3 {
   position: relative;
   z-index: 2;
   width: 40px;
-  bottom: 672px;
+  bottom: 680px;
   left: -24px;
   z-index: 10;
 }
@@ -527,7 +537,7 @@ img {
   position: relative;
   z-index: 10;
   width: 50px;
-  bottom: 1010px;
+  bottom: 1015px;
   left: 23px;
   font-size: 25px;
   font-weight: 600;
@@ -537,8 +547,8 @@ img {
  }
  .forBackground3 {
   position: relative;
-  top: -1030px;
-  left: 50px;
+  top: -1035px;
+  left: 40px;
   width: 200px;
   height: 200px;
   z-index: -1;
@@ -547,8 +557,11 @@ img {
 .forFormAdd3 {
   position: relative;
   z-index: 2;
-  bottom: 883px;
-  left: 0px;
+  bottom: 905px;
+  left: 115px;
+}
+.orange {
+  background-color: #ec962c;
 }
 /* ######################### END Character Card CSS ######################### */
 
@@ -562,7 +575,6 @@ img {
 .saveButton:hover {
   cursor: pointer;
   background-color: #9a5500;
-  color: white;
 }
 .lookButton {
   border-color: rgb(0, 0, 0);
@@ -715,4 +727,86 @@ img {
   font-size: 20px;
   border: none;
   margin-right: 10px;
+}
+
+/* ##################### Trying the new button SMALL ##################### */
+
+.newbutton2 {
+  --b: 3px;   /* border thickness */
+  --s: .1em; /* size of the corner */
+  --c: #000000;
+  
+  padding: calc(.01em + var(--s)) calc(.3em + var(--s));
+  color: var(--c);
+  --_p: var(--s);
+  background:
+    conic-gradient(from 90deg at var(--b) var(--b),#ff9900 90deg,var(--c) 0)
+    var(--_p) var(--_p)/calc(100% - var(--b) - 2*var(--_p)) calc(100% - var(--b) - 2*var(--_p));
+  transition: .1s linear, color 0s, background-color 0s;
+  outline: var(--b) solid #0000;
+  outline-offset: .1em;
+}
+.newbutton2:hover,
+.newbutton2:focus-visible{
+  --_p: 0px;
+  outline-color: rgba(0, 0, 0, 0);
+  outline-offset: .05em;
+}
+.newbutton2 {
+  font-family: system-ui, sans-serif;
+  font-weight: bold;
+  font-size: 1.1rem;
+  cursor: pointer;
+  border: none;
+  margin-right: 10px;
+  margin-top: 5px;
+}
+
+/* ##################### Trying the new button SMALL ##################### */
+
+.newbutton3 {
+  --b: 3px;   /* border thickness */
+  --s: .1em; /* size of the corner */
+  --c: #000000;
+  
+  padding: calc(.01em + var(--s)) calc(.3em + var(--s));
+  color: var(--c);
+  --_p: var(--s);
+  background:
+    conic-gradient(from 90deg at var(--b) var(--b),#ff9900 90deg,var(--c) 0)
+    var(--_p) var(--_p)/calc(100% - var(--b) - 2*var(--_p)) calc(100% - var(--b) - 2*var(--_p));
+  transition: .1s linear, color 0s, background-color 0s;
+  outline: var(--b) solid #0000;
+  outline-offset: .1em;
+}
+.newbutton3:hover,
+.newbutton3:focus-visible{
+  --_p: 0px;
+  outline-color: rgba(0, 0, 0, 0);
+  outline-offset: .05em;
+}
+.newbutton3 {
+  font-family: system-ui, sans-serif;
+  font-weight: bold;
+  font-size: 1.1rem;
+  cursor: pointer;
+  border: none;
+  margin-right: 10px;
+  margin-top: 5px;
+  position: relative;
+  left: -340px;
+}
+
+.newbuttonContainer {
+  position: relative;
+  top: -150px;
+  left: -150px
+}
+
+.crewImageHolder {
+  display: inline-block;
+  width: 800px;
+}
+.crewAddButtons {
+  text-align: center;
 }

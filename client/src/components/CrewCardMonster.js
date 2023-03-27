@@ -12,7 +12,7 @@ function CrewCardMonster({monster, handleGameChange}) {
       }
       setDisplayArray(myArray)
     })
-    console.log(myArray)
+    // console.log(myArray)
   },[monster])
 
   const handleClicked = (item, number) => {
@@ -56,10 +56,9 @@ function CrewCardMonster({monster, handleGameChange}) {
   const displayMonsterName = () => {
     // console.log(monster)
     return monster.map(item => (
-      <div>
-      {/* <div>{item.game_id}</div> */}
-       <button onClick={() => handleClicked(item, -1)}>-1 {item.gameMonster.monster_name}</button>
-       <button onClick={() => handleClicked(item, 1)}>+1 {item.gameMonster.monster_name}</button>
+      <div className='newbuttonContainer' >
+       <button className='newbutton3' onClick={() => handleClicked(item, -1)}>-1 {item.gameMonster.monster_name}</button>
+       <button className='newbutton3' onClick={() => handleClicked(item, 1)}>+1 {item.gameMonster.monster_name}</button>
       </div>
     ))
   }

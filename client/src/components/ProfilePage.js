@@ -18,7 +18,7 @@ function ProfilePage({ user, monsterState, monsters }) {
     <>
       <div>
         <button className='newbutton logInButton'onClick={myMonstersClicked}> My Monsters </button>
-        <button className='newbutton logInButton'onClick={myGamesClicked}> My Games </button>
+        <button className='newbutton logInButton'onClick={myGamesClicked}> My Crews </button>
       </div>
     </>
   );

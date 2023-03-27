@@ -1,37 +1,39 @@
 import { useState, useEffect } from 'react'
-import { useNavigate, useParams } from 'react-router-dom';
-import GameCard from './CrewCard';
+import { useParams } from 'react-router-dom';
+import CrewCard from './CrewCard';
 
 function CrewPage({ user, monsterState, monsters }) {
   let { id } = useParams()
 
-  //allow navigation
-  const navigate = useNavigate();
-  const [myGames, setMyGames] = useState([]);
- 
+  const [myCrews, setMyCrews] = useState([]);
+
   useEffect(() => {
     fetch(`http://localhost:3000/games/${id}`)
     .then(res => res.json())
-    .then(data => setMyGames(data))
+    .then(data => setMyCrews(data))
   },[])
 
   const handleGameChange = () => {
     fetch(`http://localhost:3000/games/${id}`)
     .then(res => res.json())
-    .then(data => setMyGames(data))
+    .then(data => setMyCrews(data))
   }
   // console.log(myGames)
- const viewGames = () => {
-  return myGames.map(monster => (
-    <GameCard key={monster.id} monster={monster} handleGameChange={handleGameChange}/>
+ const viewCrews = () => {
+  return myCrews.map(monster => (
+    <div className='crewAddButtons'>
+      <CrewCard key={monster.id} monster={monster} handleGameChange={handleGameChange}/>
+    </div>
   ))
 };
   return (
     <>
     <div></div>
-    <button>Create New Crew</button>
+    <button className='newbutton loginButton2' >Create New Crew</button>
       <div>
-        {viewGames()}
+        <br></br>
+        <br></br>
+        {viewCrews()}
       </div>
     </>
   );

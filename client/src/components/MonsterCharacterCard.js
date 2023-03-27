@@ -186,18 +186,18 @@ function MonsterCharacterCard({user_id, monster_id, url, level, monsterName, HP,
           <div>Attack Rating: {attack}</div>
         </div>
       </div>
-      <button className={forDelete} onClick={handleClicked}>Delete</button>
-      <button className={forEdit} onClick={handleEditMonster}>Edit Monster</button>
+      <button className={`${forDelete} newbutton2`} onClick={handleClicked}>Delete</button>
+      <button className={`${forEdit} newbutton2`} onClick={handleEditMonster}>Edit Monster</button>
       <div className={forBio} >{bio}</div>
       <img className={forAugment} src={'https://raw.githubusercontent.com/Irishwolf13/monsterImages/main/orbs/green.png'} />
       <div className={forArmorRating}> {myArmorRating} </div>
       <div className={forBackgroundBubbles}><ParticleBackground settings={forBubblesStyle}/></div>
       <form className={forFormAdd} onSubmit={handleAddToGame}>
-        <button type="submit">Add to Game</button>
-        <select name="gameNumber" defaultValue="1">
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
+        <button className='newbutton2' type="submit">Add to Crew</button>
+        <select className='newbutton2' name="gameNumber" defaultValue="1">
+          <option className='orange' value="1">1</option>
+          <option className='orange' value="2">2</option>
+          <option className='orange' value="3">3</option>
         </select>
       </form>
     </div>

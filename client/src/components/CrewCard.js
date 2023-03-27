@@ -2,14 +2,17 @@ import React from 'react';
 import CrewCardMonster from './CrewCardMonster';
 
 function CrewCard({monster, handleGameChange}) {
-  // console.log(monster.join_games)
   const displayGame = () => {
-    return (
-      <div>
-        {/* <div>GameCard: {monster.id}</div> */}
-        <CrewCardMonster monster={monster.join_games} handleGameChange={handleGameChange}/>
-      </div>
-    )
+    if (monster.join_games.length > 0) {
+      return (
+        <div className='crewImageHolder'>
+          <div className='crewCardSpacing' >CrewCard</div>
+          <CrewCardMonster monster={monster.join_games} handleGameChange={handleGameChange}/>
+        </div>
+      );
+    } else {
+      return null; // Return null to render nothing
+    }
   }
 
   return(
@@ -19,4 +22,4 @@ function CrewCard({monster, handleGameChange}) {
   );
 }
 
-export default CrewCard
+export default CrewCard;

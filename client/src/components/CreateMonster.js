@@ -103,9 +103,9 @@ function CreateMonster({monsters, monsterState}) {
   return (
     <>
     <div>
-      <button onClick={handleReselectAvatar}>Reselect Avatar</button>
-      <button onClick={handleReset}> Rest Attributes </button>
-      <button className='saveButton' onClick={saveMonster}> Save Monster </button>
+      <button className='newbutton loginButton2' onClick={handleReselectAvatar}>Reselect Avatar</button>
+      <button className='newbutton loginButton2' onClick={handleReset}> Rest Attributes </button>
+      <button className='saveButton newbutton' onClick={saveMonster}> Save Monster </button>
       <form className='createForm'>
         <img className='createFormFrame' src={'https://raw.githubusercontent.com/Irishwolf13/monsterImages/main/frames/rectangle1.png'}/>
         <div>
