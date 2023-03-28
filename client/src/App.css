@@ -59,38 +59,45 @@ img {
 }
 .homeImage1 {
   position: absolute;
-  width: 550px;
-  top: -90px;
-  left: -200px;
-  z-index: -5;
+  width: 700px;
+  top: 100px;
+  left: 120px;
+  z-index: -6;
 }
 .homeImage2 {
   position: absolute;
   width: 500px;
-  top: 120px;
-  left: -10px;
+  top: 200px;
+  left: -140px;
   z-index: -5;
 }
 .homeImage3 {
   position: absolute;
-  width: 400px;
+  width: 500px;
   top: 50px;
-  left: 150px;
+  left: 0px;
   z-index: -5;
 }
 .homeImage4 {
   position: absolute;
-  width: 500px;
-  top: 200px;
-  left: -90px;
-  z-index: -5;
+  width: 700px;
+  top: 350px;
+  left: -220px;
+  z-index: -4;
 }
 .homeImage5 {
   position: absolute;
   width: 800px;
   top: 300px;
-  left: 50px;
+  left: 0px;
   z-index: -5;
+}
+.homeImage6 {
+  position: absolute;
+  width: 700px;
+  top: -150px;
+  left: -350px;
+  z-index: -6;
 }
 /* ### Left side ### */
 .homeImage1b {
@@ -124,8 +131,15 @@ img {
 .homeImage5b {
   position: fixed;
   width: 800px;
-  top: 330px;
+  top: 360px;
   right: 40px;
+  z-index: -5;
+}
+.homeImage6b {
+  position: fixed;
+  width: 700px;
+  top: 500px;
+  right: -180px;
   z-index: -5;
 }
 
