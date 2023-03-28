@@ -27,6 +27,7 @@ class JoinGamesController < ApplicationController
       :monster_count
     )
   end
+  
   def join_params
     params.permit(
       :game_id,

@@ -11,4 +11,18 @@ class GamesController < ApplicationController
     Game.find(params[:id]).destroy
     head :no_content
   end
+
+  def create
+    myGame = Game.create!(strong_params)
+    render json: myGame, status: :created
+  end
+
+  private
+
+  def strong_params
+    params.permit(
+      :user_id
+    )
+  end
+
 end

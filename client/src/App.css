@@ -626,15 +626,15 @@ img {
 }
 .gameCardSmallImage {
   /* background-color: rgb(246, 255, 0); */
-  max-width: 140px;
-  word-wrap: break-word;
+  width: 140px;
   margin-left: -70px
 }
 .gameCardSmallName {
-  position: relative;
-  /* background-color: rgb(246, 255, 0); */
-  max-width: 70px;
-  left: -40px;
+  /* background-color: rgb(60, 255, 0); */
+  width: 80px;
+  padding-left: 35px;
+  padding-right: 35px;
+  margin-left: -70px;
   word-wrap: break-word;
 }
 .gameCardNumberCount {
@@ -816,8 +816,13 @@ img {
   /* background-color: aqua; */
   display: inline-block;
   width: 900px;
+  max-height: 0px;
   margin-left: 100px;
 }
 .crewAddButtons {
+  margin-bottom: 10px;
   text-align: center;
+  /* min-height: 330px;
+  max-height: 330px; */
+  /* background-color: rgba(102, 136, 112, 0.446); */
 }

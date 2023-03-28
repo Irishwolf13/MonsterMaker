@@ -3,21 +3,30 @@ import { useState, useEffect } from 'react'
 
 function CrewCardMonster({monster, handleGameChange}) {
   const [displayArray, setDisplayArray] = useState([])
+  const [displayArray2, setDisplayArray2] = useState([])
 
   useEffect(() => {
     let myArray = []
+    let myArray2 = []
     monster.map(item => {
       // console.log(item)
       for (let i = 0; i < item.monsterCount; i++) {
         myArray.push((
           <div className='gameCardSmallHolder'>
-            <div onClick={handleClicked2} className='gameCardSmallName'>{item.gameMonster.monster_name}</div>
             <img className='gameCardSmallImage' src={item.look.image} />
+          </div>
+        ))
+      }
+      for (let i = 0; i < item.monsterCount; i++) {
+        myArray2.push((
+          <div className='gameCardSmallHolder'>
             <div className='gameCardSmallName'>Level: {item.gameMonster.level}</div>
+            <div onClick={handleClicked2} className='gameCardSmallName'>{item.gameMonster.monster_name}</div>
           </div>
         ))
       }
       setDisplayArray(myArray)
+      setDisplayArray2(myArray2)
     })
     // console.log(myArray)
   },[monster])
@@ -75,7 +84,10 @@ function CrewCardMonster({monster, handleGameChange}) {
 
   return(
     <>
-      {displayArray}
+      <div>
+        {displayArray}
+      </div>
+      {displayArray2}
       {displayMonsterName()}
     </>
   );
