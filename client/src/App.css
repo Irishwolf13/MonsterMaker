@@ -922,3 +922,8 @@ img {
   top: 545px;
   left: -60px;
 }
+.deleteCrewButton {
+  position: relative;
+  top: 46px;
+  right: 510px;
+}

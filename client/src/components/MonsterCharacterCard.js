@@ -156,16 +156,18 @@ function MonsterCharacterCard({user_id, monster_id, url, level, monsterName, HP,
       forBubblesStyle=settings1
       forFormAdd='forFormAdd1'
   }
-  
+
   const handleClicked = () => {
     fetch(`http://localhost:3000/monsters/${monster_id}`, {
       method: 'DELETE'
     })
     .then(() => handleMonsterDelete(monster_id))
   }
+
   const handleEditMonster = (e) => {
     navigate(`/show/monster/${monster_id}`)
   }
+
   const handleAddToCrew = (e) => {
     e.preventDefault();
     const selectElement = e.target.elements.gameNumber;

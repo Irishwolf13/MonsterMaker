@@ -42,7 +42,7 @@ function ShowMyMonster({monsters}) {
   },[])
 
   const updateMonster = () => {
-    console.log(myMonsterState)
+    // console.log(myMonsterState)
     fetch(`http://localhost:3000/monsters/${id}`,{
       method: 'PATCH',
       headers: {'content-type': 'application/json'},
