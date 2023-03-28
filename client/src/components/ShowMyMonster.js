@@ -96,7 +96,7 @@ function ShowMyMonster({monsters}) {
     return (
       <>
       <div>
-        <button onClick={updateMonster}> Update Monster </button>
+        <button className='updateButton newbutton' onClick={updateMonster}> Update Monster </button>
       <form className='createForm'>
         <img className='createFormFrame' src={'https://raw.githubusercontent.com/Irishwolf13/monsterImages/main/frames/rectangle1.png'}/>
         <div>

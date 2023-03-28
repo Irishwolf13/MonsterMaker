@@ -4,8 +4,9 @@
   height: 100vh;
 }
 .userNameDiv {
-  padding-top: 250px;
+  padding-top: 200px;
   height: 20px;
+  z-index: 20;
 }
 .titleDiv {
   font-size: 20px;
@@ -47,6 +48,87 @@
 img {
   margin: 5px;
 }
+/* ########################## HOME IMAGES ########################## */
+.noScroll {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+}
+.flipped {
+  transform: scaleX(-1);
+}
+.homeImage1 {
+  position: absolute;
+  width: 550px;
+  top: -90px;
+  left: -200px;
+  z-index: -5;
+}
+.homeImage2 {
+  position: absolute;
+  width: 500px;
+  top: 120px;
+  left: -10px;
+  z-index: -5;
+}
+.homeImage3 {
+  position: absolute;
+  width: 400px;
+  top: 50px;
+  left: 150px;
+  z-index: -5;
+}
+.homeImage4 {
+  position: absolute;
+  width: 500px;
+  top: 200px;
+  left: -90px;
+  z-index: -5;
+}
+.homeImage5 {
+  position: absolute;
+  width: 800px;
+  top: 300px;
+  left: 50px;
+  z-index: -5;
+}
+/* ### Left side ### */
+.homeImage1b {
+  position: fixed;
+  width: 430px;
+  top: 0px;
+  right: -10px;
+  z-index: -5;
+}
+.homeImage2b {
+  position: fixed;
+  width: 500px;
+  top: 100px;
+  right: 90px;
+  z-index: -5;
+}
+.homeImage3b {
+  position: fixed;
+  width: 650px;
+  top: -10px;
+  right: -240px;
+  z-index: -5;
+}
+.homeImage4b {
+  position: fixed;
+  width: 500px;
+  top: 250px;
+  right: -130px;
+  z-index: -5;
+}
+.homeImage5b {
+  position: fixed;
+  width: 800px;
+  top: 330px;
+  right: 40px;
+  z-index: -5;
+}
+
 /* ########################## DROP BOARDS ########################## */
 .Board {
   display: inline-block;
@@ -724,7 +806,7 @@ img {
   color: var(--c);
   --_p: var(--s);
   background:
-    conic-gradient(from 90deg at var(--b) var(--b),#ffffff00 90deg,var(--c) 0)
+    conic-gradient(from 90deg at var(--b) var(--b),#ff9900 90deg,var(--c) 0)
     var(--_p) var(--_p)/calc(100% - var(--b) - 2*var(--_p)) calc(100% - var(--b) - 2*var(--_p));
   transition: .3s linear, color 0s, background-color 0s;
   outline: var(--b) solid #0000;
@@ -736,6 +818,13 @@ img {
   font-size: 20px;
   border: none;
   margin-right: 10px;
+}
+.newInput::placeholder {
+  color: rgb(96, 59, 0); /* Replace "red" with the desired color */
+}
+.newInput:-webkit-autofill {
+  border: var(--b) solid var(--c);
+  -webkit-box-shadow: 0 0 0px 1000px #ff9900 inset;
 }
 
 /* ##################### Trying the new button SMALL ##################### */
@@ -825,4 +914,11 @@ img {
   /* min-height: 330px;
   max-height: 330px; */
   /* background-color: rgba(102, 136, 112, 0.446); */
+}
+
+/* ####################### Other Stuff ################### */
+.updateButton {
+  position: relative;
+  top: 545px;
+  left: -60px;
 }
