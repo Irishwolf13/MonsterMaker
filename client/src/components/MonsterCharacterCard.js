@@ -2,11 +2,19 @@ import '../App.css';
 import { useNavigate } from 'react-router-dom';
 import { HTML5Backend } from "react-dnd-html5-backend";
 import ParticleBackground from 'react-particle-backgrounds'
+import React, { useState, useEffect} from 'react';
 
 function MonsterCharacterCard({user_id, monster_id, url, level, monsterName, HP, MP, attack, armor_defense, armor_base, armor_image, weapon_image, movement, bio, augmnet, handleMonsterDelete }) {
   //allow navigation
   const navigate = useNavigate();
+  const [userGames, setUserGames] = useState([])
   
+  useEffect(() => {
+    fetch(`http://localhost:3000/users/${user_id}`)
+    .then(response => response.json())
+    .then(data => setUserGames(data.games.map(item => item.id)))
+  },[])
+
   const settings3 = {
     particle: {
       particleCount: 150,
@@ -176,6 +184,12 @@ function MonsterCharacterCard({user_id, monster_id, url, level, monsterName, HP,
       body: JSON.stringify(myJoinGame)
     })
   };
+
+  const displayOptions = () => {
+    return userGames.map((item, index) => (
+      <option className='orange' value={item}>{index + 1}</option>
+    ))
+  }
   return (
     <div className='characterCardHolder'>
       <div className={forName}>{monsterName}</div>
@@ -203,9 +217,7 @@ function MonsterCharacterCard({user_id, monster_id, url, level, monsterName, HP,
         <button className='newbutton2' type="submit">Add to Crew</button>
         <select className='newbutton2' name="gameNumber" defaultValue="1">
           {/* I still need to get games for user, and loop through thoses and populate options dynamically */}
-          <option className='orange' value="1">1</option>
-          <option className='orange' value="2">2</option>
-          <option className='orange' value="3">3</option>
+          {displayOptions()}
         </select>
       </form>
     </div>
