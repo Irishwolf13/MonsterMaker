@@ -18,16 +18,21 @@ function ChooseMonster({user, setMonsterState, monsterState, monsters}) {
 
   const viewMonsters = () => {
     const filteredMonsters = monsters.filter(monster => monster.race.includes(filterName));
+    const sortedMonsters = filteredMonsters.sort((a, b) => a.race.localeCompare(b.race));
     const lastItemIndex = currentPage * itemsPerPage;
     const firstItemIndex = lastItemIndex - itemsPerPage;
-    const currentMonsters = filteredMonsters.slice(firstItemIndex, lastItemIndex);
-
+    const currentMonsters = sortedMonsters.slice(firstItemIndex, lastItemIndex);
+  
     return currentMonsters.map(monster => (
       <MonsterImageCard
         key={monster.id}
         url={monster.image}
         id={monster.id}
-        race={monster.race}
+        race={monster.race
+          .toLowerCase()
+          .split(" ")
+          .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+          .join(" ")}
         onClick={() => handleAvatarClicked(monster.id)}
       />
     ));
@@ -47,11 +52,15 @@ function ChooseMonster({user, setMonsterState, monsterState, monsters}) {
     }
   }
 
+  const handleFilter = (e) => {
+    setFilterName(e.target.value.toLowerCase())
+    setCurrentPage(1);
+  }
   return (
     <>
       <label>
-        <div className='smalltitleDiv'>Filter by Name:
-        <input className='newInput' type="text" value={filterName} onChange={(e) => setFilterName(e.target.value.toLowerCase())} />
+        <div className='smalltitleDiv' >Filter by Name:
+        <input className='newInput filterInput' placeholder='Sort by name' type="text" value={filterName} onChange={(e) => handleFilter(e)} />
         </div>
       </label>
       <div className='titleDiv'>Select Avatar</div>
@@ -60,17 +69,17 @@ function ChooseMonster({user, setMonsterState, monsterState, monsters}) {
       </div>
       {totalPages > 1 &&
         <div className='pagination'>
-          <button onClick={prevButton}>{'<<'}</button>
+          <button className='newbutton' onClick={prevButton}>{'<<'}</button>
           {[...Array(totalPages)].map((_, index) => (
             <button
               key={index}
               onClick={() => setCurrentPage(index + 1)}
-              className={currentPage === index + 1 ? 'active-page' : ''}
+              className={currentPage === index + 1 ? 'active-page newbuttonSelected' : 'newbutton'}
             >
               {index + 1}
             </button>
           ))}
-          <button onClick={nextButton}>{'>>'}</button>
+          <button className='newbutton' onClick={nextButton}>{'>>'}</button>
         </div>
       }
     </>

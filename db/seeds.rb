@@ -12,6 +12,8 @@ User.create(
   password: 'john',
   email: 'john@rrooney.com'
 )
+
+###################### Looks #####################
 puts 'seeding looks'
 Look.create(
   race: 'orc',
@@ -81,7 +83,28 @@ Look.create(
   race: 'undead naga',
   image: 'https://raw.githubusercontent.com/Irishwolf13/monsterImages/main/monsters/undead-naga.png'
 )
+Look.create(
+  race: 'centaur warrior',
+  image: 'https://raw.githubusercontent.com/Irishwolf13/monsterImages/main/monsters/cintar%20warrior.png'
+)
+Look.create(
+  race: 'dwarf defnder',
+  image: 'https://raw.githubusercontent.com/Irishwolf13/monsterImages/main/monsters/defender.png'
+)
+Look.create(
+  race: 'dwarf warlock',
+  image: 'https://raw.githubusercontent.com/Irishwolf13/monsterImages/main/monsters/dwarvenWarlock.png'
+)
+Look.create(
+  race: 'ghoul hunter',
+  image: 'https://raw.githubusercontent.com/Irishwolf13/monsterImages/main/monsters/ghoul-hunter.png'
+)
+Look.create(
+  race: 'whisp warrior',
+  image: 'https://raw.githubusercontent.com/Irishwolf13/monsterImages/main/monsters/nature-protector.png'
+)
 
+###################### Armors #####################
 puts 'seeding armors'
 Armor.create(
   material: 'None',
@@ -154,6 +177,8 @@ Armor.create(
   image: "https://raw.githubusercontent.com/Irishwolf13/monsterImages/main/armor/magic_1.jpg"
 )
 
+
+###################### Weapons #####################
 puts 'seeding weapons'
 Weapon.create(
   style: "None",
@@ -245,6 +270,9 @@ Weapon.create(
   weight: 1,
   image: "https://raw.githubusercontent.com/Irishwolf13/monsterImages/main/weapon/stick.png"
 )
+
+
+###################### Test monsters #####################
 puts 'Creating Monsters'
 Monster.create(
   user_id: 1,
@@ -289,6 +317,8 @@ Monster.create(
   bio: "This is my second character, Bubbles."
 )
 
+
+###################### Test Games #####################
 puts 'Creating Games'
 Game.create( #Game_id 1
   user_id: 1,
@@ -308,6 +338,8 @@ Game.create(#Game_id 4
   difficulty: 6
 )
 
+
+###################### Test Joins #####################
 JoinGame.create(
   game_id: 1, #Game_id 1
   monster_id: 3,

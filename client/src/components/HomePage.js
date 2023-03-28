@@ -21,7 +21,7 @@ function HomePage({ handleLogIn }) {
           <img className='homeImage5' src='https://raw.githubusercontent.com/Irishwolf13/monsterImages/main/monsters/barbarian-raider.png'/>
           <img className='homeImage6' src='https://raw.githubusercontent.com/Irishwolf13/monsterImages/main/monsters/cintar%20warrior.png'/>
         </div>
-        {/* https://raw.githubusercontent.com/Irishwolf13/monsterImages/main/monsters/cintar%20warrior.png */}
+        {/* className='newbutton' */}
         <img className='homeImage1b flipped' src='https://raw.githubusercontent.com/Irishwolf13/monsterImages/main/monsters/Flame%20warrior.png'/>
         <img className='homeImage2b flipped' src='https://raw.githubusercontent.com/Irishwolf13/monsterImages/main/monsters/orc1.png'/>
         <img className='homeImage3b flipped' src='https://raw.githubusercontent.com/Irishwolf13/monsterImages/main/monsters/unholy-priest.png'/>

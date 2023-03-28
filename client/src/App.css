@@ -14,9 +14,12 @@
   color: white;
 }
 .smalltitleDiv {
-  font-size: 10px;
-  padding: 3px;
+  font-size: 20px;
+  padding: 5px;
   color: white;
+}
+.filterInput { 
+  margin-left: 10px;
 }
 .loginButton2 {
   margin-top: 10px;
@@ -929,6 +932,40 @@ img {
   max-height: 330px; */
   /* background-color: rgba(102, 136, 112, 0.446); */
 }
+
+/* ##################### Trying the new button ##################### */
+
+.newbuttonSelected {
+  --b: 3px;   /* border thickness */
+  --s: .1em; /* size of the corner */
+  --c: #000000;
+  --j: rgb(255, 255, 255);
+  
+  padding: calc(.01em + var(--s)) calc(.3em + var(--s));
+  color: var(--j);
+  --_p: var(--s);
+  background:
+    conic-gradient(from 90deg at var(--b) var(--b),#ff9900 90deg,var(--c) 0)
+    var(--_p) var(--_p)/calc(100% - var(--b) - 2*var(--_p)) calc(100% - var(--b) - 2*var(--_p));
+  transition: .1s linear, color 0s, background-color 0s;
+  outline: var(--b) solid #0000;
+  outline-offset: .1em;
+}
+.newbuttonSelected:hover,
+.newbuttonSelected:focus-visible{
+  --_p: 0px;
+  outline-color: var(--c);
+  outline-offset: .05em;
+}
+.newbuttonSelected {
+  font-family: system-ui, sans-serif;
+  font-weight: bold;
+  font-size: 1.5rem;
+  cursor: pointer;
+  border: none;
+  margin-right: 10px;
+}
+
 
 /* ####################### Other Stuff ################### */
 .updateButton {
