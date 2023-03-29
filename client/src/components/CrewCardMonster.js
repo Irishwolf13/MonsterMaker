@@ -35,27 +35,37 @@ function CrewCardMonster({monster, handleGameChange}) {
     console.log('iran')
   }
   const handleClicked = (item, number) => {
-    let newCount = item.monsterCount + number
-    if (newCount === 0) {
-      fetch(`http://localhost:3000/join_games/${item.join_id}`,{
-        method: 'DELETE',
-        headers: {'content-type': 'application/json'}
-      })
-      .then(() => {
-        setDisplayArray([])
-        handleGameChange()
-        // handleDisplayUpdate()
-      })
-    } else {
-      fetch(`http://localhost:3000/join_games/${item.join_id}`,{
-        method: 'PATCH',
-        headers: {'content-type': 'application/json'},
-        body: JSON.stringify({monster_count: newCount})
-      })
-      .then(() => {
-        handleDisplayUpdate()
-      })
-    }
+    let myCount = 0
+    fetch(`http://localhost:3000/join_games/${item.game_id}`)
+    .then(res => res.json())
+    .then(data => {
+      data.map(item => myCount = myCount + item.monster_count)
+      if(myCount < 10 || number === -1) {
+        let newCount = item.monsterCount + number
+        if (newCount === 0) {
+          fetch(`http://localhost:3000/join_games/${item.join_id}`,{
+            method: 'DELETE',
+            headers: {'content-type': 'application/json'}
+          })
+          .then(() => {
+            setDisplayArray([])
+            handleGameChange()
+          })
+        } else {
+          fetch(`http://localhost:3000/join_games/${item.join_id}`,{
+            method: 'PATCH',
+            headers: {'content-type': 'application/json'},
+            body: JSON.stringify({monster_count: newCount})
+          })
+          .then(() => {
+            handleDisplayUpdate()
+          })
+        }
+
+      }else {
+        alert('Max number of Crewmembers is 10 ')
+      }
+    })
   }
 
   // This bit handles updating the display so I didn't write it twice in the handleClicked function

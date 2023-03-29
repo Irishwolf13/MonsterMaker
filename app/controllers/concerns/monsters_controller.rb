@@ -27,7 +27,7 @@ class MonstersController < ApplicationController
   def destroy
     Monster.find(params[:id]).destroy
     myMonsters = User.find_by(id: params[:user_id])
-    render json: myMonsters, status: :ok          
+    render json: myMonsters, status: :ok
   end
 
   private

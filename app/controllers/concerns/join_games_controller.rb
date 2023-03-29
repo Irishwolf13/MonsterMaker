@@ -3,6 +3,10 @@ class JoinGamesController < ApplicationController
     render json: JoinGame.all(), status: :ok
   end
 
+  def show
+    render json: JoinGame.where(game_id: params[:id]), status: :ok
+  end
+
   def update
     myJoin = JoinGame.find(params[:id])
     myJoin.update!(strong_params)
