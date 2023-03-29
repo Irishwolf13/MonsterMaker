@@ -19,6 +19,10 @@ class Monster < ApplicationRecord
     if Obscenity.profane?(monster_name)
       errors.add(:monster_name, "cannot contain offensive words")
     end
+  
+    if Obscenity.profane?(bio)
+      errors.add(:bio, "cannot contain offensive words")
+    end
   end
 
 end

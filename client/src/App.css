@@ -283,6 +283,7 @@ img {
   padding-bottom: 30px;
   margin-bottom: 30px;
   width: 510px;
+  min-width:510px;
   height: 360px;
 }
 .monsterCard1 {
@@ -376,9 +377,9 @@ img {
 .monsterCardAugment1 {
   position: relative;
   z-index: 2;
-  width: 40px;
-  bottom: 740px;
-  left: 113px;
+  width: 48px;
+  bottom: 725px;
+  left: -221px;
   z-index: 10;
 }
 .armorRating1 {
@@ -406,7 +407,7 @@ img {
 .forFormAdd1 {
   position: relative;
   z-index: 2;
-  bottom: 940px;
+  bottom: 948px;
   left: 120px;
 }
 

@@ -78,6 +78,7 @@ function MonsterCharacterCard({user_id, monster_id, url, level, monsterName, HP,
   }
   let myArmorRating = (armor_base + armor_defense);
   let myImage;
+  let myAugment;
   let forBack;
   let forBackBoarder;
   let forName;
@@ -99,6 +100,7 @@ function MonsterCharacterCard({user_id, monster_id, url, level, monsterName, HP,
     case level > 10:
       myImage = 'http://cloud-3.steamusercontent.com/ugc/2042984690529224232/F60F430287941F7F6BFBAA29B1C7AF29BE99330A/';
       forBack = 'https://raw.githubusercontent.com/Irishwolf13/monsterImages/main/frames/card_3_back.png'
+      myAugment = 'https://raw.githubusercontent.com/Irishwolf13/monsterImages/main/orbs/purple.png'
       forName = 'characterCardName3'
       forArmor = 'smallArmor3'
       forWeapon = 'smallWeapon3'
@@ -119,6 +121,7 @@ function MonsterCharacterCard({user_id, monster_id, url, level, monsterName, HP,
     case level > 1 && level <= 10:
       myImage = "https://raw.githubusercontent.com/Irishwolf13/monsterImages/main/frames/card_1_B.png";
       forBack = 'https://raw.githubusercontent.com/Irishwolf13/monsterImages/main/frames/card_1_back.png'
+      myAugment = 'https://raw.githubusercontent.com/Irishwolf13/monsterImages/main/orbs/greenSwirl.png'
       forName = 'characterCardName2'
       forArmor = 'smallArmor2'
       forWeapon = 'smallWeapon2'
@@ -139,6 +142,7 @@ function MonsterCharacterCard({user_id, monster_id, url, level, monsterName, HP,
     default:
       myImage = 'https://raw.githubusercontent.com/Irishwolf13/monsterImages/main/frames/card1Front.png';
       forBack = 'https://raw.githubusercontent.com/Irishwolf13/monsterImages/main/frames/card_2_back3.png'
+      myAugment = 'https://raw.githubusercontent.com/Irishwolf13/monsterImages/main/orbs/blueGold.png'
       forName = 'characterCardName1'
       forArmor = 'smallArmor1'
       forWeapon = 'smallWeapon1'
@@ -211,7 +215,7 @@ function MonsterCharacterCard({user_id, monster_id, url, level, monsterName, HP,
       <button className={`${forDelete} newbutton2`} onClick={handleClicked}>Delete</button>
       <button className={`${forEdit} newbutton2`} onClick={handleEditMonster}>Edit Monster</button>
       <div className={forBio} >{bio}</div>
-      <img className={forAugment} src={'https://raw.githubusercontent.com/Irishwolf13/monsterImages/main/orbs/green.png'} />
+      <img className={forAugment} src={myAugment} />
       <div className={forArmorRating}> {myArmorRating} </div>
       <div className={forBackgroundBubbles}><ParticleBackground settings={forBubblesStyle}/></div>
       <form className={forFormAdd} onSubmit={handleAddToCrew}>
