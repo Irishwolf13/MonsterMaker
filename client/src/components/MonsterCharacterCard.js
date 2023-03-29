@@ -173,17 +173,16 @@ function MonsterCharacterCard({user_id, monster_id, url, level, monsterName, HP,
     const selectElement = e.target.elements.gameNumber;
     const selectedOption = selectElement.options[selectElement.selectedIndex];
     const selectedValue = selectedOption.value;
-    // console.log("game_id: "+ selectedValue);
-    // console.log("monster_id: " + monster_id)
-    // console.log("user_id: "+user_id)
-    // HERE WE WILL NEED TO DO A POST/PATCH TO GAMES (OR MAYBE JOIN_GAMES)
+
     let myJoinGame = {game_id: selectedValue, monster_id: monster_id, monster_count: 1}
-    console.log(myJoinGame)
+
     fetch(`http://localhost:3000/join_games`,{
       method: 'POST',
       headers: {'content-type': 'application/json'},
       body: JSON.stringify(myJoinGame)
     })
+    .then(alert('Monster added to Crew!'))
+    .then(navigate(`/gamePage/${user_id}`))
   };
 
   // This takes the fetch requests output, and maps all the games, so the user only can add to games they already have.
