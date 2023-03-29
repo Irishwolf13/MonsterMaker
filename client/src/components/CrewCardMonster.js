@@ -21,7 +21,7 @@ function CrewCardMonster({monster, handleGameChange}) {
         myArray2.push((
           <div className='gameCardSmallHolder'>
             <div className='gameCardSmallName'>Level: {item.gameMonster.level}</div>
-            <div onClick={handleClicked2} className='gameCardSmallName'>{item.gameMonster.monster_name}</div>
+            <div className='gameCardSmallName'>{item.gameMonster.monster_name}</div>
           </div>
         ))
       }
@@ -31,9 +31,11 @@ function CrewCardMonster({monster, handleGameChange}) {
     // console.log(myArray)
   },[monster])
 
+  //This is going to be for later use... not sure what yet.
   const handleClicked2 = () => {
     console.log('iran')
   }
+
   const handleClicked = (item, number) => {
     let myCount = 0
     fetch(`http://localhost:3000/join_games/${item.game_id}`)

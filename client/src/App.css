@@ -265,6 +265,8 @@ img {
 .crewCardSpacing {
   margin-bottom: 10px;
   width: 900px;
+  font-size: 20px;
+  font-weight: 600;
   /* margin-left: auto;
   margin-right: auto; */
   background-color: #ff9900;
@@ -909,13 +911,15 @@ img {
   margin-right: 10px;
   margin-top: 5px;
   position: relative;
-  left: -340px;
+  left: 0px;
 }
 
 .newbuttonContainer {
+  /* background-color: aqua; */
   position: relative;
+  width: 350px;
   top: -150px;
-  left: -280px
+  left: -350px
 }
 
 .crewImageHolder {
@@ -975,6 +979,6 @@ img {
 }
 .deleteCrewButton {
   position: relative;
-  top: 46px;
+  top: 48px;
   right: 510px;
 }
