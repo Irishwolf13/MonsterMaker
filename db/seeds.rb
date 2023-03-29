@@ -103,6 +103,50 @@ Look.create(
   race: 'whisp warrior',
   image: 'https://raw.githubusercontent.com/Irishwolf13/monsterImages/main/monsters/nature-protector.png'
 )
+Look.create(
+  race: 'dwarf astrologer',
+  image: 'https://raw.githubusercontent.com/Irishwolf13/monsterImages/main/monsters/astrologer.png'
+)
+Look.create(
+  race: 'catacomb slug',
+  image: 'https://raw.githubusercontent.com/Irishwolf13/monsterImages/main/monsters/catacomb-slug1.png'
+)
+Look.create(
+  race: 'demon bonebreaker',
+  image: 'https://raw.githubusercontent.com/Irishwolf13/monsterImages/main/monsters/demon-bonebreaker.png'
+)
+Look.create(
+  race: 'goblin mercenary',
+  image: 'https://raw.githubusercontent.com/Irishwolf13/monsterImages/main/monsters/goblin-mercenary.png'
+)
+Look.create(
+  race: 'graveyard wolf',
+  image: 'https://raw.githubusercontent.com/Irishwolf13/monsterImages/main/monsters/graveyard-wolf.png'
+)
+Look.create(
+  race: 'night spirit',
+  image: 'https://raw.githubusercontent.com/Irishwolf13/monsterImages/main/monsters/night-spirit.png'
+)
+Look.create(
+  race: 'pale orc',
+  image: 'https://raw.githubusercontent.com/Irishwolf13/monsterImages/main/monsters/pale-orc.png'
+)
+Look.create(
+  race: 'rotten ghoul',
+  image: 'https://raw.githubusercontent.com/Irishwolf13/monsterImages/main/monsters/rotten-ghoul.png'
+)
+Look.create(
+  race: 'shipyard worker',
+  image: 'https://raw.githubusercontent.com/Irishwolf13/monsterImages/main/monsters/shipyard-worker.png'
+)
+Look.create(
+  race: 'wild swordsman',
+  image: 'https://raw.githubusercontent.com/Irishwolf13/monsterImages/main/monsters/wild-swordsman1.png'
+)
+# Look.create(
+#   race: '',
+#   image: ''
+# )
 
 ###################### Armors #####################
 puts 'seeding armors'

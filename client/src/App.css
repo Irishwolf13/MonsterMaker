@@ -288,7 +288,7 @@ img {
 }
 .monsterCard1 {
   position: relative;
-  bottom: 0px;
+  bottom: 10px;
   left: -210px;
   max-width: 250px;
 }
@@ -397,7 +397,7 @@ img {
 
  .forBackground1 {
   position: relative;
-  top: -1080px;
+  top: -1090px;
   left: 45px;
   width: 200px;
   height: 200px;
@@ -414,7 +414,7 @@ img {
 /* ######################### END Character Card CSS ######################### */
 .monsterCard2 {
   position: relative;
-  bottom: 0px;
+  bottom: 10px;
   left: -220px;
   max-width: 250px;
 }
@@ -538,7 +538,7 @@ img {
 /* ######################### END Character Card CSS ######################### */
 .monsterCard3 {
   position: relative;
-  bottom: -10px;
+  bottom: 10px;
   left: -217px;
   width: 250px;
 }
