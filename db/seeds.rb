@@ -129,7 +129,7 @@ Look.create(
 )
 Look.create(
   race: 'pale orc',
-  image: 'https://raw.githubusercontent.com/Irishwolf13/monsterImages/main/monsters/pale-orc.png'
+  image: 'https://raw.githubusercontent.com/Irishwolf13/monsterImages/main/monsters/pale-orc1.png'
 )
 Look.create(
   race: 'rotten ghoul',

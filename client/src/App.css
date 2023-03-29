@@ -986,9 +986,10 @@ img {
 
 /* ####################### Other Stuff ################### */
 .updateButton {
-  position: relative;
-  top: 545px;
-  left: -60px;
+  position: absolute;
+  top: 575px;
+  left: 664px;
+  width: 210px;
 }
 .deleteCrewButton {
   position: relative;
