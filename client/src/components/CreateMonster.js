@@ -51,6 +51,7 @@ function CreateMonster({monsters, monsterState}) {
     .then(res => {
       if (res.ok) {
         alert('Monster Saved!');
+        handleReset()
       } else {
         res.json().then(data => {
           let messages = Object.values(data.errors).flat();
