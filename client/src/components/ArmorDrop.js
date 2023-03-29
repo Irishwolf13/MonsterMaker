@@ -6,6 +6,7 @@ function ArmorDrop({ setMyMonsterState, myMonster, armorList, setMyBoard, myBoar
 
   const [myList, setMyList] = useState([])
   const [showArmors, setShowArmors] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
 
   const [{ isOver: isOverBoard }, dropBoard] = useDrop(() => (
     {
@@ -41,7 +42,11 @@ function ArmorDrop({ setMyMonsterState, myMonster, armorList, setMyBoard, myBoar
   }
 
   // Items
-  const thingsToShow = armorList.map(item => {
+  const itemsPerPage = 8;
+  const numberOfPages = Math.ceil(armorList.length / itemsPerPage);
+  const currentPageItems = armorList.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
+
+  const thingsToShow = currentPageItems.map(item => {
     console.log(item)
     return <Armor
               key={ item.id }
@@ -53,6 +58,12 @@ function ArmorDrop({ setMyMonsterState, myMonster, armorList, setMyBoard, myBoar
               weight={item.weight}
             />
   })
+
+  const pageButtons = Array.from(Array(numberOfPages), (e, i) => {
+    return (
+      <button  className='newbutton' key={i} onClick={() => setCurrentPage(i+1)}>{i+1}</button>
+    );
+  });
 
   const myItemBoard = myBoard.map((item) => {
     return (
@@ -71,7 +82,10 @@ function ArmorDrop({ setMyMonsterState, myMonster, armorList, setMyBoard, myBoar
       <div>
         {showArmors && (
           <div className='picturesContainer' title='Drag and Drop Items'>
-            <div className='dropDownPictures'>{thingsToShow}</div>
+            <div className='dropDownPictures'>
+              <div>{thingsToShow}</div>
+              <div className='pageButtons'>{pageButtons}</div>
+            </div>
           </div>
         )}
       </div>
