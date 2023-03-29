@@ -42,7 +42,16 @@ function ArmorDrop({ setMyMonsterState, myMonster, armorList, setMyBoard, myBoar
 
   // Items
   const thingsToShow = armorList.map(item => {
-    return <Armor key={ item.id } id={ item.id } url={ item.image } myButtonClicked={() => {addImageToBoard(item.id, 'armor_id')}}/>
+    console.log(item)
+    return <Armor
+              key={ item.id }
+              id={ item.id }
+              url={ item.image }
+              myButtonClicked={() => {addImageToBoard(item.id, 'armor_id')}}
+              defense={item.defense}
+              material={item.material}
+              weight={item.weight}
+            />
   })
 
   const myItemBoard = myBoard.map((item) => {

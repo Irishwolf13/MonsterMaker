@@ -179,8 +179,10 @@ img {
   position: relative;
   top: 10px;
 }
-/* ##### END DROP BOARDS ##### */
-
+/* ##### ITEM SELECTIONS FOR DROP BOARDS ##### */
+.itemSelection1{
+  color: white;
+}
 .createFormFrame {
   position: absolute;
   width: 330px;
@@ -769,6 +771,7 @@ img {
   border-radius: 5px;
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
   animation: slideDown 0.5s forwards;
+  color: white;
 }
 
 @keyframes slideDown {

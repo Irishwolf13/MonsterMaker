@@ -42,7 +42,14 @@ function WeaponDrop({ setMyMonsterState, myMonster, weaponList, setMyBoard, myBo
 
   // Items
   const thingsToShow = weaponList.map(item => {
-    return <Weapon key={ item.id } id={ item.id } url={ item.image } myButtonClicked={() => {addImageToBoard(item.id, 'weapon_id')}}/>
+    return <Weapon
+      key={ item.id }
+      id={ item.id }
+      url={ item.image }
+      attack={ item.attack }
+      style={ item.style }
+      myButtonClicked={() => {addImageToBoard(item.id, 'weapon_id')}}
+    />
   })
 
   const myItemBoard = myBoard.map((item) => {
