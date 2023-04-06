@@ -361,73 +361,73 @@ Monster.create(
   bio: "This is my second character, Bubbles."
 )
 
-
+# I don't think I need anything below this anymore...
 ###################### Test Games #####################
-puts 'Creating Games'
-Game.create( #Game_id 1
-  user_id: 1,
-  difficulty: 3
-)
-Game.create(#Game_id 2
-  user_id: 1,
-  difficulty: 4
-)
-Game.create(#Game_id 3
-  user_id: 1,
-  difficulty: 5
-)
+# puts 'Creating Games'
+# Game.create( #Game_id 1
+#   user_id: 1,
+#   difficulty: 3
+# )
+# Game.create(#Game_id 2
+#   user_id: 1,
+#   difficulty: 4
+# )
+# Game.create(#Game_id 3
+#   user_id: 1,
+#   difficulty: 5
+# )
 
-Game.create(#Game_id 4
-  user_id: 2,
-  difficulty: 6
-)
+# Game.create(#Game_id 4
+#   user_id: 2,
+#   difficulty: 6
+# )
 
 
 ###################### Test Joins #####################
-JoinGame.create(
-  game_id: 1, #Game_id 1
-  monster_id: 3,
-  monster_count: 3
-)
-JoinGame.create(
-  game_id: 1, #Game_id 1
-  monster_id: 2,
-  monster_count: 5
-)
-JoinGame.create(
-  game_id: 1, #Game_id 1
-  monster_id: 1,
-  monster_count: 4
-)
-JoinGame.create(
-  game_id: 1, #Game_id 1
-  monster_id: 3,
-  monster_count: 4
-)
+# JoinGame.create(
+#   game_id: 1, #Game_id 1
+#   monster_id: 3,
+#   monster_count: 3
+# )
+# JoinGame.create(
+#   game_id: 1, #Game_id 1
+#   monster_id: 2,
+#   monster_count: 5
+# )
+# JoinGame.create(
+#   game_id: 1, #Game_id 1
+#   monster_id: 1,
+#   monster_count: 4
+# )
+# JoinGame.create(
+#   game_id: 1, #Game_id 1
+#   monster_id: 3,
+#   monster_count: 4
+# )
 
-JoinGame.create(
-  game_id: 2, #Game_id 2
-  monster_id: 2,
-  monster_count: 3
-)
-JoinGame.create(
-  game_id: 2, #Game_id 2
-  monster_id: 1,
-  monster_count: 1
-)
-JoinGame.create(
-  game_id: 2, #Game_id 2
-  monster_id: 2,
-  monster_count: 4
-)
+# JoinGame.create(
+#   game_id: 2, #Game_id 2
+#   monster_id: 2,
+#   monster_count: 3
+# )
+# JoinGame.create(
+#   game_id: 2, #Game_id 2
+#   monster_id: 1,
+#   monster_count: 1
+# )
+# JoinGame.create(
+#   game_id: 2, #Game_id 2
+#   monster_id: 2,
+#   monster_count: 4
+# )
 
-JoinGame.create(
-  game_id: 3, #Game_id 3
-  monster_id: 2,
-  monster_count: 20
-)
-JoinGame.create(
-  game_id: 4, #Game_id 4
-  monster_id: 3,
-  monster_count: 3
-)
+# JoinGame.create(
+#   game_id: 3, #Game_id 3
+#   monster_id: 2,
+#   monster_count: 20
+# )
+# JoinGame.create(
+#   game_id: 4, #Game_id 4
+#   monster_id: 3,
+#   monster_count: 3
+# )

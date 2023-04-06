@@ -1,13 +1,21 @@
 import React from 'react';
 import CrewCardMonster from './CrewCardMonster';
 
-function CrewCard({monster, handleGameChange}) {
+function CrewCard({monster, handleGameChange, setMyCrews, id}) {
 
   const handleClickedDelete = (deleteGame_id) => {
-    console.log('BA-letted')
-    console.log(deleteGame_id)
+    // console.log('BA-letted')
+    // console.log(deleteGame_id)
     fetch(`http://localhost:3000/games/${deleteGame_id}`, {
       method: 'DELETE'
+    })
+    .then(res => {
+      if (res.ok) {
+        fetch(`http://localhost:3000/games/${id}`)
+        .then(res => res.json())
+        .then(data => setMyCrews(data))
+        // .then(alert('Crew Deleted!'))
+      }
     })
   }
 

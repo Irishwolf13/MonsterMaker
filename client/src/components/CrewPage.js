@@ -9,7 +9,6 @@ function CrewPage({ user, monsterState, monsters }) {
   const navigate = useNavigate();
 
   const [myCrews, setMyCrews] = useState([]);
-
   useEffect(() => {
     fetch(`http://localhost:3000/games/${id}`)
     .then(res => res.json())
@@ -25,7 +24,7 @@ function CrewPage({ user, monsterState, monsters }) {
  const viewCrews = () => {
   return myCrews.map(monster => (
     <div className='crewAddButtons'>
-      <CrewCard key={monster.id} monster={monster} handleGameChange={handleGameChange}/>
+      <CrewCard key={monster.id} monster={monster} handleGameChange={handleGameChange} setMyCrews={setMyCrews} id={id}/>
     </div>
   ))
 };
