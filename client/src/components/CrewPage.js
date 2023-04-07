@@ -24,7 +24,7 @@ function CrewPage({ user, monsterState, monsters }) {
   const viewCrews = () => {
     let myCrewNumber = 0
     return myCrews.map(monster => (
-      <div className='crewAddButtons'>
+      <div className='crewCardHolder'>
         <CrewCard key={monster.id} monster={monster} handleGameChange={handleGameChange} setMyCrews={setMyCrews} id={id} myCrewNumber={++myCrewNumber}/>
       </div>
     ))

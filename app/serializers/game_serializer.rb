@@ -8,7 +8,9 @@ class GameSerializer < ActiveModel::Serializer
         game_id: item.game_id,
         monsterCount: item.monster_count,
         gameMonster: item.monster,
-        look: item.monster.look
+        look: item.monster.look,
+        armor: item.monster.armor.defense,
+        weapon: item.monster.weapon.attack
       }
     end
   end

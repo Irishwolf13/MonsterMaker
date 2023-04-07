@@ -4,7 +4,7 @@ import { HTML5Backend } from "react-dnd-html5-backend";
 import ParticleBackground from 'react-particle-backgrounds'
 import React, { useState, useEffect} from 'react';
 
-function MonsterCharacterCard({user_id, monster_id, url, level, monsterName, HP, MP, attack, armor_defense, armor_base, armor_image, weapon_image, movement, bio, augmnet, handleMonsterDelete }) {
+function MonsterCharacterCard({user_id, monster_id, url, level, monsterName, HP, MP, attack, weapon_attack, armor_defense, armor_base, armor_image, weapon_image, movement, bio, augmnet, handleMonsterDelete }) {
   //allow navigation
   const navigate = useNavigate();
   const [userGames, setUserGames] = useState([])
@@ -228,7 +228,7 @@ function MonsterCharacterCard({user_id, monster_id, url, level, monsterName, HP,
           <div>Move Speed: {movement}</div>
           <div>Hit Points: {HP} </div>
           <div>Magic Points: {MP} </div>
-          <div>Attack Rating: {attack}</div>
+          <div>Attack Rating: {attack + weapon_attack}</div>
         </div>
       </div>
       <button className={`${forDelete} newbutton2`} onClick={handleClicked}>Delete</button>

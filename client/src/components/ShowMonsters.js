@@ -29,6 +29,7 @@ function ShowMonsters({ userMonsters }) {
         armor_base={monster.base_armor}
         armor_image={monster.armor.image}
         weapon_image={monster.weapon.image}
+        weapon_attack={monster.weapon.attack}
         movement={monster.movement}
         bio={monster.bio}
         augmnet={monster.augmnet}

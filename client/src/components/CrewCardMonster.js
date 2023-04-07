@@ -9,7 +9,7 @@ function CrewCardMonster({monster, handleGameChange}) {
     let myArray = []
     let myArray2 = []
     monster.map(item => {
-      // console.log(item)
+      console.log(item)
 
         myArray.push((
           <div className='gameCardSmallHolder'>
@@ -19,8 +19,10 @@ function CrewCardMonster({monster, handleGameChange}) {
 
         myArray2.push((
           <div className='gameCardSmallHolder'>
-            <div className='gameCardSmallName'>Level: {item.gameMonster.level}</div>
             <div className='gameCardSmallName'>{item.gameMonster.monster_name}</div>
+            <div className='gameCardSmallName'>HP: {item.gameMonster.hit_points}</div>
+            <div className='gameCardSmallName'>Attack: {item.gameMonster.attack + item.weapon}</div>
+            <div className='gameCardSmallName'>Armor: {item.gameMonster.base_armor + item.armor}</div>
             <button className='newbutton3' onClick={() => handleClicked(item, -1)}>Remove</button>
           </div>
         ))
@@ -95,7 +97,7 @@ function CrewCardMonster({monster, handleGameChange}) {
 
   return(
     <>
-      <div>{displayArray}</div>
+      <div className='displayArrayHolder'>{displayArray}</div>
       <div>{displayArray2}</div>
       {/* {displayMonsterName()} */}
     </>

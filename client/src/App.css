@@ -273,18 +273,7 @@ img {
   display: flex;
   flex-wrap: wrap;
 }
-.crewCardSpacing {
-  margin-bottom: 10px;
-  width: 900px;
-  font-size: 20px;
-  font-weight: 600;
-  /* margin-left: auto;
-  margin-right: auto; */
-  background-color: #ff9900;
-  border: 2px solid black;
-  border-radius: 5px;
-  margin-top: 20px;
-}
+
 /* ######################### Character Card CSS ######################### */
 .characterCardHolder{
   position: relative;
@@ -723,6 +712,7 @@ img {
 
 .picturesContainer {
   position: relative;
+
 }
 /* ########################## GAME PAGE ############################# */
 /* .gameCardImageHolder {
@@ -736,18 +726,20 @@ img {
 } */
 .gameCardSmallHolder {
   display: inline-block;
+  width: 80px;
+  margin-left: 0px;
+  /* background-color: rgb(246, 255, 0); */
 }
 .gameCardSmallImage {
-  /* background-color: rgb(246, 255, 0); */
   width: 140px;
-  margin-left: -70px
+  margin-left: -30px;
 }
 .gameCardSmallName {
-  /* background-color: rgb(60, 255, 0); */
+  /* background-color: rgb(255, 0, 247); */
   width: 80px;
-  padding-left: 35px;
-  padding-right: 35px;
-  margin-left: -70px;
+  /* padding-left: 35px; */
+  /* padding-right: 35px; */
+  /* margin-left: -70px; */
   word-wrap: break-word;
 }
 .gameCardNumberCount {
@@ -918,13 +910,13 @@ img {
 .newbutton3 {
   font-family: system-ui, sans-serif;
   font-weight: bold;
-  font-size: 1.1rem;
+  font-size: 15px;
   cursor: pointer;
   border: none;
-  margin-right: 10px;
+  /* margin-right: 100px; */
   margin-top: 5px;
   position: relative;
-  left: -35px;
+  width: 75px;
 }
 
 .newbuttonContainer {
@@ -934,20 +926,42 @@ img {
   /* top: -150px; */
   /* left: -350px */
 }
-
-.crewImageHolder {
-  /* background-color: aqua; */
+.crewNameSpace {
+  margin-bottom: 10px;
+  width: 950px;
+  font-size: 20px;
+  font-weight: 600;
+  background-color: #ff9900;
+  border: 2px solid black;
+  border-radius: 5px;
+  text-align: left;
+  padding-left: 5px;
+  /* margin-top: 20px; */
+}
+.crewHolder {
+  /* background-color: rgb(95, 161, 55); */
   display: inline-block;
-  width: 900px;
-  max-height: 0px;
+  width: 950px;
+  min-height: 350px;
   margin-left: 100px;
 }
-.crewAddButtons {
+.deleteCrewButton {
+  position: relative;
+  bottom: 10px;
+  right: 390px;
+}
+.crewCardHolder {
   margin-bottom: 10px;
   text-align: center;
-  /* min-height: 330px;
-  max-height: 330px; */
-  /* background-color: rgba(102, 136, 112, 0.446); */
+}
+.displayArrayHolder {
+  /* background-color: aqua; */
+  min-height: 160px;
+}
+.crewImageBackground{
+  position: absolute;
+  z-index: -1;
+  left: 370px;
 }
 
 /* ##################### Trying the new button ##################### */
@@ -983,16 +997,10 @@ img {
   margin-right: 10px;
 }
 
-
 /* ####################### Other Stuff ################### */
 .updateButton {
   position: absolute;
   top: 575px;
   left: 664px;
   width: 210px;
-}
-.deleteCrewButton {
-  position: relative;
-  top: 48px;
-  right: 510px;
 }

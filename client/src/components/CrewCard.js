@@ -22,9 +22,10 @@ function CrewCard({monster, handleGameChange, setMyCrews, id, myCrewNumber}) {
   const displayGame = () => {
     let myGame = (monster.join_games.map(game => (game.game_id))[0])
     return (
-      <div className='crewImageHolder'>
+      <div className='crewHolder'>
+        <img className='crewImageBackground' src='https://place-hold.it/950x350'/>
+        <div className='crewNameSpace' >Crew {myCrewNumber}</div>
         <button className='newbutton2 deleteCrewButton' onClick={() => handleClickedDelete(myGame)} >Delete Crew</button>
-        <div className='crewCardSpacing' >Crew {myCrewNumber}</div>
         <CrewCardMonster monster={monster.join_games} handleGameChange={handleGameChange}/>
       </div>
     );
