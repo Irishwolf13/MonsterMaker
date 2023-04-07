@@ -924,15 +924,15 @@ img {
   margin-right: 10px;
   margin-top: 5px;
   position: relative;
-  left: 0px;
+  left: -35px;
 }
 
 .newbuttonContainer {
   /* background-color: aqua; */
   position: relative;
-  width: 350px;
-  top: -150px;
-  left: -350px
+  width: 90px;
+  /* top: -150px; */
+  /* left: -350px */
 }
 
 .crewImageHolder {

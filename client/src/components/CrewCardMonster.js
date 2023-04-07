@@ -21,6 +21,7 @@ function CrewCardMonster({monster, handleGameChange}) {
           <div className='gameCardSmallHolder'>
             <div className='gameCardSmallName'>Level: {item.gameMonster.level}</div>
             <div className='gameCardSmallName'>{item.gameMonster.monster_name}</div>
+            <button className='newbutton3' onClick={() => handleClicked(item, -1)}>Remove</button>
           </div>
         ))
       setDisplayArray(myArray)
@@ -34,39 +35,40 @@ function CrewCardMonster({monster, handleGameChange}) {
   //   console.log('iran')
   // }
 
-  // const handleClicked = (item, number) => {
-  //   let myCount = 0
-  //   fetch(`http://localhost:3000/join_games/${item.game_id}`)
-  //   .then(res => res.json())
-  //   .then(data => {
-  //     data.map(item => myCount = myCount + item.monster_count)
-  //     if(myCount < 10 || number === -1) {
-  //       let newCount = item.monsterCount + number
-  //       if (newCount === 0) {
-  //         fetch(`http://localhost:3000/join_games/${item.join_id}`,{
-  //           method: 'DELETE',
-  //           headers: {'content-type': 'application/json'}
-  //         })
-  //         .then(() => {
-  //           setDisplayArray([])
-  //           handleGameChange()
-  //         })
-  //       } else {
-  //         fetch(`http://localhost:3000/join_games/${item.join_id}`,{
-  //           method: 'PATCH',
-  //           headers: {'content-type': 'application/json'},
-  //           body: JSON.stringify({monster_count: newCount})
-  //         })
-  //         .then(() => {
-  //           handleDisplayUpdate()
-  //         })
-  //       }
+  const handleClicked = (item, number) => {
+    // let myCount = 0
+    // fetch(`http://localhost:3000/join_games/${item.game_id}`)
+    // .then(res => res.json())
+    // .then(data => {
+    //   data.map(item => myCount = myCount + item.monster_count)
+    //   if(myCount < 10 || number === -1) {
+    //     let newCount = item.monsterCount + number
+    //     if (newCount === 0) {
+          fetch(`http://localhost:3000/join_games/${item.join_id}`,{
+            method: 'DELETE',
+            headers: {'content-type': 'application/json'}
+          })
+          .then(() => {
+            setDisplayArray([])
+            setDisplayArray2([])
+            handleGameChange()
+          })
+      //   } else {
+      //     fetch(`http://localhost:3000/join_games/${item.join_id}`,{
+      //       method: 'PATCH',
+      //       headers: {'content-type': 'application/json'},
+      //       body: JSON.stringify({monster_count: newCount})
+      //     })
+      //     .then(() => {
+      //       handleDisplayUpdate()
+      //     })
+      //   }
 
-  //     }else {
-  //       alert('Max number of Crewmembers is 10 ')
-  //     }
-  //   })
-  // }
+      // }else {
+      //   alert('Max number of Crewmembers is 10 ')
+      // }
+    // })
+  }
 
   // This bit handles updating the display so I didn't write it twice in the handleClicked function
   // const handleDisplayUpdate = () => {
@@ -86,18 +88,15 @@ function CrewCardMonster({monster, handleGameChange}) {
   //   // console.log(monster)
   //   return monster.map(item => (
   //     <div className='newbuttonContainer' >
-  //      {/* <button className='newbutton3' onClick={() => handleClicked(item, -1)}>-1 {item.gameMonster.monster_name}</button> */}
-  //      {/* <button className='newbutton3' onClick={() => handleClicked(item, 1)}>+1 {item.gameMonster.monster_name}</button> */}
+  //      <button className='newbutton3' onClick={() => handleClicked(item, -1)}>{item.gameMonster.monster_name}</button>
   //     </div>
   //   ))
   // }
 
   return(
     <>
-      <div>
-        {displayArray}
-      </div>
-      {displayArray2}
+      <div>{displayArray}</div>
+      <div>{displayArray2}</div>
       {/* {displayMonsterName()} */}
     </>
   );

@@ -176,8 +176,8 @@ function MonsterCharacterCard({user_id, monster_id, url, level, monsterName, HP,
     e.preventDefault();
     const selectElement = e.target.elements.gameNumber;
     const selectedOption = selectElement.options[selectElement.selectedIndex];
-    const selectedValue = selectedOption.value;
-    let myList = {};
+    const selectedValue = selectedOption.value
+
     // GET request for user's game_id, see if the monster_id is already in the game.  If not, create join_game
     fetch(`http://localhost:3000/games/${user_id}`, {
       method: 'GET',
@@ -185,13 +185,14 @@ function MonsterCharacterCard({user_id, monster_id, url, level, monsterName, HP,
     })
     .then(res => res.json())
     .then(data => {
-      let myList = {};                              // Creates an object to put monster infor into
-      data[0].join_games.forEach(item => {          // loops through each join_game
-        let currentNumber = item.gameMonster.id;    // Creates variable to use in next line
-        myList[currentNumber] = true;               // Adds the monster's ID into the List to check against
-      });
-      if (myList.hasOwnProperty(monster_id)) {      // Checks if the monster_id of the card clicked is in the list
-          alert('Already part of that crew');       // alerts use that the monster is already in the crew
+      let myList = {}                                     // Creates an object to put monster infor into
+      let myNumber = selectedOption.label -1              // This gets the position to look in the data list next line
+      data[myNumber].join_games.forEach(item => {         // loops through each join_game
+        let currentNumber = item.gameMonster.id           // Creates variable to use in next line
+        myList[currentNumber] = true                      // Adds the monster's ID into the List to check against
+      })
+      if (myList.hasOwnProperty(monster_id)) {            // Checks if the monster_id of the card clicked is in the list
+          alert(`Already part of crew ${myNumber +1}`)    // alerts user that the monster is already in the crew
       } else {
         // This will post the monster to the crew on the back end for retention.
         let myJoinGame = {game_id: selectedValue, monster_id: monster_id, monster_count: 1}
@@ -200,11 +201,11 @@ function MonsterCharacterCard({user_id, monster_id, url, level, monsterName, HP,
           headers: {'content-type': 'application/json'},
           body: JSON.stringify(myJoinGame)
         })
-        .then(alert('Monster added to Crew!'))
+        .then(alert(`Monster added to Crew ${myNumber +1}!`))   // alerts user monster has been added to crew
       }
     })
     // .then(navigate(`/gamePage/${user_id}`))  //Not sure I want to navigate when I click this...
-  };
+  }
 
   // This takes the fetch requests output, and maps all the games, so the user only can add to games they already have.
   const displayOptions = () => {
@@ -212,6 +213,7 @@ function MonsterCharacterCard({user_id, monster_id, url, level, monsterName, HP,
       <option className='orange' value={item}>{index + 1}</option>
     ))
   }
+
   return (
     <div className='characterCardHolder'>
       <div className={forName}>{monsterName}</div>

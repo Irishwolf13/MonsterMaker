@@ -20,14 +20,15 @@ function CrewPage({ user, monsterState, monsters }) {
     .then(res => res.json())
     .then(data => setMyCrews(data))
   }
-  // console.log(myGames)
- const viewCrews = () => {
-  return myCrews.map(monster => (
-    <div className='crewAddButtons'>
-      <CrewCard key={monster.id} monster={monster} handleGameChange={handleGameChange} setMyCrews={setMyCrews} id={id}/>
-    </div>
-  ))
-};
+
+  const viewCrews = () => {
+    let myCrewNumber = 0
+    return myCrews.map(monster => (
+      <div className='crewAddButtons'>
+        <CrewCard key={monster.id} monster={monster} handleGameChange={handleGameChange} setMyCrews={setMyCrews} id={id} myCrewNumber={++myCrewNumber}/>
+      </div>
+    ))
+  };
 
 const handleCreateCrew = () => {
   let myUser = {user_id: user.id}
