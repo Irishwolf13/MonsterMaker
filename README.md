@@ -21,7 +21,7 @@ All of the rights to the artwork belong to Olekzandr Zahorulko.  Everything else
 
 ## Contact
 I will be shocked if anyone ever reads this, but if you do, I'd love to hear from you.  rooneyjohn@gmail.com
-Thank you.
+Thank you, John
 
 ## Technologies used to create this proejct
 * Ruby
